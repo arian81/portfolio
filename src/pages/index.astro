@@ -17,15 +17,30 @@ import DiscordIcon from "../icons/DiscordIcon.astro";
     </head>
     <body class="bg-orange-200 w-full h-full">
         <div class="flex items-center justify-center w-full h-full">
+            <div>
+                <img src="" />
+            </div>
             <div
-                class="flex flex-wrap md:flex-nowrap w-20 gap-5 md:w-auto md:gap-10 md:h-20"
+                class="flex flex-wrap md:flex-nowrap w-52 gap-5 md:w-6/12 md:gap-5 md:h-20 justify-center"
             >
-                <TwitterIcon/>
-                <GithubIcon/>
-                <EmailIcon />
-                <DevpostIcon />
-                <LinkedinIcon />
-                <DiscordIcon />
+                <div class="basis-1/3">
+                    <TwitterIcon />
+                </div>
+                <div class="basis-1/3">
+                    <GithubIcon />
+                </div>
+                <div class="basis-1/3">
+                    <EmailIcon />
+                </div>
+                <div class="basis-1/3">
+                    <DevpostIcon />
+                </div>
+                <div class="basis-1/3">
+                    <LinkedinIcon />
+                </div>
+                <div class="basis-1/3">
+                    <DiscordIcon />
+                </div>
             </div>
         </div>
     </body>
