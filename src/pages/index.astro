@@ -5,6 +5,9 @@ import EmailIcon from "../icons/EmailIcon.astro";
 import DevpostIcon from "../icons/DevpostIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
 import DiscordIcon from "../icons/DiscordIcon.astro";
+// import ProfilePhoto from "../images/profilephoto.webp";
+// import LogoIcon from "../icons/LogoIcon.astro";
+// import { Image } from "@astrojs/image/components";
 ---
 
 <html lang="en" class="h-full w-full">
@@ -16,30 +19,54 @@ import DiscordIcon from "../icons/DiscordIcon.astro";
         <title>Arian Ahmadinejad</title>
     </head>
     <body class="bg-orange-200 w-full h-full">
-        <div class="flex items-center justify-center w-full h-full">
-            <div>
-                <img src="" />
+        <!-- <div class=" w-10">
+            <LogoIcon />
+        </div> -->
+        <div
+            class="flex flex-col items-center justify-center w-auto h-full gap-10"
+        >
+            <div class="flex gap-5">
+                <div class="border-[#592406] border-4 rounded-full w-fit">
+                    <!-- <Image
+                        src={ProfilePhoto}
+                        format={"webp"}
+                        width={200}
+                        alt="test"
+                        class="rounded-full"
+                    /> -->
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h1 class="text-4xl font-bold">Arian Ahmadinejad</h1>
+                    <h2 class="text-2xl font-bold">CS Student</h2>
+                </div>
             </div>
+
             <div
-                class="flex flex-wrap md:flex-nowrap w-52 gap-5 md:w-6/12 md:gap-5 md:h-20 justify-center"
+                class="flex flex-wrap md:flex-nowrap w-52 gap-5 md:w-5/12 md:gap-8 md:h-20 justify-center"
             >
                 <div class="basis-1/3">
-                    <TwitterIcon />
+                    <a href="https://twitter.com/TheArian81"><TwitterIcon /></a>
                 </div>
                 <div class="basis-1/3">
-                    <GithubIcon />
+                    <a href="https://github.com/arian81/"><GithubIcon /></a>
                 </div>
                 <div class="basis-1/3">
-                    <EmailIcon />
+                    <a href="mailto:ahmadinejadarian@gmail.com"
+                        ><EmailIcon />
+                    </a>
                 </div>
                 <div class="basis-1/3">
-                    <DevpostIcon />
+                    <a href="https://devpost.com/arian81"><DevpostIcon /></a>
                 </div>
                 <div class="basis-1/3">
-                    <LinkedinIcon />
+                    <a href="https://www.linkedin.com/in/arian81/"
+                        ><LinkedinIcon />
+                    </a>
                 </div>
                 <div class="basis-1/3">
-                    <DiscordIcon />
+                    <a href="https://discordapp.com/users/412279988541456387"
+                        ><DiscordIcon />
+                    </a>
                 </div>
             </div>
         </div>
