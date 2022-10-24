@@ -13,7 +13,7 @@ module.exports = {
                         "[data-theme=light]"
                     ],
                     accent: "#592406",
-                    "accent-content": "#fff",
+                    accent-content: "#fff",
                 },
             },
         ],
