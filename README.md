@@ -3,7 +3,7 @@
 My personal website built with Astro.JS, TypeScript and TailwindCSS. Live at [notclone.tech](https://notclone.tech)
 
 <p align="center">
-  <a href="https://krishkrish.com">
+  <a href="https://notclone.tech">
     <img src="https://i.imgur.com/Nw9mpw5.png"/>
   </a>
 </p>
