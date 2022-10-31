@@ -1,0 +1,42 @@
+---
+import HomeIcon from "../icons/HomeIcon.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full w-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <title>Woops!</title>
+        <meta name="generator" content={Astro.generator} />
+        <script
+            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+        ></script>
+    </head>
+    <body class="bg-orange-200 w-full h-full">
+        <div class="flex items-center justify-center w-full h-full flex-col">
+            <div>
+                <lottie-player
+                    src="/404.json"
+                    background="transparent"
+                    speed="0.3"
+                    style="width: full; height: full "
+                    loop
+                    autoplay
+                />
+            </div>
+            <div>
+                <p class="text-[#592406] text-xl md:text-4xl font-bold">
+                    This page doesn't exist (yet?)
+                </p>
+                <div class="flex justify-center items-center p-5">
+                    <div class="w-10 md:w-16">
+                        <a href=".."><HomeIcon /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
