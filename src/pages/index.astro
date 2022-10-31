@@ -11,6 +11,7 @@ import LogoIcon from "../icons/LogoIcon.astro";
 // import { Image } from "@astrojs/image/components";
 ---
 
+<!-- TODO: Add navbar -->
 <html lang="en" class="h-full w-full" data-theme="light">
     <head>
         <!-- HTML Meta Tags -->
@@ -42,19 +43,11 @@ import LogoIcon from "../icons/LogoIcon.astro";
             class="flex flex-col items-center justify-center w-auto h-full gap-10"
         >
             <div class="w-12 m-3 absolute top-0 left-0">
-                <LogoIcon />
+                <a href="./"><LogoIcon /></a>
             </div>
 
             <div class="flex gap-5">
-                <div class="border-[#592406] border-4 rounded-full w-fit">
-                    <!-- <Image
-                        src={ProfilePhoto}
-                        format={"webp"}
-                        width={200}
-                        alt="test"
-                        class="rounded-full"
-                    /> -->
-                </div>
+                <div class="border-[#592406] border-4 rounded-full w-fit"></div>
                 <div class="flex flex-col justify-center">
                     <h1 class="text-black text-4xl font-bold">
                         Arian Ahmadinejad
