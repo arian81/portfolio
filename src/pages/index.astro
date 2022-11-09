@@ -45,6 +45,46 @@ import LogoIcon from "../icons/LogoIcon.astro";
             token':
             '99b96b38d20840a8837147c17d31cf87'}"
         ></script>
+        <script>
+            (function (h, o, u, n, d) {
+                h = h[d] = h[d] || {
+                    q: [],
+                    onReady: function (c) {
+                        h.q.push(c);
+                    },
+                };
+                d = o.createElement(u);
+                d.async = 1;
+                d.src = n;
+                n = o.getElementsByTagName(u)[0];
+                n.parentNode.insertBefore(d, n);
+            })(
+                window,
+                document,
+                "script",
+                "https://www.datadoghq-browser-agent.com/datadog-rum-v4.js",
+                "DD_RUM"
+            );
+            DD_RUM.onReady(function () {
+                DD_RUM.init({
+                    clientToken: "pubcb3c6e8a30bddb0bb7dbac4ca8f02e94",
+                    applicationId: "ac12473c-ee0b-4cf7-aed5-37a654b53f10",
+                    site: "datadoghq.com",
+                    service: "notclone.tech",
+
+                    // Specify a version number to identify the deployed version of your application in Datadog
+                    // version: '1.0.0',
+                    sampleRate: 100,
+                    sessionReplaySampleRate: 20,
+                    trackInteractions: true,
+                    trackResources: true,
+                    trackLongTasks: true,
+                    defaultPrivacyLevel: "mask-user-input",
+                });
+
+                DD_RUM.startSessionReplayRecording();
+            });
+        </script>
     </head>
     <body class="bg-orange-200 w-full h-full">
         <div
