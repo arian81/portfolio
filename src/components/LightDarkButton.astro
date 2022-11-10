@@ -1,0 +1,36 @@
+---
+---
+
+<div>
+    <script is:inline>
+        function automaticTheme() {
+            if (localStorage.theme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else if (localStorage.theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                // auto case
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    document.documentElement.classList.add("dark");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                }
+            }
+        }
+
+        function toggleTheme() {
+            if (localStorage.theme === "dark") {
+                localStorage.theme = "light";
+            } else if (localStorage.theme === "light") {
+                localStorage.theme = "auto";
+            } else if (localStorage.theme === "auto") {
+                localStorage.theme = "dark";
+            } else {
+                localStorage.theme = "auto";
+            }
+            automaticTheme();
+        }
+        automaticTheme();
+    </script>
+    <button onclick="toggleTheme()">Color</button>
+</div>

@@ -4,9 +4,8 @@ module.exports = {
     theme: {
         extend: {},
     },
-    darkMode: "class",
+    darkMode: 'class'
     plugins: [require("daisyui")],
-
     daisyui: {
         themes: [
             {
@@ -16,8 +15,6 @@ module.exports = {
                     ],
                     accent: "#592406",
                     "accent-content": "#fff",
-                    secondary: "#FF0000",
-                    "secondary-content": "#ccc",
                 },
             },
         ],
