@@ -6,9 +6,7 @@ import DevpostIcon from "../icons/DevpostIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
 import DiscordIcon from "../icons/DiscordIcon.astro";
 import Copyright from "../components/Copyright.astro";
-// import ProfilePhoto from "../images/profilephoto.webp";
 import LogoIcon from "../icons/LogoIcon.astro";
-// import { Image } from "@astrojs/image/components";
 ---
 
 <!-- TODO: Add navbar -->
@@ -37,15 +35,21 @@ import LogoIcon from "../icons/LogoIcon.astro";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Arian Ahmadinejad</title>
-        <!-- Cloudflare Web Analytics -->
+        <!-- Google tag (gtag.js) -->
         <script
-            defer
+            async
             type="text/partytown"
-            src="https://static.cloudflareinsights.com/beacon.min.js"
-            data-cf-beacon="{'
-            token':
-            '99b96b38d20840a8837147c17d31cf87'}"
+            src="https://www.googletagmanager.com/gtag/js?id=G-1HS91WTVY0"
         ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-1HS91WTVY0");
+        </script>
         <script>
             (function (h, o, u, n, d) {
                 h = h[d] = h[d] || {
