@@ -11,13 +11,5 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [
-        tailwind(),
-        image(),
-        partytown({
-            config: {
-                forward: ["dataLayer.push"],
-            },
-        }),
-    ],
+    integrations: [tailwind(), image(), partytown()],
 });
