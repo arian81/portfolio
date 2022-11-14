@@ -1,7 +1,6 @@
 <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="5em"
-    height="5em"
+    width="100%"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
     style= "color: #fed7aa; opacity: 0.8;"
