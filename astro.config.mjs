@@ -7,17 +7,6 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 
 // https://astro.build/config
-import partytown from "@astrojs/partytown";
-
-// https://astro.build/config
 export default defineConfig({
-    integrations: [
-        tailwind(),
-        image(),
-        partytown({
-            config: {
-                forward: ["dataLayer.push"],
-            },
-        }),
-    ],
+    integrations: [tailwind(), image()],
 });
