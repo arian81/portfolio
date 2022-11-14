@@ -2,18 +2,28 @@
 ---
 
 <div>
-    <script is:inline>
+    <button id="theme-button" onclick="toggleTheme()"> </button>
+
+    <script defer is:inline>
         function automaticTheme() {
             if (localStorage.theme === "dark") {
                 document.documentElement.classList.add("dark");
+                document.getElementById("theme-button").innerHTML =
+                    '<img src="../../public/light.svg" alt="light mode sun">';
             } else if (localStorage.theme === "light") {
                 document.documentElement.classList.remove("dark");
+                document.getElementById("theme-button").innerHTML =
+                    '<img src="../../public/dark.svg" alt="dark mode moon">';
             } else {
                 // auto case
                 if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
                     document.documentElement.classList.add("dark");
+                    document.getElementById("theme-button").innerHTML =
+                        '<p class="text-4xl font-bold text-orange-200">Auto</p>';
                 } else {
                     document.documentElement.classList.remove("dark");
+                    document.getElementById("theme-button").innerHTML =
+                        '<p class="text-4xl font-bold text-[#592406]">Auto</p>';
                 }
             }
         }
@@ -32,5 +42,4 @@
         }
         automaticTheme();
     </script>
-    <button onclick="toggleTheme()">Color</button>
 </div>
