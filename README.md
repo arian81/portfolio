@@ -4,7 +4,12 @@ My personal website built with Astro.JS, TypeScript and TailwindCSS. Live at [no
 
 <p align="center">
   <a href="https://notclone.tech">
-    <img src="https://i.imgur.com/Nw9mpw5.png"/>
+    <img src="https://i.imgur.com/t4kIzQg.png"/>
+  </a>
+</p>
+<p align="center">
+  <a href="https://notclone.tech">
+    <img src="https://i.imgur.com/veTZwae.png"/>
   </a>
 </p>
 
