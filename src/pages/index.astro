@@ -41,17 +41,20 @@ import LightDarkButton from "../components/LightDarkButton.astro";
         <div
             class="flex flex-col items-center justify-center w-auto h-full gap-10 m-auto max-w-screen-xl"
         >
-            <div
-                class="w-12 m-3 absolute top-0 left-0 dark:text-orange-200 dark:opacity-80"
-            >
-                <a
-                    href="./"
-                    class="text-[#592406] dark:text-orange-200 dark:opacity-0.8"
-                    ><LogoIcon />
-                </a>
+            <div class="absolute top-0 w-full">
+                <div class="flex justify-between items-center">
+                    <div class="w-12 m-3 dark:text-orange-200 dark:opacity-80">
+                        <a
+                            href="./"
+                            class="text-[#592406] dark:text-orange-200 dark:opacity-0.8"
+                            ><LogoIcon />
+                        </a>
+                    </div>
+                    <div class="m-3 w-12">
+                        <LightDarkButton />
+                    </div>
+                </div>
             </div>
-
-            <LightDarkButton />
 
             <div class="flex gap-5">
                 <div
