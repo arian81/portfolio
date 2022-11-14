@@ -8,21 +8,21 @@
         if (localStorage.theme === "dark") {
             document.documentElement.classList.add("dark");
             document.getElementById("theme-button").innerHTML =
-                '<img src="../../public/light.svg" alt="light mode sun">';
+                '<img src="../../light.svg" alt="light mode sun">';
         } else if (localStorage.theme === "light") {
             document.documentElement.classList.remove("dark");
             document.getElementById("theme-button").innerHTML =
-                '<img src="../../public/dark.svg" alt="dark mode moon">';
+                '<img src="../../dark.svg" alt="dark mode moon">';
         } else {
             // auto case
             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
                 document.documentElement.classList.add("dark");
                 document.getElementById("theme-button").innerHTML =
-                    '<img src="../../public/light-auto.svg" style="opacity:0.8" alt="auto mode sun">';
+                    '<img src="../../light-auto.svg" style="opacity:0.8" alt="auto mode sun">';
             } else {
                 document.documentElement.classList.remove("dark");
                 document.getElementById("theme-button").innerHTML =
-                    '<img src="../../public/dark-auto.svg" alt="auto mode moon">';
+                    '<img src="../../dark-auto.svg" alt="auto mode moon">';
             }
         }
     }
