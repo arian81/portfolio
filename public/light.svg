@@ -3,7 +3,7 @@
     width="100%"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
-    style= "color: #592406; opacity: 0.8;"
+    style= "color: #592406;"
     ><g stroke="currentColor" stroke-linecap="round" stroke-width="2"
         ><path
             d="M12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7"
