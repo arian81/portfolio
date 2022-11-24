@@ -3,7 +3,7 @@ import HomeIcon from "../icons/HomeIcon.astro";
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full w-full">
+<html lang="en" class="w-full h-full">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,8 +15,8 @@ import HomeIcon from "../icons/HomeIcon.astro";
             src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
         ></script>
     </head>
-    <body class="bg-orange-200 w-full h-full">
-        <div class="flex items-center justify-center w-full h-full flex-col">
+    <body class="w-full h-full bg-orange-200">
+        <div class="flex flex-col items-center justify-center w-full h-full">
             <div>
                 <lottie-player
                     src="/404.json"
@@ -31,7 +31,7 @@ import HomeIcon from "../icons/HomeIcon.astro";
                 <p class="text-[#592406] text-xl md:text-4xl font-bold">
                     This page doesn't exist (yet?)
                 </p>
-                <div class="flex justify-center items-center p-5">
+                <div class="flex items-center justify-center p-5">
                     <div class="w-10 md:w-16">
                         <a href=".."><HomeIcon /></a>
                     </div>
