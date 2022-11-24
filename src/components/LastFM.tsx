@@ -16,23 +16,25 @@ const CurrentlyPlaying = () => {
     }
 
     return (
-        <div className="transition overflow-hidden flex h-[7rem] wp-full md:w-[20rem] gap-4 md:pr-8 bg-orange-200 dark:bg-[#161616] dark:md:text-inherit dark:md:bg-[rgba(255,241,215,0.8)] dark:text-white md:bg-[#FFF1DF] p-4 md:rounded-[4rem_1rem_1rem_4rem] shadow-[rgba(0,0,0,0.2)_0.4rem_0.4rem]">
-            <div className="h-full overflow-hidden rounded-full aspect-square animate-spinDJ">
-                <img
-                    src={lastFM.song.art}
-                    className="w-full h-full aspect-square"
-                ></img>
+        <a href={lastFM.song.url}>
+            <div className="transition overflow-hidden flex h-[7rem] wp-full md:w-[20rem] gap-4 md:pr-8 bg-orange-200 dark:bg-[#161616] dark:md:text-inherit dark:md:bg-[rgba(255,241,215,0.8)] dark:text-white md:bg-[#FFF1DF] p-4 md:rounded-[4rem_1rem_1rem_4rem] shadow-[rgba(0,0,0,0.2)_0.4rem_0.4rem]">
+                <div className="h-full overflow-hidden rounded-full aspect-square animate-spinDJ">
+                    <img
+                        src={lastFM.song.art}
+                        className="w-full h-full aspect-square"
+                    ></img>
+                </div>
+                <div className="flex-1 flex flex-col items-start justify-center w-[calc(100%-7rem)]">
+                    <p className="text-sm">Listening to </p>
+                    <h4 className="w-full pb-1 overflow-hidden text-2xl font-bold leading-5 text-ellipsis whitespace-nowrap">
+                        {lastFM.song.name}
+                    </h4>
+                    <span className="w-full overflow-hidden text-lg leading-5 text-ellipsis whitespace-nowrap">
+                        {lastFM.song.artist} - {lastFM.song.album}
+                    </span>
+                </div>
             </div>
-            <div className="flex-1 flex flex-col items-start justify-center w-[calc(100%-7rem)]">
-                <p className="text-sm">Listening to </p>
-                <h4 className="w-full pb-1 overflow-hidden text-2xl font-bold leading-5 text-ellipsis whitespace-nowrap">
-                    {lastFM.song.name}
-                </h4>
-                <span className="w-full overflow-hidden text-lg leading-5 text-ellipsis whitespace-nowrap">
-                    {lastFM.song.artist} - {lastFM.song.album}
-                </span>
-            </div>
-        </div>
+        </a>
     );
 };
 
