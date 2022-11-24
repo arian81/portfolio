@@ -8,10 +8,11 @@ import DiscordIcon from "../icons/DiscordIcon.astro";
 import Copyright from "../components/Copyright.astro";
 import LogoIcon from "../icons/LogoIcon.astro";
 import LightDarkButton from "../components/LightDarkButton.astro";
+import LastFm from "../components/LastFM";
 ---
 
 <!-- TODO: Add navbar -->
-<html lang="en" class="h-full w-full" data-theme="light">
+<html lang="en" class="w-full h-full" data-theme="light">
     <head>
         <!-- HTML Meta Tags -->
         <meta name="description" content="My personal website" />
@@ -39,10 +40,10 @@ import LightDarkButton from "../components/LightDarkButton.astro";
     </head>
     <body class="bg-orange-200 dark:bg-[#161616] w-full h-full">
         <div
-            class="flex flex-col items-center justify-center w-auto h-full gap-10 m-auto max-w-screen-xl"
+            class="flex flex-col items-center justify-center w-auto h-full max-w-screen-xl gap-10 m-auto"
         >
             <div class="absolute top-0 w-full">
-                <div class="flex justify-between items-center">
+                <div class="flex items-center justify-between">
                     <div class="w-12 m-3 dark:text-orange-200 dark:opacity-80">
                         <a
                             href="./"
@@ -50,7 +51,7 @@ import LightDarkButton from "../components/LightDarkButton.astro";
                             ><LogoIcon />
                         </a>
                     </div>
-                    <div class="m-3 w-12">
+                    <div class="w-12 m-3">
                         <LightDarkButton />
                     </div>
                 </div>
@@ -62,7 +63,9 @@ import LightDarkButton from "../components/LightDarkButton.astro";
                 >
                 </div>
                 <div class="flex flex-col justify-center">
-                    <h1 class="text-black text-4xl font-bold dark:text-[#ccc]">
+                    <h1
+                        class="text-black text-2xl md:text-4xl font-bold dark:text-[#ccc]"
+                    >
                         Arian Ahmadinejad
                     </h1>
                     <h2 class="text-black text-2xl font-bold dark:text-[#ccc]">
@@ -72,7 +75,7 @@ import LightDarkButton from "../components/LightDarkButton.astro";
             </div>
 
             <div
-                class="flex flex-wrap md:flex-nowrap w-52 gap-5 md:w-5/12 md:gap-8 md:h-20 justify-center"
+                class="flex flex-wrap justify-center w-32 gap-5 md:flex-nowrap md:w-5/12 md:gap-8 md:h-20"
             >
                 <div
                     class="basis-1/3 tooltip tooltip-accent tooltip-left md:tooltip md:tooltip-accent dark:tooltip-secondary"
@@ -146,6 +149,9 @@ import LightDarkButton from "../components/LightDarkButton.astro";
                 class="btn btn-accent btn-outline btn-lg rounded-full border-[3px] dark:text-[#ccc] dark:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black dark:hover:border-[#ccc]"
                 href="resume.pdf">Resume</a
             >
+            <div class="absolute bottom-0 right-0 z-10 w-full md:w-fit md:p-4">
+                <LastFm client:only />
+            </div>
             <Copyright />
         </div>
     </body>
