@@ -1,15 +1,15 @@
 # Website
 
-My personal website built with Astro.JS, TypeScript and TailwindCSS. Live at [notclone.tech](https://notclone.tech)
+My personal website built with Astro.JS, TypeScript and TailwindCSS. Live at [arian.gg](https://arian.gg)
 
 <p align="center">
-  <a href="https://notclone.tech">
-    <img src="https://i.imgur.com/t4kIzQg.png"/>
+  <a href="https://arian.gg">
+    <img src="https://i.imgur.com/V5EU6bq.png"/>
   </a>
 </p>
 <p align="center">
-  <a href="https://notclone.tech">
-    <img src="https://i.imgur.com/veTZwae.png"/>
+  <a href="https://arian.gg">
+    <img src="https://i.imgur.com/8w5VbGb.png"/>
   </a>
 </p>
 
@@ -26,4 +26,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## Feedback
 
-If you have any feedback, please reach out at [arian@notclone.tech](mailto:arian@notclone.tech)
+If you have any feedback, please reach out at [hello@arian.gg](mailto:hello@arian.gg)
