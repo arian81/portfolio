@@ -12,7 +12,13 @@ const CurrentlyPlaying = () => {
     }, []);
 
     if (lastFM.status !== "playing" || !ready) {
-        return <a href="#" className="opacity-0 -translate-y-[35%]"></a>;
+        return (
+            <a
+                href="#"
+                className="opacity-0 -translate-y-[35%]"
+                aria-label="void"
+            ></a>
+        );
     }
 
     return (
