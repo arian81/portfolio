@@ -30,13 +30,14 @@ const CurrentlyPlaying = () => {
                 <img
                     src={lastFM.song.art ? lastFM.song.art : "/record.webp"}
                     className="w-full h-full aspect-square"
+                    alt="album art"
                 ></img>
             </div>
             <div className="flex-1 flex flex-col items-start justify-center w-[calc(100%-7rem)]">
                 <p className="text-sm">Listening to </p>
-                <h4 className="w-full pb-1 overflow-hidden text-2xl font-bold leading-5 text-ellipsis whitespace-nowrap">
+                <p className="w-full pb-1 overflow-hidden text-2xl font-bold leading-5 text-ellipsis whitespace-nowrap">
                     {lastFM.song.name}
-                </h4>
+                </p>
                 <span className="w-full overflow-hidden text-lg leading-5 text-ellipsis whitespace-nowrap">
                     {lastFM.song.artist} - {lastFM.song.album}
                 </span>
