@@ -31,6 +31,8 @@ const CurrentlyPlaying = () => {
                     src={lastFM.song.art ? lastFM.song.art : "/record.webp"}
                     className="w-full h-full aspect-square"
                     alt="album art"
+                    width={80}
+                    height={80}
                 ></img>
             </div>
             <div className="flex-1 flex flex-col items-start justify-center w-[calc(100%-7rem)]">
