@@ -10,8 +10,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            file1.tex
-            file2.tex
+            resume.tex
           working_directory:
             /resume
 
