@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+    - main
+jobs:
+  compile_resume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Action for LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            file1.tex
+            file2.tex
+          working_directory:
+            /resume
+
+
+    
