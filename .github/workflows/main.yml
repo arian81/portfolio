@@ -9,7 +9,7 @@ jobs:
       - name: Github Action for LaTeX
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            ./resume/resume.tex
+          working-directory: ./resume
+          root_file: resume.tex
 
     
