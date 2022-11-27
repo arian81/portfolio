@@ -3,7 +3,7 @@ on:
     branches:
     - main
     paths:
-    - resume
+    - '**.tex'
 jobs:
   compile_resume:
     runs-on: ubuntu-latest
