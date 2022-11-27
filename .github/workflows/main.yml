@@ -18,3 +18,8 @@ jobs:
         with:
           name: resume.pdf
           path: ./resume/resume.pdf
+      - name: Download PDF file in website directory
+        uses: actions/download-artifact@v3
+        with:
+          name: resume.pdf
+          path: ./public
