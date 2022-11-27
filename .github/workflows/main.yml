@@ -7,15 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
       - name: Github Action for LaTeX
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: ./resume
           root_file: resume.tex
-      - name: move pdf to website
-        run: |
-          ls
-          pwd
-
-    
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: resume.pdf
+          path: resume.pdf
