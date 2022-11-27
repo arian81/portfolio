@@ -13,5 +13,9 @@ jobs:
         with:
           working_directory: ./resume
           root_file: resume.tex
+      - name: move pdf to website
+        run: |
+          ls
+          pwd
 
     
