@@ -9,6 +9,7 @@ import Copyright from "../components/Copyright";
 import LogoIcon from "../icons/LogoIcon.astro";
 import LightDarkButton from "../components/LightDarkButton.astro";
 import LastFm from "../components/LastFM";
+import App from "../components/App";
 ---
 
 <!-- TODO: Add navbar -->
@@ -56,6 +57,9 @@ import LastFm from "../components/LastFM";
     <title>Arian Ahmadinejad</title>
   </head>
   <body class="bg-orange-200 dark:bg-[#161616] w-full h-full">
+    <div class="absolute z-10 p-4 bg-red-500">
+      <App client:load />
+    </div>
     <div
       class="flex flex-col items-center justify-center w-auto h-full max-w-screen-xl gap-10 m-auto"
     >
