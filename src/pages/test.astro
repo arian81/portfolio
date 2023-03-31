@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetch Example</title>
+  </head>
+  <body>
+    <p id="data"></p>
+    <script>
+      // Make a GET request to a URL
+      fetch("https://who-ai-production.up.railway.app/")
+        .then((response) => response.text) // Parse the response as JSON
+        .then((data) => {
+          // Display the data in a <p> tag
+          const p = document.getElementById("data");
+          p.textContent = JSON.stringify(data);
+        })
+        .catch((error) => console.error(error)); // Log any errors to the console
+    </script>
+  </body>
+</html>
