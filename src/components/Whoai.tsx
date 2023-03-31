@@ -6,12 +6,13 @@ const Whoami: React.FC = () => {
 
   const { mutate, isLoading, isError, data, isSuccess } = useMutation({
     mutationFn: (question: string) => {
-      return fetch("https://arian81--whoai-main.modal.run", {
+      return fetch("https://who-ai-production.up.railway.app/whoai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Origin: "https://arian.gg",
         },
-        body: JSON.stringify({ prompt: question }),
+        body: JSON.stringify({ question: question }),
       }).then((res) => res.text());
     },
   });
