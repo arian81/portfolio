@@ -1,20 +1,18 @@
+---
+import App from "../components/App";
+---
+
 <!DOCTYPE html>
-<html>
+<html lang="en" class="w-full h-full">
   <head>
-    <title>Fetch Example</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
-  <body>
-    <p id="data"></p>
-    <script>
-      // Make a GET request to a URL
-      fetch("https://who-ai-production.up.railway.app/")
-        .then((response) => response.text) // Parse the response as JSON
-        .then((data) => {
-          // Display the data in a <p> tag
-          const p = document.getElementById("data");
-          p.textContent = JSON.stringify(data);
-        })
-        .catch((error) => console.error(error)); // Log any errors to the console
-    </script>
-  </body>
+  <body class="w-full h-full bg-orange-200"
+    ><div class="flex items-center justify-center w-full h-full">
+      <App client:load />
+    </div></body
+  >
 </html>
