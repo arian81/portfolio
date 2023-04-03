@@ -55,7 +55,10 @@ const Whoami: React.FC = () => {
             />
           </svg>
         </button> */}
-        <button className="btn btn-accent btn-outline btn-lg btn-square p-2 rounded-full border-[4px] dark:text-[#ccc] dark:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black dark:hover:border-[#ccc]">
+        <button
+          className="btn btn-accent btn-outline btn-lg btn-square p-2 rounded-full border-[4px] dark:text-[#ccc] dark:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black dark:hover:border-[#ccc]"
+          onClick={() => mutate(q)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
