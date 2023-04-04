@@ -45,6 +45,7 @@ const Whoami: React.FC = () => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             onChange={(e) => setQ(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && mutate(q)}
           />
           <button
             className={clsx(
