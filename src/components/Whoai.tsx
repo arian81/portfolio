@@ -10,7 +10,7 @@ const Whoami: React.FC = () => {
 
   const { mutate, isLoading, isError, data, isIdle, isSuccess } = useMutation({
     mutationFn: (question: string) => {
-      return fetch("https://who-ai-production.up.railway.app/whoai", {
+      return fetch("https://whoai.arian.gg", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,13 +37,15 @@ const Whoami: React.FC = () => {
           <input
             type="text"
             className={`input input-bordered  transition-all duration-300 ease-in-out  rounded-full md:input-lg input-md ${
-              // isFocused ? "w-[23em] md:w-[35em] lg:w-[55em]" : "w-[19.5em]"
-              ""
+              isFocused
+                ? "w-[23em] md:w-[35em] lg:w-[45em] xl:w-[55em]"
+                : "w-[19.5em]"
             } placeholder:text-[14px] md:placeholder:text-lg shadow-lg w-full`}
             placeholder={"What do you want to know about me"}
             value={q}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onFocus={() => {
+              setIsFocused(true);
+            }}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && mutate(q)}
           />
