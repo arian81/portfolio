@@ -1,41 +1,43 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const cycleIcons = (iconIdx: number) => {
+  let isLightAuto =
+    iconIdx === 1 && !window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? 1
+      : 0;
+  return iconIdx === 2 || iconIdx === 3 ? 0 : iconIdx + 1 + isLightAuto;
+};
+
 export default function LightDarkButton() {
   const [iconIdx, setIconIdx] = useState(1);
   const icons = [
     {
       src: "images/dark.svg",
-      alt: "light mode sun",
+      alt: "dark mode moon",
       theme: "dark",
     },
     {
       src: "images/light.svg",
-      alt: "dark mode moon",
+      alt: "light mode sun",
       theme: "",
     },
     {
       src: "images/dark-auto.svg",
-      alt: "auto mode sun",
+      alt: "auto mode moon",
       theme: "dark",
     },
     {
       src: "images/light-auto.svg",
-      alt: "auto mode moon",
+      alt: "auto mode sun",
       theme: "",
     },
   ];
 
   function toggleTheme() {
-    const iconIdx = parseInt(localStorage.iconIdx);
-    let isLightAuto =
-      iconIdx === 1 &&
-      !window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? 1
-        : 0;
-
-    const iconIdxTemp =
-      iconIdx == 2 || iconIdx == 3 ? 0 : iconIdx + 1 + isLightAuto;
+    const iconIdxTemp = localStorage.iconIdx
+      ? cycleIcons(parseInt(localStorage.iconIdx))
+      : iconIdx;
 
     if (icons[iconIdxTemp]?.theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -48,9 +50,18 @@ export default function LightDarkButton() {
   }
 
   useEffect(() => {
-    localStorage.iconIdx = localStorage.iconIdx
-      ? (parseInt(localStorage.iconIdx) - 1 + 3) % 3
-      : 1;
+    const iconIdxTemp = parseInt(localStorage.iconIdx);
+    if (!localStorage) {
+      return;
+    }
+    if (localStorage.iconIdx) {
+      localStorage.iconIdx = (
+        (iconIdxTemp + 3 + (iconIdxTemp === 3 ? 3 : 0)) %
+        4
+      ).toString();
+    } else {
+      localStorage.iconIdx = iconIdx.toString();
+    }
     toggleTheme();
   }, []);
 
