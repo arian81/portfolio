@@ -5,7 +5,7 @@ const Copyright = () => {
     <div className="absolute bottom-0 p-2">
       <div className="flex flex-col items-center justify-center">
         <p className="text-sm text-[#592406] dark:text-[#ccc] dark:opacity-80">
-          Made with ♥ in <a href="https://astro.build">Astro.js</a>
+          Made with ♥ in <a href="https://nextjs.org">Next.js</a>
         </p>
         <p className="text-sm text-[#592406] dark:text-[#ccc] dark:opacity-80">
           © {year} Arian Ahmadinejad

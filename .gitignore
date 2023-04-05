@@ -17,8 +17,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Local Netlify folder
-.netlify
 resume/indent.log
 resume/resume.aux
 resume/resume.fdb_latexmk
