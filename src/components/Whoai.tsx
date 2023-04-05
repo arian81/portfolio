@@ -28,19 +28,19 @@ const Whoami: React.FC = () => {
     <>
       <div
         className={clsx(
-          "flex flex-col gap-4 items-center p-4",
+          "flex flex-col items-center gap-4 p-4",
           isLoading && "animate-pulse"
         )}
         ref={parent}
       >
-        <div className="flex flex-col items-center gap-4 md:flex-row w-full min-w-[90vw] md:min-w-[30em]">
+        <div className="flex w-full min-w-[90vw] flex-col items-center gap-4 md:min-w-[30em] md:flex-row">
           <input
             type="text"
-            className={`input input-bordered  transition-all duration-300 ease-in-out  rounded-full md:input-lg input-md ${
+            className={`input-bordered input  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
               isFocused
                 ? "w-[23em] md:w-[35em] lg:w-[45em] xl:w-[55em]"
                 : "w-[19.5em]"
-            } placeholder:text-[14px] md:placeholder:text-lg shadow-lg w-full`}
+            } w-full shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
             placeholder={"What do you want to know about me"}
             value={q}
             onFocus={() => {
@@ -51,7 +51,7 @@ const Whoami: React.FC = () => {
           />
           <button
             className={clsx(
-              "btn btn-accent btn-outline btn-lg btn-square p-2 rounded-full border-[4px] dark:text-[#ccc] dark:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black dark:hover:border-[#ccc]"
+              "btn-outline btn-accent btn-square btn-lg btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
             )}
             onClick={() => {
               console.log("Clicked");

@@ -17,8 +17,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Local Netlify folder
-.netlify
 resume/indent.log
 resume/resume.aux
 resume/resume.fdb_latexmk
@@ -27,4 +25,3 @@ resume/resume.log
 resume/resume.pdf
 resume/resume.synctex.gz
 resume/resume.out
-src/pages/test.astro
