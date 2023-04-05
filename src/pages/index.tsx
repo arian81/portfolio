@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           property="og:description"
           content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."
         />
-        <meta property="og:image" content="https://arian.gg/meta.png" />
+        <meta property="og:image" content="https://arian.gg/assets/meta.png" />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -40,25 +40,25 @@ const Home: NextPage = () => {
           name="twitter:description"
           content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."
         />
-        <meta name="twitter:image" content="https://arian.gg/meta.png" />
+        <meta name="twitter:image" content="https://arian.gg/assets/meta.png" />
         <meta charSet="utf-8" />
         {/* <!-- Icons for everything --> */}
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
+          href="/assets/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/assets/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/assets/favicon-16x16.png"
         />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#592406" />
 
