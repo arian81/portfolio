@@ -6,7 +6,6 @@ const CurrentlyPlaying = () => {
     env.NEXT_PUBLIC_LASTFM_USERNAME,
     env.NEXT_PUBLIC_LASTFM_TOKEN
   );
-  console.log(lastFM.status);
   const [ready, setReady] = useState(false);
 
   // set ready to true after 2 seconds using a useffect
@@ -33,7 +32,7 @@ const CurrentlyPlaying = () => {
     >
       <div className="aspect-square h-full animate-spinDJ overflow-hidden rounded-full">
         <img
-          src={lastFM.song.art ? lastFM.song.art : "/record.webp"}
+          src={lastFM.song.art ? lastFM.song.art : "/assets/record.webp"}
           className="aspect-square h-full w-full"
           alt="album art"
           width={80}

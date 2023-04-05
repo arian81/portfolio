@@ -60,8 +60,27 @@ const Home: NextPage = () => {
           sizes="16x16"
           href="/assets/favicon-16x16.png"
         />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#592406" />
+        <link rel="manifest" href="/assets/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="/assets/safari-pinned-tab.svg"
+          color="#592406"
+        />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <meta name="msapplication-TileColor" content="#603cba" />
+        <meta name="msapplication-config" content="/assets/browserconfig.xml" />
+        <meta
+          name="theme-color"
+          content="#fed7aa"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#161616"
+          media="(prefers-color-scheme: dark)"
+        />
 
+        {/*  */}
         <link rel="canonical" href="https://arian.gg" />
         <meta name="viewport" content="width=device-width" />
         <title>Arian Ahmadinejad</title>
