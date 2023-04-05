@@ -10,7 +10,7 @@ const cycleIcons = (iconIdx: number) => {
 };
 
 export default function LightDarkButton() {
-  const [iconIdx, setIconIdx] = useState(0);
+  const [iconIdx, setIconIdx] = useState(1);
   const icons = [
     {
       src: "images/dark.svg",
@@ -55,9 +55,12 @@ export default function LightDarkButton() {
       return;
     }
     if (localStorage.iconIdx) {
-      localStorage.iconIdx = (iconIdxTemp + 3 + (iconIdxTemp == 3 ? 3 : 0)) % 4;
+      localStorage.iconIdx = (
+        (iconIdxTemp + 3 + (iconIdxTemp == 3 ? 3 : 0)) %
+        4
+      ).toString();
     } else {
-      localStorage.iconIdx = 1;
+      localStorage.iconIdx = iconIdx.toString();
     }
     toggleTheme();
   }, []);
