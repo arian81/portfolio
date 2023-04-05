@@ -3,7 +3,7 @@ import Head from "next/head";
 import Header from "~/components/Header";
 import Whoai from "~/components/Whoai";
 import Socials from "~/components/Socials";
-import LastFm from "~/components/LastFm";
+import LastFm from "~/components/LastFM";
 import Copyright from "~/components/Copyright";
 
 const Home: NextPage = () => {
