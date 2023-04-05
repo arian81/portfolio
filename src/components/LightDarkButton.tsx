@@ -6,7 +6,7 @@ const cycleIcons = (iconIdx: number) => {
     iconIdx === 1 && !window.matchMedia("(prefers-color-scheme: dark)").matches
       ? 1
       : 0;
-  return iconIdx == 2 || iconIdx == 3 ? 0 : iconIdx + 1 + isLightAuto;
+  return iconIdx === 2 || iconIdx === 3 ? 0 : iconIdx + 1 + isLightAuto;
 };
 
 export default function LightDarkButton() {
@@ -56,7 +56,7 @@ export default function LightDarkButton() {
     }
     if (localStorage.iconIdx) {
       localStorage.iconIdx = (
-        (iconIdxTemp + 3 + (iconIdxTemp == 3 ? 3 : 0)) %
+        (iconIdxTemp + 3 + (iconIdxTemp === 3 ? 3 : 0)) %
         4
       ).toString();
     } else {
