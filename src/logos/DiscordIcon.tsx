@@ -7,10 +7,10 @@ export default function DiscordIcon({ className }: { className: string }) {
       viewBox="0 0 24 24"
       className={className}
     >
-      <g>
-        <circle cx="9" cy="12" r="1.5" fillOpacity="0">
+      <g fill="currentColor">
+        <circle cx="9" cy="12" r="1.5" fill-opacity="0">
           <animate
-            attributeName="fillOpacity"
+            attributeName="fill-opacity"
             values="0;1"
             begin="1.2s"
             dur="0.4s"
