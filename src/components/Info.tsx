@@ -1,3 +1,5 @@
+import TypeWriter from "./TypeWrite";
+
 export default function Info() {
   return (
     <div className="flex gap-5">
@@ -6,7 +8,19 @@ export default function Info() {
         <h1 className="text-md font-bold text-black dark:text-[#ccc] md:text-2xl">
           Arian Ahmadinejad
         </h1>
-        <h2 className="text-sm text-black dark:text-[#ccc]">CS Student</h2>
+        <h2 className="text-sm text-black dark:text-[#ccc]">
+          <TypeWriter
+            data={[
+              "Machine Learning Intern",
+              "CS Student",
+              "Open Source Enthusiast",
+              "Software Developer",
+            ]}
+            breakLine={false}
+            loop={false}
+            speed={150}
+          />
+        </h2>
       </div>
     </div>
   );
