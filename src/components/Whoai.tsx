@@ -2,6 +2,7 @@ import autoAnimate from "@formkit/auto-animate";
 import { useMutation } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
+import TypeWriter from "./TypeWrite";
 
 const Whoami: React.FC = () => {
   const [q, setQ] = useState("");
@@ -54,7 +55,6 @@ const Whoami: React.FC = () => {
               "btn-outline btn-accent btn-square btn-lg btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
             )}
             onClick={() => {
-              console.log("Clicked");
               mutate(q);
             }}
           >
@@ -72,7 +72,9 @@ const Whoami: React.FC = () => {
           </button>
         </div>
         {(isSuccess || (isIdle && data)) && (
-          <div className="max-w-3xl dark:text-white">{data}</div>
+          <div className="max-w-3xl dark:text-white">
+            <TypeWriter data={data} breakLine={true} loop={false} speed={25} />
+          </div>
         )}
       </div>
     </>

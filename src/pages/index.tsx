@@ -5,6 +5,7 @@ import Whoai from "~/components/Whoai";
 import Socials from "~/components/Socials";
 import LastFm from "~/components/LastFM";
 import Copyright from "~/components/Copyright";
+import Test from "~/components/TypeWrite";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +15,6 @@ const Home: NextPage = () => {
           <div className="absolute top-0 w-full p-2">
             <Header />
           </div>
-
           <Whoai />
           <Socials />
           <a
