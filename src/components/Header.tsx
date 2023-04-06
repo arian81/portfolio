@@ -2,6 +2,7 @@ import Image from "next/image";
 import LightDarkButton from "./LightDarkButton";
 import Info from "./Info";
 import Logo from "../logos/LogoIcon";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -17,7 +18,8 @@ export default function Header() {
       </div>
       <Info />
       <div className="w-10 md:w-12">
-        <LightDarkButton />
+        {/* <LightDarkButton /> */}
+        <ThemeToggle />
       </div>
     </div>
   );
