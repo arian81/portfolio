@@ -93,7 +93,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
           {/*  */}
           <link rel="canonical" href="https://arian.gg" />
-          <meta name="viewport" content="width=device-width" />
+          <meta
+            name="viewport"
+            content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"
+          />
           <title>Arian Ahmadinejad</title>
         </Head>
         <Component {...pageProps} />
