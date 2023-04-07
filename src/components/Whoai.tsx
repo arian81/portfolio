@@ -57,6 +57,7 @@ const Whoami: React.FC = () => {
             onClick={() => {
               mutate(q);
             }}
+            aria-label="Submit question"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -56,7 +56,7 @@ const ThemeToggle = () => {
     }
   }
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} aria-label="change theme">
       {icon !== 42 && (
         <Image
           src={icons[icon]?.src ?? ""}
