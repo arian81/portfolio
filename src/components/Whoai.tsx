@@ -14,11 +14,9 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const parent = useRef(null);
   const [showResult, setShowResult] = useState(true);
 
-  console.log("Rendered");
-
   const { mutate, isLoading, isError, data, isIdle, isSuccess } = useMutation({
     mutationFn: (question: string) => {
-      return fetch("https://whoai.arian.gg", {
+      return fetch("/api/whoai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
