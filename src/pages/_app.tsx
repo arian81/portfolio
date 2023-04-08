@@ -91,7 +91,6 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             media="(prefers-color-scheme: dark)"
           />
 
-          {/*  */}
           <link rel="canonical" href="https://arian.gg" />
           <meta
             name="viewport"

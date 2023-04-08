@@ -44,13 +44,13 @@ const socialsData = [
 
 export default function Socials() {
   return (
-    <div className="flex w-48 flex-wrap justify-center gap-5 md:h-20 md:w-5/12 md:flex-nowrap md:gap-8">
+    <div className="m-0 flex w-48 flex-wrap justify-center gap-5 md:h-20 md:w-5/12 md:flex-nowrap md:gap-8 lg:gap-20">
       {socialsData.map((social, index) => (
         <div
           key={index}
           className={`tooltip tooltip-${
             index % 2 === 0 ? "left" : "right"
-          } tooltip-accent basis-1/3 dark:tooltip-secondary md:tooltip md:tooltip-accent`}
+          } tooltip-accent basis-1/3 dark:tooltip-secondary md:tooltip md:tooltip-accent md:basis-auto`}
           data-tip={social.label}
         >
           <a href={social.link} aria-label={social.label}>
