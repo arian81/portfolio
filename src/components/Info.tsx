@@ -9,7 +9,8 @@ export default function Info() {
           Arian Ahmadinejad
         </h1>
         <h2 className="text-sm text-black dark:text-[#ccc]">
-          <TypeWriter
+          CS Student
+          {/* <TypeWriter
             data={[
               "Machine Learning Intern",
               "CS Student",
@@ -17,9 +18,9 @@ export default function Info() {
               "Software Developer",
             ]}
             breakLine={false}
-            loop={false}
+            loop={true}
             speed={150}
-          />
+          /> */}
         </h2>
       </div>
     </div>
