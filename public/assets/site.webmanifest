@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Arian.gg",
+    "short_name": "arian.gg",
     "icons": [
         {
             "src": "/assets/android-chrome-192x192.png",
@@ -13,6 +13,10 @@
             "type": "image/png"
         }
     ],
-    "background_color": "#ffffff",
-    "display": "standalone"
+    "background_color": "#fed7aa",
+    "display": "standalone",
+    "theme_color": "#fed7aa",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
 }
