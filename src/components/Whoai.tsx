@@ -86,11 +86,11 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
         </div>
         {isSuccess && showResult ? (
           <div
-            className="flex max-w-3xl flex-col rounded-lg bg-white p-10 text-sm font-medium md:text-lg"
+            className="flex max-w-3xl flex-col rounded-lg bg-white text-sm font-medium md:text-lg"
             key={"message"}
           >
             <button
-              className="btn-sm btn-circle btn  bg-white p-2 text-black hover:bg-black hover:text-white"
+              className="btn-sm btn-circle btn  ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
               onClick={() => setShowResult(false)}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
@@ -100,7 +100,14 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
                 />
               </svg>
             </button>
-            <TypeWriter data={data} breakLine={true} loop={false} speed={25} />
+            <div className="px-12 pb-12">
+              <TypeWriter
+                data={data}
+                breakLine={true}
+                loop={false}
+                speed={25}
+              />
+            </div>
           </div>
         ) : null}
       </div>
