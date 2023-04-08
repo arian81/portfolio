@@ -5,7 +5,6 @@ import Whoai from "~/components/Whoai";
 import Socials from "~/components/Socials";
 import LastFm from "~/components/LastFM";
 import Copyright from "~/components/Copyright";
-import Test from "~/components/TypeWrite";
 import { useEffect, useRef, useState } from "react";
 import autoAnimate from "@formkit/auto-animate";
 
@@ -20,7 +19,14 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main className="relative min-h-screen w-full bg-orange-200 dark:bg-[#161616]">
+      <main
+        className="relative min-h-screen w-full bg-orange-200 dark:bg-[#161616]"
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            setHideSocials(false);
+          }
+        }}
+      >
         <div
           className="m-auto flex min-h-screen w-auto flex-col items-center justify-center gap-10 pb-24 pt-48"
           ref={parent}
@@ -28,7 +34,7 @@ const Home: NextPage = () => {
           <div className="absolute top-0 w-full p-2">
             <Header />
           </div>
-          <Whoai propogateFocus={setHideSocials} />
+          <Whoai propogateFocus={[hideSocials, setHideSocials]} />
           {hideSocials ? null : (
             <>
               <Socials />

@@ -5,13 +5,16 @@ import { useEffect, useRef, useState } from "react";
 import TypeWriter from "./TypeWrite";
 
 interface WhoamiProps {
-  propogateFocus: (arg0: boolean) => void;
+  propogateFocus: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 }
 
 const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const [q, setQ] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const parent = useRef(null);
+  const [showResult, setShowResult] = useState(true);
+
+  console.log("Rendered");
 
   const { mutate, isLoading, isError, data, isIdle, isSuccess } = useMutation({
     mutationFn: (question: string) => {
@@ -33,34 +36,40 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
     <>
       <div
         className={clsx(
-          "flex flex-col items-center gap-4 p-4",
+          "flex h-20 flex-col items-center justify-center gap-12 p-4 ",
           isLoading && "animate-pulse"
         )}
         ref={parent}
       >
-        <div className="flex w-full min-w-[90vw] flex-col items-center gap-4 md:min-w-[30em] md:flex-row">
+        <div className="flex  w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
           <input
             type="text"
             className={`input-bordered input  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
-              isFocused
+              isFocused && propogateFocus[0]
                 ? "w-[23em] md:w-[35em] lg:w-[45em] xl:w-[55em]"
                 : "w-[19.5em]"
             } w-full shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
             placeholder={"What do you want to know about me"}
             value={q}
-            onFocus={() => {
+            onClick={() => {
               setIsFocused(true);
-              propogateFocus(true);
+              propogateFocus[1](true);
             }}
             onChange={(e) => setQ(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && mutate(q)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                mutate(q);
+                setShowResult(true);
+              }
+            }}
           />
           <button
             className={clsx(
-              "btn-outline btn-accent btn-square btn-lg btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+              "btn-outline btn-accent btn-lg btn-square btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
             )}
             onClick={() => {
               mutate(q);
+              setShowResult(true);
             }}
             aria-label="Submit question"
           >
@@ -77,11 +86,25 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             </svg>
           </button>
         </div>
-        {(isSuccess || (isIdle && data)) && (
-          <div className="max-w-3xl dark:text-white">
+        {isSuccess && showResult ? (
+          <div
+            className="flex max-w-3xl flex-col rounded-lg bg-white p-10 text-sm font-medium md:text-lg"
+            key={"message"}
+          >
+            <button
+              className="btn-sm btn-circle btn  bg-white p-2 text-black hover:bg-black hover:text-white"
+              onClick={() => setShowResult(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                <path
+                  fill="currentColor"
+                  d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z"
+                />
+              </svg>
+            </button>
             <TypeWriter data={data} breakLine={true} loop={false} speed={25} />
           </div>
-        )}
+        ) : null}
       </div>
     </>
   );
