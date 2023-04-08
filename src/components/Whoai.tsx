@@ -4,7 +4,11 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import TypeWriter from "./TypeWrite";
 
-const Whoami: React.FC = () => {
+interface WhoamiProps {
+  propogateFocus: (arg0: boolean) => void;
+}
+
+const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const [q, setQ] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const parent = useRef(null);
@@ -46,6 +50,7 @@ const Whoami: React.FC = () => {
             value={q}
             onFocus={() => {
               setIsFocused(true);
+              propogateFocus(true);
             }}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && mutate(q)}
