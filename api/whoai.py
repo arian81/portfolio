@@ -76,7 +76,25 @@ CORS(
 info = read_pdf()
 
 
-@app.route("/whoai", methods=["POST"])
+# @app.route("/whoai", methods=["POST"])
+# def whoai_post():
+#     """
+#     Main function to handle requests
+#     """
+#     question = request.get_json()["question"]
+#     answer = call_chatGPT(info, question)
+#     return answer
+
+
+# @app.route("/whoai", methods=["GET"])
+# def whoai_get():
+#     """
+#     Main function to handle requests
+#     """
+#     return render_template("index.html")
+
+
+@app.route("/api/whoai", methods=["POST"])
 def whoai_post():
     """
     Main function to handle requests
@@ -86,7 +104,7 @@ def whoai_post():
     return answer
 
 
-@app.route("/whoai", methods=["GET"])
+@app.route("/api/whoai", methods=["GET"])
 def whoai_get():
     """
     Main function to handle requests
