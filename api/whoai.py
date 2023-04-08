@@ -3,6 +3,7 @@ import openai
 import os
 from flask import Flask, request, render_template
 from flask_cors import CORS
+from os.path import join
 
 # Load .env file if OPENAI_API_KEY is not set
 if os.environ.get("OPENAI_API_KEY") is None:
@@ -11,11 +12,12 @@ if os.environ.get("OPENAI_API_KEY") is None:
     load_dotenv()
 
 
-def read_pdf(file_name: str) -> str:
+def read_pdf() -> str:
     """
     Read the pdf file and return the text
     """
-    reader = PdfReader(file_name)
+    reader = PdfReader(join("data", "merged.pdf"))
+    # reader = PdfReader(file_name)
     text = ""
 
     for page in reader.pages:
@@ -54,28 +56,27 @@ def call_chatGPT(user_info: str, question: str) -> str:
 
 
 app = Flask(__name__)
-# CORS(
-#     app,
-#     resources={
-#         r"/*": {
-#             "origins": [
-#                 "https://arian.gg",
-#                 "https://whoai.netlify.app",
-#                 "http://localhost:3000",
-#             ]
-#         }
-#     },
-# )
 CORS(
     app,
-    resources={r"/*": {"origins": "*"}},
+    resources={
+        r"/*": {
+            "origins": [
+                "https://arian.gg",
+                "http://localhost:3000",
+            ]
+        }
+    },
 )
+# CORS(
+#     app,
+#     resources={r"/*": {"origins": "*"}},
+# )
 
 
-info = read_pdf("merged.pdf")
+info = read_pdf()
 
 
-@app.route("/", methods=["POST"])
+@app.route("/whoai", methods=["POST"])
 def whoai_post():
     """
     Main function to handle requests
@@ -85,7 +86,7 @@ def whoai_post():
     return answer
 
 
-@app.route("/", methods=["GET"])
+@app.route("/whoai", methods=["GET"])
 def whoai_get():
     """
     Main function to handle requests

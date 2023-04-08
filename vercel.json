@@ -1,8 +1,12 @@
 {
     "rewrites": [
         {
+            "source": "/whoai",
+            "destination": "/api/whoai"
+        },
+        {
             "source": "/test",
-            "destination": "/api"
+            "destination": "/api/test"
         }
     ]
 }
