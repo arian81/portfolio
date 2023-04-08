@@ -75,6 +75,7 @@ CORS(
 
 info = read_pdf()
 
+# only used for local development vercel python edge functions are weird
 
 # @app.route("/whoai", methods=["POST"])
 # def whoai_post():
