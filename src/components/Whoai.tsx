@@ -45,13 +45,13 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
               propogateFocus[0]
                 ? "opacity-100 delay-700 duration-700"
                 : "opacity-0 duration-150",
-              "transition-all"
+              "transition-all dark:text-white"
             )}
             key={"escape"}
           >
             Press{" "}
             <kbd
-              className="kbd kbd-md cursor-pointer"
+              className="kbd kbd-md cursor-pointer text-black"
               onClick={() => propogateFocus[1](false)}
             >
               esc
