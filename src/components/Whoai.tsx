@@ -39,7 +39,27 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
         )}
         ref={parent}
       >
-        <div className="flex  w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
+        {
+          <div
+            className={clsx(
+              propogateFocus[0]
+                ? "opacity-100 delay-700 duration-700"
+                : "opacity-0 duration-150",
+              "transition-all"
+            )}
+            key={"escape"}
+          >
+            Press{" "}
+            <kbd
+              className="kbd kbd-md cursor-pointer"
+              onClick={() => propogateFocus[1](false)}
+            >
+              esc
+            </kbd>{" "}
+            to go back.
+          </div>
+        }
+        <div className="mb-16  flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
           <input
             type="text"
             className={`input-bordered input  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
