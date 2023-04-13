@@ -14,21 +14,28 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const parent = useRef(null);
   const [showResult, setShowResult] = useState(true);
 
-  const { mutate, isLoading, isError, data, isIdle, isSuccess } = useMutation({
-    mutationFn: (question: string) => {
-      return fetch("/api/whoai", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question: question }),
-      }).then((res) => res.text());
-    },
-  });
+  const { mutate, isLoading, isError, data, isIdle, isSuccess, reset } =
+    useMutation({
+      mutationFn: (question: string) => {
+        return fetch("https://whoai.arian.gg", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question: question }),
+        }).then((res) => res.text());
+      },
+    });
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
   }, [parent]);
+
+  useEffect(() => {
+    if (propogateFocus[0] === false) {
+      reset();
+    }
+  }, [propogateFocus[0]]);
 
   return (
     <>
@@ -42,7 +49,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
         {
           <div
             className={clsx(
-              propogateFocus[0]
+              propogateFocus[0] && showResult
                 ? "opacity-100 delay-700 duration-700"
                 : "opacity-0 duration-150",
               "transition-all dark:text-white"
@@ -72,12 +79,16 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             onClick={() => {
               setIsFocused(true);
               propogateFocus[1](true);
+              setShowResult(true);
             }}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 mutate(q);
-                setShowResult(true);
+              }
+              if (e.key === "Escape") {
+                (document.activeElement as HTMLElement).blur();
+                propogateFocus[1](false);
               }
             }}
           />
@@ -87,7 +98,6 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             )}
             onClick={() => {
               mutate(q);
-              setShowResult(true);
             }}
             aria-label="Submit question"
           >
@@ -104,14 +114,17 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             </svg>
           </button>
         </div>
-        {isSuccess && showResult ? (
+        {isSuccess && showResult && propogateFocus[0] && (
           <div
             className="flex max-w-3xl flex-col rounded-lg bg-white text-sm font-medium md:text-lg"
             key={"message"}
           >
             <button
               className="btn-sm btn-circle btn  ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
-              onClick={() => setShowResult(false)}
+              onClick={() => {
+                setShowResult(false);
+                propogateFocus[1](false);
+              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                 <path
@@ -129,7 +142,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
               />
             </div>
           </div>
-        ) : null}
+        )}
       </div>
     </>
   );
