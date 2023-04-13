@@ -19,14 +19,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <main
-        className="relative min-h-screen w-full bg-orange-200 dark:bg-[#161616]"
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            setHideSocials(false);
-          }
-        }}
-      >
+      <main className="relative min-h-screen w-full bg-orange-200 dark:bg-[#161616]">
         <div
           className="m-auto flex min-h-screen w-auto flex-col items-center justify-center gap-10 pb-24 pt-48"
           ref={parent}
