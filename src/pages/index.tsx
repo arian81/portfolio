@@ -1,5 +1,4 @@
 import { type NextPage } from "next";
-
 import Header from "~/components/Header";
 import Whoai from "~/components/Whoai";
 import Socials from "~/components/Socials";
