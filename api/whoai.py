@@ -36,7 +36,7 @@ def call_chatGPT(user_info: str, question: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful AI assisstant trained by Arian Ahmadinejad to answer questions about him.",
+                "content": "You are a helpful AI assisstant called Whoai trained by Arian Ahmadinejad to answer questions about him.",
             },
             {
                 "role": "user",
