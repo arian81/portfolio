@@ -83,7 +83,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             }}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
+              if (e.key === "Enter" && q !== "") {
                 mutate(q);
               }
               if (e.key === "Escape") {
@@ -97,7 +97,9 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
               "btn-outline btn-accent btn-lg btn-square btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
             )}
             onClick={() => {
-              mutate(q);
+              if (q !== "") {
+                mutate(q);
+              }
             }}
             aria-label="Submit question"
           >
