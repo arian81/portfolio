@@ -3,8 +3,14 @@ import { type AppType } from "next/dist/shared/lib/utils";
 import React from "react";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { Outfit } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
 import "~/styles/globals.css";
+
+const outfit = Outfit({ subsets: ["latin"] });
+
+const open = Open_Sans({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -98,6 +104,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           />
           <title>Arian Ahmadinejad</title>
         </Head>
+        <style jsx global>{`
+          html {
+            font-family: ${outfit.style.fontFamily};
+          }
+        `}</style>
         <Component {...pageProps} />
       </ThemeProvider>
     </QueryClientProvider>
