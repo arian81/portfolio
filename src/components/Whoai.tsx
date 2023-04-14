@@ -47,23 +47,43 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
         ref={parent}
       >
         {
-          <div
-            className={clsx(
-              propogateFocus[0] && showResult
-                ? "opacity-100 delay-700 duration-700"
-                : "opacity-0 duration-150",
-              "transition-all dark:text-white"
-            )}
-            key={"escape"}
-          >
-            Press{" "}
-            <kbd
-              className="kbd kbd-md cursor-pointer text-black"
-              onClick={() => propogateFocus[1](false)}
+          <div>
+            <div
+              className={clsx(
+                propogateFocus[0] && showResult
+                  ? "opacity-100 delay-700 duration-700"
+                  : "opacity-0 duration-150",
+                "hidden transition-all dark:text-white lg:block"
+              )}
+              key={"escape"}
             >
-              esc
-            </kbd>{" "}
-            to go back.
+              Press{" "}
+              <kbd
+                className="kbd kbd-md cursor-pointer text-black"
+                onClick={() => propogateFocus[1](false)}
+              >
+                esc
+              </kbd>{" "}
+              to go back.
+            </div>
+            <div
+              className={clsx(
+                propogateFocus[0] && showResult
+                  ? "opacity-100 delay-700 duration-700"
+                  : "opacity-0 duration-150",
+                "transition-all dark:text-white lg:hidden"
+              )}
+              key={"escape-mobile"}
+            >
+              Press{" "}
+              <kbd
+                className="kbd kbd-md cursor-pointer text-black"
+                onClick={() => propogateFocus[1](false)}
+              >
+                here
+              </kbd>{" "}
+              to go back.
+            </div>
           </div>
         }
         <div className="mb-16  flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
