@@ -17,7 +17,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const { mutate, isLoading, isError, data, isIdle, isSuccess, reset } =
     useMutation({
       mutationFn: (question: string) => {
-        return fetch("/api/whoai", {
+        return fetch("https://whoai.arian.gg/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
           />
           <button
             className={clsx(
-              "btn-outline btn-accent btn-lg btn-square btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+              "btn-outline btn-accent btn-square btn-lg btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
             )}
             onClick={() => {
               if (q !== "") {
