@@ -3,13 +3,15 @@ import DiscordIcon from "~/logos/DiscordIcon";
 import EmailIcon from "~/logos/EmailIcon";
 import GithubIcon from "~/logos/GithubIcon";
 import LinkedinIcon from "~/logos/LinkedinIcon";
-import TwitterIcon from "~/logos/TwitterIcon";
+import XIcon from "~/logos/XIcon";
 
 const socialsData = [
   {
-    link: "https://twitter.com/TheArian81",
-    label: "Twitter",
-    icon: <TwitterIcon className="stroke-[#592406] dark:stroke-[#ccc]" />,
+    link: "https://x.com/TheArian81",
+    label: "X",
+    icon: (
+      <XIcon className="fill-[#592406] stroke-[#592406] dark:fill-[#ccc] dark:stroke-[#ccc]" />
+    ),
   },
   {
     link: "https://github.com/arian81/",
