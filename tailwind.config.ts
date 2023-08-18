@@ -16,7 +16,7 @@ export default {
     themes: [
       {
         light: {
-          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
           accent: "#592406",
           "accent-content": "#fff",
           secondary: "#fed7aa",
