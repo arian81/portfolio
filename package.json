@@ -11,7 +11,7 @@
   "dependencies": {
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@lottiefiles/react-lottie-player": "^3.5.3",
-    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query": "^4.33.0",
     "clsx": "^2.0.0",
     "daisyui": "^3.5.1",
     "next": "^13.4.18",
