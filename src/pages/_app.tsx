@@ -5,8 +5,6 @@ import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import { Open_Sans } from "next/font/google";
-import Script from 'next/script'
-
 
 import "~/styles/globals.css";
 
@@ -20,7 +18,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class">
         <Head>
-          <Script async crossOrigin="anonymous" src="https://pep.dev/pep.js#Tu9mVg8m"></Script>
+          <script async crossOrigin="anonymous" src="https://pep.dev/pep.js#Tu9mVg8m"></script>
           <meta
             name="description"
             content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."
