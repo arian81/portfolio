@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/pep-sw.js",
+        "destination": "https://pep.dev/pep-sw.js"
+      }
+    ]
+}
+  
