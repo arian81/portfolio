@@ -31,7 +31,7 @@ const Home: NextPage = () => {
             <>
               <Socials />
               <a
-                className="btn-outline btn-accent btn-lg btn rounded-full border-[3px] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+                className="btn btn-outline btn-lg rounded-full border-[3px] border-[#592407] text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
                 href="resume.pdf"
               >
                 Resume

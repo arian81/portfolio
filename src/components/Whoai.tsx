@@ -14,18 +14,17 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const parent = useRef(null);
   const [showResult, setShowResult] = useState(true);
 
-  const { mutate, isLoading, isError, data, isIdle, isSuccess, reset } =
-    useMutation({
-      mutationFn: (question: string) => {
-        return fetch("https://whoai.arian.gg/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ question: question }),
-        }).then((res) => res.text());
-      },
-    });
+  const { mutate, isPending, data, isSuccess, reset } = useMutation({
+    mutationFn: (question: string) => {
+      return fetch("https://whoai.arian.gg/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question: question }),
+      }).then((res) => res.text());
+    },
+  });
 
   useEffect(() => {
     parent.current && autoAnimate(parent.current);
@@ -42,7 +41,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
       <div
         className={clsx(
           "flex h-20 flex-col items-center justify-center gap-12 p-4 ",
-          isLoading && "animate-pulse"
+          isPending && "animate-pulse",
         )}
         ref={parent}
       >
@@ -53,13 +52,13 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
                 propogateFocus[0] && showResult
                   ? "opacity-100 delay-700 duration-700"
                   : "opacity-0 duration-150",
-                "hidden transition-all dark:text-white lg:block"
+                "hidden transition-all dark:text-white lg:block",
               )}
               key={"escape"}
             >
               Press{" "}
               <kbd
-                className="kbd kbd-md cursor-pointer text-black"
+                className="kbd kbd-md cursor-pointer bg-neutral-100 dark:text-black"
                 onClick={() => propogateFocus[1](false)}
               >
                 esc
@@ -71,7 +70,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
                 propogateFocus[0] && showResult
                   ? "opacity-100 delay-700 duration-700"
                   : "opacity-0 duration-150",
-                "transition-all dark:text-white lg:hidden"
+                "transition-all dark:text-white lg:hidden",
               )}
               key={"escape-mobile"}
             >
@@ -86,14 +85,14 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             </div>
           </div>
         }
-        <div className="mb-16  flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
+        <div className="mb-16  flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row ">
           <input
             type="text"
-            className={`input-bordered input  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
+            className={`input input-bordered  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
               isFocused && propogateFocus[0]
                 ? "w-[23em] md:w-[35em] lg:w-[45em] xl:w-[55em]"
                 : "w-[19.5em]"
-            } w-full shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
+            } w-full  shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
             placeholder={"What do you want to know about me"}
             value={q}
             onClick={() => {
@@ -114,7 +113,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
           />
           <button
             className={clsx(
-              "btn-outline btn-accent btn-square btn-lg btn rounded-full border-[4px] p-2 dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+              "btn btn-square btn-outline btn-lg rounded-full border-[4px] border-[#592407] p-2 text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black",
             )}
             onClick={() => {
               if (q !== "") {
@@ -142,7 +141,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             key={"message"}
           >
             <button
-              className="btn-sm btn-circle btn  ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
+              className="btn btn-circle btn-sm  ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
               onClick={() => {
                 setShowResult(false);
                 propogateFocus[1](false);
