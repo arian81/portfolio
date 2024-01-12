@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import DevpostIcon from "~/logos/DevpostIcon";
 import DiscordIcon from "~/logos/DiscordIcon";
 import EmailIcon from "~/logos/EmailIcon";
@@ -26,7 +27,9 @@ const socialsData = [
   {
     link: "https://devpost.com/arian81",
     label: "Devpost",
-    icon: <DevpostIcon className="stroke-[#592406] dark:stroke-[#ccc]" />,
+    icon: (
+      <DevpostIcon className="fill-[#592406] stroke-[#592406] dark:fill-[#ccc] dark:stroke-[#ccc]" />
+    ),
   },
   {
     link: "https://www.linkedin.com/in/arian81/",
@@ -48,17 +51,18 @@ export default function Socials() {
   return (
     <div className="m-0 flex w-48 flex-wrap justify-center gap-5 md:h-20 md:w-5/12 md:flex-nowrap md:gap-8 lg:gap-20">
       {socialsData.map((social, index) => (
-        <div
-          key={index}
-          className={`tooltip tooltip-${
-            index % 2 === 0 ? "left" : "right"
-          } tooltip-accent basis-1/3 dark:tooltip-secondary md:tooltip md:tooltip-accent md:basis-auto`}
-          data-tip={social.label}
-        >
-          <a href={social.link} aria-label={social.label}>
-            {social.icon}
-          </a>
-        </div>
+        // <div
+        //   key={index}
+        //   className={"basis-1/3 md:tooltip md:tooltip-top md:basis-auto"}
+        //   data-tip={social.label}
+        // >
+        //   <a href={social.link} aria-label={social.label}>
+        //     {social.icon}
+        //   </a>
+        // </div>
+        <a href={social.link} aria-label={social.label}>
+          {social.icon}
+        </a>
       ))}
     </div>
   );

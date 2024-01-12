@@ -5,9 +5,16 @@ interface Props {
   breakLine: boolean;
   loop: boolean;
   speed: number;
+  children?: React.ReactNode;
 }
 
-const TypeWriter: React.FC<Props> = ({ data, breakLine, loop, speed }) => {
+const TypeWriter: React.FC<Props> = ({
+  data,
+  breakLine,
+  loop,
+  speed,
+  children,
+}) => {
   const strings = Array.isArray(data) ? data : data.split(".");
   if (!Array.isArray(data)) {
     for (let i = 0; i < strings.length - 1; i++) {
@@ -23,11 +30,11 @@ const TypeWriter: React.FC<Props> = ({ data, breakLine, loop, speed }) => {
         lifeLike: true,
         speed: speed,
         nextStringDelay: 1000,
-        cursor: true,
         cursorChar: "❚",
         breakLines: breakLine,
         loopDelay: 5000,
         deleteSpeed: 200,
+        waitUntilVisible: true,
       }}
     ></TypeIt>
   );
