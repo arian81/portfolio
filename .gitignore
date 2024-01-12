@@ -28,3 +28,4 @@ resume/resume.out
 .next
 .vscode
 .vercel
+src/pages/test.tsx

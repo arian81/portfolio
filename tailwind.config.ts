@@ -13,16 +13,6 @@ export default {
   darkMode: "class",
   plugins: [require("daisyui")],
   daisyui: {
-    themes: [
-      {
-        light: {
-          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
-          accent: "#592406",
-          "accent-content": "#fff",
-          secondary: "#fed7aa",
-          "secondary-content": "#161616",
-        },
-      },
-    ],
+    themes: ["light"],
   },
 } satisfies Config;
