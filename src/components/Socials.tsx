@@ -27,7 +27,9 @@ const socialsData = [
   {
     link: "https://devpost.com/arian81",
     label: "Devpost",
-    icon: <DevpostIcon className="stroke-[#592406] dark:stroke-[#ccc]" />,
+    icon: (
+      <DevpostIcon className="fill-[#592406] stroke-[#592406] dark:fill-[#ccc] dark:stroke-[#ccc]" />
+    ),
   },
   {
     link: "https://www.linkedin.com/in/arian81/",
