@@ -60,9 +60,11 @@ export default function Socials() {
         //     {social.icon}
         //   </a>
         // </div>
-        <a href={social.link} aria-label={social.label}>
-          {social.icon}
-        </a>
+        <div className="basis-1/3 md:basis-auto">
+          <a href={social.link} aria-label={social.label}>
+            {social.icon}
+          </a>
+        </div>
       ))}
     </div>
   );
