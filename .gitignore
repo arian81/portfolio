@@ -29,3 +29,5 @@ resume/resume.out
 .vscode
 .vercel
 src/pages/test.tsx
+
+out/
