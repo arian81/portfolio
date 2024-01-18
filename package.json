@@ -11,6 +11,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@portabletext/react": "^3.0.11",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.25.0",
     "@tanstack/react-query": "^5.17.9",
