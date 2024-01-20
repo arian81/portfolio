@@ -6,6 +6,7 @@ import Head from "next/head";
 import { Outfit } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "~/styles/globals.css";
 
@@ -117,6 +118,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         `}</style>
         <Component {...pageProps} />
         <Analytics />
+        <SpeedInsights />
       </ThemeProvider>
     </QueryClientProvider>
   );
