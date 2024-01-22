@@ -7,7 +7,6 @@ import TypeWriter from "./TypeWrite";
 interface WhoamiProps {
   propogateFocus: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 }
-
 const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
   const [q, setQ] = useState("");
   const [isFocused, setIsFocused] = useState(false);
@@ -40,7 +39,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
     <>
       <div
         className={clsx(
-          "flex h-20 flex-col items-center justify-center gap-12 p-4 ",
+          "flex flex-col items-center justify-center gap-12 ",
           isPending && "animate-pulse",
         )}
         ref={parent}
@@ -85,7 +84,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             </div>
           </div>
         }
-        <div className="mb-16  flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row ">
+        <div className="flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row ">
           <input
             type="text"
             className={`input input-bordered  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
@@ -137,7 +136,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
         </div>
         {isSuccess && showResult && propogateFocus[0] && (
           <div
-            className="flex max-w-3xl flex-col rounded-lg bg-white text-sm font-medium md:text-lg"
+            className="flex max-h-96 max-w-3xl flex-col overflow-auto rounded-lg bg-white text-sm font-medium md:text-lg"
             key={"message"}
           >
             <button

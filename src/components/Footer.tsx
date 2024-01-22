@@ -1,9 +1,9 @@
-const Copyright = () => {
+const Footer = () => {
   let start = new Date();
   let year = start.getFullYear().toString();
   return (
-    <div className="absolute bottom-0 p-2">
-      <div className="flex flex-col items-center justify-center">
+    <div className="flex items-center justify-center p-2">
+      <div>
         <p className="text-sm text-[#592406] dark:text-[#ccc] dark:opacity-80">
           Made with ♥ in <a href="https://nextjs.org">Next.js</a>
         </p>
@@ -15,4 +15,4 @@ const Copyright = () => {
   );
 };
 
-export default Copyright;
+export default Footer;

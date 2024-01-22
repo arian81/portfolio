@@ -7,6 +7,7 @@ import { Outfit } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 
 import "~/styles/globals.css";
+import Layout from "~/components/Layout";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -18,7 +19,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class">
         <Head>
-          <script async crossOrigin="anonymous" src="https://pep.dev/pep.js#Tu9mVg8m"></script>
+          <script
+            async
+            crossOrigin="anonymous"
+            src="https://pep.dev/pep.js#Tu9mVg8m"
+          ></script>
           <meta
             name="description"
             content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."
@@ -110,7 +115,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             font-family: ${outfit.style.fontFamily};
           }
         `}</style>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </QueryClientProvider>
   );
