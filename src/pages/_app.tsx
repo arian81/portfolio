@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import { Open_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "~/styles/globals.css";
 import Layout from "~/components/Layout";
@@ -19,6 +21,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class">
         <Head>
+          <script
+            async
+            crossOrigin="anonymous"
+            src="https://pep.dev/pep.js#Tu9mVg8m"
+          ></script>
           <script
             async
             crossOrigin="anonymous"
@@ -118,6 +125,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <Analytics />
+        <SpeedInsights />
       </ThemeProvider>
     </QueryClientProvider>
   );
