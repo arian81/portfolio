@@ -50,11 +50,13 @@ export default defineType({
       name: "summary",
       title: "Summary",
       type: "string",
+      validation: (Rule) => Rule.required().max(150),
     }),
     defineField({
       name: "body",
       title: "Body",
       type: "blockContent",
+      validation: (Rule) => Rule.required(),
     }),
   ],
 

@@ -1,17 +1,24 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { PostsSchema, PostSchema, Post, Posts } from "../blog";
 import { client } from "../../../sanity/lib/client";
-import { useRouter } from "next/router";
+import { NextPageWithLayout } from "../_app";
+import { ReactElement } from "react";
+import Layout from "~/components/Layout";
+import { z } from "zod";
 
-const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  post,
-}) => {
+const BlogPost: NextPageWithLayout<
+  InferGetStaticPropsType<typeof getStaticProps>
+> = ({ post }) => {
   return (
-    <div>
-      <div>{post.title}</div>
-      <div>{post.summary}</div>
+    <div className="m-auto  flex h-[35rem]  w-[35rem] justify-center border-2 border-red-600">
+      <h1 className="p-5 text-3xl font-bold text-[#592407]">{post.title}</h1>
+      {/* <body className="p-5">{post.body}</body> */}
     </div>
   );
+};
+
+BlogPost.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export const getStaticProps = (async (ctx) => {
@@ -52,13 +59,9 @@ export async function getStaticPaths() {
   }`;
   const posts = PostsSchema.parse(await client.fetch(postsQuery));
 
-  // const parsedPosts = PostsSchema.parse(posts); // how do i use this bad boy
-
   const paths = posts.map((post: Post) => ({
     params: { slug: post.url },
   }));
-
-  // this seems legit man?
 
   return { paths, fallback: false };
 }

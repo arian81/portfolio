@@ -1,21 +1,13 @@
 import light404data from "../lotties/404_light.json";
 import dark404data from "../lotties/404_dark.json";
-import Header from "~/components/Header";
-import Copyright from "~/components/Footer";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { NextPageWithLayout } from "./_app";
+import { ReactElement } from "react";
+import Layout from "~/components/Layout";
 
-export default function Custom404() {
+const NotFoundPage: NextPageWithLayout = () => {
   return (
-    // <main className="relative min-h-screen w-full bg-orange-200 dark:bg-[#161616]">
-    //   <div className="m-auto flex min-h-screen w-auto flex-col items-center justify-center gap-10 pb-24 pt-48">
-    //     <div className="absolute top-0 w-full p-2">
-    //       <Header />
-    //     </div>
-
-    //     <Copyright />
-    //   </div>
-    // </main>
-    <div>
+    <div className="m-auto flex items-center justify-center">
       <div className="pointer-events-none flex flex-col items-center justify-center">
         <div className="dark:hidden">
           <Player autoplay loop src={light404data} />
@@ -26,4 +18,10 @@ export default function Custom404() {
       </div>
     </div>
   );
-}
+};
+
+NotFoundPage.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default NotFoundPage;

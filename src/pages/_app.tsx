@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { type AppType } from "next/dist/shared/lib/utils";
-import React from "react";
+import React, { ReactElement, ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Outfit } from "next/font/google";
@@ -9,14 +9,25 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "~/styles/globals.css";
-import Layout from "~/components/Layout";
+import { NextPage } from "next";
+import { AppProps } from "next/app";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
 const open = Open_Sans({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
-const MyApp: AppType = ({ Component, pageProps }) => {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
   const [queryClient] = React.useState(() => new QueryClient());
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class">
@@ -122,9 +133,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
             font-family: ${outfit.style.fontFamily};
           }
         `}</style>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        {getLayout(<Component {...pageProps} />)}
         <Analytics />
         <SpeedInsights />
       </ThemeProvider>
