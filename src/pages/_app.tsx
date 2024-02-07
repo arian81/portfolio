@@ -32,16 +32,11 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class">
         <Head>
-          <script
+          {/* <script
             async
             crossOrigin="anonymous"
             src="https://pep.dev/pep.js#Tu9mVg8m"
-          ></script>
-          <script
-            async
-            crossOrigin="anonymous"
-            src="https://pep.dev/pep.js#Tu9mVg8m"
-          ></script>
+          ></script> */}
           <meta
             name="description"
             content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."

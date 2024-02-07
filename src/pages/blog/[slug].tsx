@@ -5,16 +5,43 @@ import { NextPageWithLayout } from "../_app";
 import { ReactElement } from "react";
 import Layout from "~/components/Layout";
 import { z } from "zod";
+import { PortableText } from "@portabletext/react";
+import NextImage from "next/image";
+import { urlForImage } from "../../../sanity/lib/image";
+import type { Image } from "sanity";
+import ImageModal from "~/components/ImageModal";
 
 const BlogPost: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ post }) => {
   return (
-    <div className="m-auto  flex h-[35rem]  w-[35rem] justify-center border-2 border-red-600">
-      <h1 className="p-5 text-3xl font-bold text-[#592407]">{post.title}</h1>
-      {/* <body className="p-5">{post.body}</body> */}
+    <div className="m-auto flex flex-col items-center justify-center gap-5 pt-10">
+      <div className="flex w-full justify-center">
+        <div className=" rounded-lg p-5 text-2xl font-bold text-[#592407]">
+          {post.title}
+        </div>
+      </div>
+      <div className=" rounded-lg bg-white">
+        <div className="prose p-5">
+          <PortableText
+            value={post.body}
+            components={myPortableTextComponents}
+          />
+        </div>
+      </div>
     </div>
   );
+};
+
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }: { value: Image }) => {
+      return (
+        // <NextImage src={urlForImage(value)} alt="" width={1000} height={1000} />
+        <ImageModal imageUrl={urlForImage(value)} />
+      );
+    },
+  },
 };
 
 BlogPost.getLayout = function getLayout(page: ReactElement) {

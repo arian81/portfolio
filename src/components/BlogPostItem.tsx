@@ -30,7 +30,7 @@ const BlogPostItem: React.FC<BlogPostItemProp> = ({
       {mainImage && (
         <img
           src={urlForImage(mainImage)}
-          className="pointer-events-none fixed left-0 top-0 z-[-1] h-screen w-screen object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
+          className="pointer-events-none fixed left-0 top-0 z-[-3] h-screen w-screen object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
         />
       )}
 
