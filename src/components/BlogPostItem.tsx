@@ -17,25 +17,21 @@ const BlogPostItem: React.FC<BlogPostItemProp> = ({
   summary,
 }) => {
   return (
-    // <a href={url}>
-    //   <div className="flex h-36 w-1/2 flex-col gap-3 rounded-[0rem_5rem_5rem_0rem] bg-[#FFF1DF] p-5 shadow-[rgba(0,0,0,0.2)_0.5rem_0.5rem]">
-    //     <h1 className=" text-2xl font-bold">{title}</h1>
-    //     <h2 className="line-clamp-2 pl-3">{summary}</h2>
-    //   </div>
-    // </a>
     <a
       href={"/blog/" + url}
-      className="group flex h-36 w-1/2 flex-col gap-3 rounded-[0rem_5rem_5rem_0rem] bg-[#FFF1DF] p-5 shadow-[rgba(0,0,0,0.2)_0.5rem_0.5rem] transition-all hover:w-2/3 hover:pl-24"
+      className="flex flex-col gap-3 bg-[#FFF1DF] p-5 dark:bg-[rgba(255,241,215,0.8)] md:h-36 md:w-3/4 md:rounded-[0rem_5rem_5rem_0rem] md:shadow-[rgba(0,0,0,0.2)_0.5rem_0.5rem] md:transition-all md:hover:w-2/3 md:hover:pl-24  lg:w-1/2"
     >
-      {mainImage && (
+      {/* {mainImage && (
         <img
           src={urlForImage(mainImage)}
           className="pointer-events-none fixed left-0 top-0 z-[-3] h-screen w-screen object-cover opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100"
         />
-      )}
+      )} */}
 
-      <h1 className="text-2xl font-bold text-[#592407]">{title}</h1>
-      <h2 className="line-clamp-2 pr-16">{summary}</h2>
+      <h1 className="font-bold text-[#592407] dark:text-black md:text-xl">
+        {title}
+      </h1>
+      <h2 className="text-ellipsis text-sm md:pr-16">{summary}</h2>
     </a>
   );
 };

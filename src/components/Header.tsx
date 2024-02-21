@@ -9,7 +9,7 @@ export default function Header() {
         <div className="w-8 dark:text-orange-200 dark:opacity-80 md:w-12">
           <a
             aria-label="Arian Ahmadinejad Logo"
-            href="./"
+            href="/"
             className="text-[#592406] dark:text-orange-200 dark:opacity-80"
           >
             <Logo className="stroke-[#592406] dark:stroke-orange-200 dark:opacity-80" />

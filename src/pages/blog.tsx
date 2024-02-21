@@ -31,7 +31,7 @@ const Blog: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ posts }) => {
   return (
-    <div className="relative z-10 flex w-full flex-col gap-10  p-2 pt-16">
+    <div className="relative z-10 flex w-full flex-col gap-5 py-16 md:gap-10 md:p-2 md:py-24">
       {posts.map((post: Post, index: number) => (
         <BlogPostItem
           title={post.title}

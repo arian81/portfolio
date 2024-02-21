@@ -17,11 +17,11 @@ const BlogPost: NextPageWithLayout<
   return (
     <div className="m-auto flex flex-col items-center justify-center gap-5 pt-10">
       <div className="flex w-full justify-center">
-        <div className=" rounded-lg p-5 text-2xl font-bold text-[#592407]">
+        <div className=" rounded-lg p-5 text-2xl font-bold text-[#592407] dark:text-white">
           {post.title}
         </div>
       </div>
-      <div className=" rounded-lg bg-white">
+      <div className=" bg-white md:rounded-lg">
         <div className="prose p-5">
           <PortableText
             value={post.body}
