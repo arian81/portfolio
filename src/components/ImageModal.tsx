@@ -14,18 +14,18 @@ const ImageModal = ({ imageUrl }: { imageUrl: string }) => {
         className="cursor-pointer"
       />
       <dialog ref={modalRef} className="modal">
-        <div className="relative aspect-square h-auto w-full md:h-full md:w-auto">
+        <div className="relative h-full w-full">
           <Image
             src={imageUrl}
             alt="me"
             fill={true}
             style={{ objectFit: "contain" }}
             loading="lazy"
-            className="z-[-100] p-5 md:p-10"
+            className="z-[-100] m-0 p-20"
           />
-          <div className="flex justify-center p-2">
+          <div className="flex h-full items-end justify-center p-16">
             <button
-              className="btn join-item btn-sm m-5 md:btn-md md:m-10"
+              className="btn border border-sky-950 px-8 transition-all hover:border-2 hover:border-sky-900"
               onClick={() => modalRef.current?.close()}
             >
               Close
