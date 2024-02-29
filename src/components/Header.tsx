@@ -2,8 +2,11 @@ import Info from "./Info";
 import Logo from "../logos/LogoIcon";
 import ThemeToggle from "./ThemeToggle";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { clsx } from "clsx";
 
 export default function Header() {
+  const router = useRouter();
   return (
     <div className="p-2">
       <div className="flex justify-between">
@@ -16,25 +19,38 @@ export default function Header() {
             <Logo className="stroke-[#592406] dark:stroke-orange-200 dark:opacity-80" />
           </Link>
         </div>
-        {/* <Info /> */}
-        <div className="join">
+        <div role="tablist" className="tabs tabs-bordered tabs-lg ">
           <Link
             href="/projects"
-            className="btn btn-outline join-item w-24 rounded-l-full border-[3px] border-[#592407] text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+            role="tab"
+            className={clsx(
+              "tab hover:rounded-3xl hover:bg-[#592407] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
+              router.route === "/projects" &&
+                "tab-active dark:!border-opacity-100",
+            )}
           >
             Projects
           </Link>
           <Link
             href="/blog"
-            className="btn btn-outline join-item w-24 rounded-l-full border-[3px] border-x-0 border-[#592407] text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+            role="tab"
+            className={clsx(
+              "tab hover:rounded-3xl hover:bg-[#592407] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
+              router.route === "/blog" && "tab-active dark:!border-opacity-100",
+            )}
           >
             Blog
           </Link>
           <Link
             href="/whoami"
-            className="btn btn-outline join-item w-24 rounded-r-full border-[3px] border-[#592407] text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
+            role="tab"
+            className={clsx(
+              "tab hover:rounded-3xl hover:bg-[rgb(89,36,7)] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
+              router.route === "/whoami" &&
+                "tab-active dark:!border-opacity-100",
+            )}
           >
-            Whoami
+            whoami
           </Link>
         </div>
         <div className="w-10 md:w-12">

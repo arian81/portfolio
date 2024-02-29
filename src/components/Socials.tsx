@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import DevpostIcon from "~/logos/DevpostIcon";
 import DiscordIcon from "~/logos/DiscordIcon";
 import EmailIcon from "~/logos/EmailIcon";
