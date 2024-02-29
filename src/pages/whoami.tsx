@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { ReactElement } from "react";
 import Layout from "~/components/Layout";
 import { Inconsolata, Noto_Emoji } from "next/font/google";
-import { Icon } from "@iconify-icon/react";
 
 const inconsolata = Inconsolata({ subsets: ["latin"] });
 const emoji = Noto_Emoji({ subsets: ["emoji"] });
