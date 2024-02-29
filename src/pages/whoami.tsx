@@ -8,12 +8,13 @@ const emoji = Noto_Emoji({ subsets: ["emoji"] });
 
 const About = () => {
   return (
-    <div className="m-auto flex h-full w-full items-start justify-center gap-5">
+    <div className="m-auto flex h-full w-full flex-col items-center justify-center gap-5 md:flex-row md:items-start">
       <Image
         src="/images/profile.svg"
         alt="Arian Ahmadinejad"
         width={300}
         height={300}
+        sizes="100vw"
         className="rounded-3xl bg-[#FFF1DF] outline outline-4 outline-black"
       ></Image>
       <div className={inconsolata.className}>

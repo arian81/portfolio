@@ -19,14 +19,15 @@ export default function Header() {
             <Logo className="stroke-[#592406] dark:stroke-orange-200 dark:opacity-80" />
           </Link>
         </div>
-        <div role="tablist" className="tabs tabs-bordered tabs-lg ">
+        <div role="tablist" className="tabs tabs-bordered tabs-sm md:tabs-lg ">
           <Link
             href="/projects"
             role="tab"
             className={clsx(
-              "tab hover:rounded-3xl hover:bg-[#592407] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
-              router.route === "/projects" &&
-                "tab-active dark:!border-opacity-100",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              router.route === "/projects"
+                ? "tab-active dark:!border-opacity-100"
+                : "dark:!border-opacity-30",
             )}
           >
             Projects
@@ -35,8 +36,10 @@ export default function Header() {
             href="/blog"
             role="tab"
             className={clsx(
-              "tab hover:rounded-3xl hover:bg-[#592407] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
-              router.route === "/blog" && "tab-active dark:!border-opacity-100",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              router.route === "/blog"
+                ? "tab-active dark:!border-opacity-100"
+                : "dark:!border-opacity-30",
             )}
           >
             Blog
@@ -45,9 +48,10 @@ export default function Header() {
             href="/whoami"
             role="tab"
             className={clsx(
-              "tab hover:rounded-3xl hover:bg-[rgb(89,36,7)] hover:text-white dark:!border-orange-200 dark:!border-opacity-50 dark:text-orange-200 dark:text-opacity-80 dark:hover:bg-[#ccc] dark:hover:text-black",
-              router.route === "/whoami" &&
-                "tab-active dark:!border-opacity-100",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              router.route === "/whoami"
+                ? "tab-active dark:!border-opacity-100"
+                : "dark:!border-opacity-30",
             )}
           >
             whoami
