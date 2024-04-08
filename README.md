@@ -17,8 +17,8 @@ My personal website built with T3 Stack (Next.js, TypeScript and TailwindCSS). L
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
+| Command            | Action                                       |
+| :----------------- | :------------------------------------------- |
 | `pnpm install`     | Installs dependencies                        |
 | `pnpm run dev`     | Starts local dev server at `localhost:3000`  |
 | `pnpm run build`   | Build your production site to `./dist/`      |
@@ -26,4 +26,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## Feedback
 
-If you have any feedback, please reach out at [hello@arian.gg](mailto:hello@arian.gg)
+If you have any feedback, please reach out at [hey@arian.gg](mailto:hey@arian.gg)

@@ -20,7 +20,7 @@ const socialsData = [
     icon: <GithubIcon className="stroke-[#592406] dark:stroke-[#ccc]" />,
   },
   {
-    link: "mailto:hello@arian.gg",
+    link: "mailto:hey@arian.gg",
     label: "Email",
     icon: <EmailIcon className="stroke-[#592406] dark:stroke-[#ccc]" />,
   },
