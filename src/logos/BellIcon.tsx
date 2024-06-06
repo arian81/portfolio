@@ -1,6 +1,6 @@
 export default function BellIcon({ className }: { className: string }) {
   return (
-    <div className="w-5 p-1 ml-1">
+    <div className={className}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="100%"
