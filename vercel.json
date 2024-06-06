@@ -1,9 +1,12 @@
 {
-    "rewrites": [
-      {
-        "source": "/pep-sw.js",
-        "destination": "https://pep.dev/pep-sw.js"
-      }
-    ]
+  "rewrites": [
+    {
+      "source": "/pep-sw.js",
+      "destination": "https://pep.dev/pep-sw.js"
+    },
+    {
+      "source": "/resume",
+      "destination": "/resume.pdf"
+    }
+  ]
 }
-  

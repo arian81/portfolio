@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import DevpostIcon from "~/logos/DevpostIcon";
 import DiscordIcon from "~/logos/DiscordIcon";
 import EmailIcon from "~/logos/EmailIcon";
@@ -60,7 +59,7 @@ export default function Socials() {
         //     {social.icon}
         //   </a>
         // </div>
-        <div className="basis-1/3 md:basis-auto">
+        <div className="basis-1/3 md:basis-auto" key={index}>
           <a href={social.link} aria-label={social.label}>
             {social.icon}
           </a>
