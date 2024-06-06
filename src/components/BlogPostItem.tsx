@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
 
 const BlogPostItemSchema = z.object({

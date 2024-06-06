@@ -1,15 +1,13 @@
-import ProjectGridItem from "~/components/ProjectGridItem";
+import ProjectGridItem from "./ProjectGridItem";
 import { client } from "../../sanity/lib/client";
 import { z } from "zod";
 import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { NextPageWithLayout } from "~/pages/_app";
-import Layout from "~/components/Layout";
-import { ReactElement, useState } from "react";
 
 const ProjectSchema = z.object({
   title: z.string(),
   description: z.string(),
-  projectUrl: z.string().url(),
+  url: z.string().url(),
   thumbnail: z.any().nullable(),
   stack: z.array(
     z.object({
@@ -31,31 +29,22 @@ const Projects: NextPageWithLayout<
       className="container mx-auto space-y-6 px-4 py-8 dark:bg-transparent md:py-12 lg:py-20"
     >
       <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        {projects.map((project: Project, index: number) => (
-          <ProjectGridItem
-            title={project.title}
-            thumbnail={project.thumbnail}
-            description={project.description}
-            projectUrl={project.projectUrl}
-            key={index}
-          />
-        ))}
+        {
+          /* {gridItems.map((item, index) => (
+          <ProjectGridItem key={index} {...item} />
+        ))} */
+          projects.map()
+        }
       </div>
     </div>
   );
 };
 
-Projects.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
-
-//  satisfies GetStaticProps<{ projects: Project[] }>;
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const postsQuery = `*[_type == "project"]{
     title,
     slug,
     thumbnail,
-    "projectUrl": project_url,
     description,
     stack[]->{
       name,
@@ -63,14 +52,13 @@ export const getStaticProps = async () => {
       icon
     }
   }`;
-
-  const projects = ProjectSchema.array().parse(await client.fetch(postsQuery));
+  const projects = ProjectSchema.parse(await client.fetch(postsQuery));
 
   return {
     props: {
       projects,
     },
   };
-};
+}) satisfies GetStaticProps<{ projects: Project[] }>;
 
-export default Projects;
+export default ProjectItem;
