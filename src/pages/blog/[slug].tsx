@@ -22,7 +22,7 @@ const BlogPost: NextPageWithLayout<
         </div>
       </div>
       <div className=" bg-white md:rounded-lg">
-        <div className="prose p-5">
+        <div className="prose w-screen p-5">
           <PortableText
             value={post.body}
             components={myPortableTextComponents}
