@@ -4,7 +4,7 @@ import { env } from "../env.mjs";
 const CurrentlyPlaying = () => {
   const lastFM = useLastFM(
     env.NEXT_PUBLIC_LASTFM_USERNAME,
-    env.NEXT_PUBLIC_LASTFM_TOKEN
+    env.NEXT_PUBLIC_LASTFM_TOKEN,
   );
   const [ready, setReady] = useState(false);
 
@@ -24,6 +24,7 @@ const CurrentlyPlaying = () => {
       ></a>
     );
   }
+  console.log(lastFM.song.url);
 
   return (
     <a
