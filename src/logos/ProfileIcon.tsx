@@ -34,10 +34,10 @@ const ProfileIcon = ({ className }: { className?: string }) => {
         />
         <path
           stroke="#000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="5.126"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="5.126"
           d="M60.2 340.4s-.9-22.3-3.9-28.3m180.4-21.5s5.6 31.4 3.4 49.8m-19.5-19.6s-14.8 2.2-27.8 1.6"
         />
         <path
