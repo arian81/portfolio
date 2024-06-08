@@ -20,7 +20,7 @@ const About = () => {
         <div className="relative hidden aspect-square w-24 lg:block lg:w-64">
           <ProfileIcon className="rounded-xl bg-[#FFF1DF]" />
         </div>
-        <div className="">
+        <div>
           <div className="flex gap-4">
             <div className="relative aspect-square w-24 lg:hidden lg:w-64">
               <ProfileIcon className="rounded-xl bg-[#FFF1DF]" />
@@ -31,8 +31,9 @@ const About = () => {
               <div className="text-2xl lg:text-5xl"> Ahmadinejad</div>
             </h1>
           </div>
-          <div className="flex flex-col gap-5  pt-10 text-lg  dark:text-white">
-            <div>
+          <ul className="pt-5 text-lg dark:text-white">
+            <li className="py-2">
+              <span className={emoji.className}>🎓 </span>
               I'm a{" "}
               <span
                 className="tooltip underline"
@@ -41,28 +42,56 @@ const About = () => {
               >
                 2.5 year
               </span>{" "}
-              <span className={emoji.className}>🎓</span>computer science
-              student from <span className={emoji.className}>🏫</span>McMaster
-              University.{" "}
-            </div>
-            <div className="">
-              <span>
-                Working as a software engineer on generative ai products @{" "}
-                <BellIcon className="inline-block h-7 w-7 text-black dark:text-[#CCC] lg:h-12 lg:w-12" />
-              </span>
-              {/* <span className="ml-5">.</span> */}
+              computer science student from McMaster University.
+            </li>
+            <li className="py-2">
+              <span className={emoji.className}>💼 </span>
+              Working as a software engineer on generative ai products at Bell
+              Canada.
+            </li>
+            <li className="py-2">
+              <span className={emoji.className}>🚴 </span>I love riding bikes
+              after a full day of work as it lets me clear my head and relax.
+            </li>
+            <li className="py-2">
+              <span className={emoji.className}>🦀 </span>
+              Currently learning Rust and how to make a{" "}
+              <a href="https://craftinginterpreters.com/" className="underline">
+                programming language.
+              </a>
+            </li>
+          </ul>
+
+          {/* <div className="flex flex-col gap-2  pt-10 text-lg  dark:text-white">
+            <div>
+              <span className={emoji.className}>🎓 </span>
+              I'm a{" "}
+              <span
+                className="tooltip underline"
+                data-tip="I've been on co-op for the
+      past year after I finished 2nd year"
+              >
+                2.5 year
+              </span>{" "}
+              computer science student from McMaster University.
             </div>
             <div>
-              I love riding <span className={emoji.className}>🚴</span>bikes
+              <span className={emoji.className}>💼 </span>
+              Working as a software engineer on generative ai products at Bell
+              Canada.
+            </div>
+            <div>
+              <span className={emoji.className}>🚴 </span>I love riding bikes
               after a full day of work as it lets me clear my head and relax.
-              <br></br>
-              Currently learning <span className={emoji.className}>🦀</span>Rust
-              and how to make a{" "}
+            </div>
+            <div>
+              <span className={emoji.className}>🦀 </span>
+              Currently learning Rust and how to make a{" "}
               <a href="https://craftinginterpreters.com/" className="underline">
                 programming language.
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
