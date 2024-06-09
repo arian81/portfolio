@@ -11,6 +11,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "~/styles/globals.css";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
+import "easymde/dist/easymde.min.css";
+// import "../styles/github-dark.css";
+// import "../styles/isbl-editor-dark.css";
+import "../styles/catppuccin-frape.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
 

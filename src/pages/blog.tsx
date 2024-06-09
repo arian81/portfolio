@@ -9,7 +9,7 @@ import BlogPostItem from "~/components/BlogPostItem";
 export const PostSchema = z.object({
   title: z.string(),
   url: z.string(),
-  body: z.array(z.any()), // god knows how to type this
+  // body: z.array(z.any()), // god knows how to type this
   mainImage: z.any().nullable(), // god knows how to type this
   summary: z.string().max(150),
   categories: z
@@ -20,6 +20,7 @@ export const PostSchema = z.object({
       }),
     )
     .nullable(),
+  body: z.string(),
 });
 
 export const PostsSchema = z.array(PostSchema);

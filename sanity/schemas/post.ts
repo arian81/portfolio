@@ -52,10 +52,17 @@ export default defineType({
       type: "string",
       validation: (Rule) => Rule.required().max(150),
     }),
+    // defineField({
+    //   name: "body",
+    //   title: "Body",
+    //   type: "blockContent",
+    //   validation: (Rule) => Rule.required(),
+    // }),
     defineField({
       name: "body",
       title: "Body",
-      type: "blockContent",
+      type: "markdown",
+      description: "A Github flavored markdown field with image uploading",
       validation: (Rule) => Rule.required(),
     }),
   ],
