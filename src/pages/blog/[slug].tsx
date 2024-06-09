@@ -10,6 +10,12 @@ import NextImage from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import type { Image } from "sanity";
 import ImageModal from "~/components/ImageModal";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+
+const markdown =
+  "``` js\nvar foo = function (bar) {\n  return bar++;\n};\n\nconsole.log(foo(5));\n ```\n Just a link: www.nasa.gov.";
 
 const BlogPost: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -22,11 +28,20 @@ const BlogPost: NextPageWithLayout<
         </div>
       </div>
       <div className=" bg-white md:rounded-lg">
-        <div className="prose w-screen p-5">
+        {/* <div className="prose w-screen p-5">
           <PortableText
             value={post.body}
             components={myPortableTextComponents}
           />
+        </div>
+        < */}
+        <div className="prose w-screen p-5">
+          <Markdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
+          >
+            {post.body}
+          </Markdown>
         </div>
       </div>
     </div>
