@@ -12,6 +12,7 @@
     "@formkit/auto-animate": "^0.8.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@portabletext/react": "^3.0.11",
+    "@r4ai/remark-callout": "^0.3.4",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.25.0",
     "@tailwindcss/typography": "^0.5.10",

@@ -17,6 +17,9 @@ importers:
       '@portabletext/react':
         specifier: ^3.0.11
         version: 3.0.11(react@18.2.0)
+      '@r4ai/remark-callout':
+        specifier: ^0.3.4
+        version: 0.3.4
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.0.2
@@ -792,6 +795,10 @@ packages:
   '@portabletext/types@2.0.8':
     resolution: {integrity: sha512-eiq9/kMX2bYezS4/kLFk3xNnruCFjCDdw6aYEv5ECHVKkYROiuLd3/AsP5d7tWF3+kPPy6tB0Wq8aqDG/URHGA==}
     engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
+
+  '@r4ai/remark-callout@0.3.4':
+    resolution: {integrity: sha512-Z4fj4FoLb8zj4i4D72R6UXPwj6cUiUon+kb1IDMEsVEYDtkPHAZuiRfasNvFqN6jVAzQsVdGjn/5x2CKZ7dm/Q==}
+    engines: {node: '>=16'}
 
   '@rexxars/react-json-inspector@8.0.1':
     resolution: {integrity: sha512-XAsgQwqG8fbDGpWnsvOesRMgPfvwuU7Cx3/cUf/fNIRmGP8lj2YYIf5La/4ayvZLWlSw4tTb4BPCKdmK9D8RuQ==}
@@ -1710,6 +1717,9 @@ packages:
   define-properties@1.2.1:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
+
+  defu@6.1.4:
+    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -4812,6 +4822,11 @@ snapshots:
 
   '@portabletext/types@2.0.8': {}
 
+  '@r4ai/remark-callout@0.3.4':
+    dependencies:
+      defu: 6.1.4
+      unist-util-visit: 5.0.0
+
   '@rexxars/react-json-inspector@8.0.1(react@18.2.0)':
     dependencies:
       create-react-class: 15.7.0
@@ -5906,6 +5921,8 @@ snapshots:
       define-data-property: 1.1.1
       has-property-descriptors: 1.0.1
       object-keys: 1.1.1
+
+  defu@6.1.4: {}
 
   delayed-stream@1.0.0: {}
 
