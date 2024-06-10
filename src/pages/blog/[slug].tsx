@@ -14,7 +14,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjax from "rehype-mathjax";
 
 const markdown =
   "``` js\nvar foo = function (bar) {\n  return bar++;\n};\n\nconsole.log(foo(5));\n ```\n Just a link: www.nasa.gov.";
@@ -40,7 +40,7 @@ const BlogPost: NextPageWithLayout<
         <div className="prose w-screen p-5">
           <Markdown
             remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[rehypeHighlight, rehypeKatex]}
+            rehypePlugins={[rehypeHighlight, rehypeMathjax]}
           >
             {post.body}
           </Markdown>
