@@ -15,6 +15,7 @@ import "easymde/dist/easymde.min.css";
 // import "../styles/github-dark.css";
 // import "../styles/isbl-editor-dark.css";
 import "../styles/catppuccin-frape.css";
+import "../styles/callout-style.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
