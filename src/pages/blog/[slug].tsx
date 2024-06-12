@@ -15,6 +15,7 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax";
+import remarkCallout from "@r4ai/remark-callout";
 
 const markdown =
   "``` js\nvar foo = function (bar) {\n  return bar++;\n};\n\nconsole.log(foo(5));\n ```\n Just a link: www.nasa.gov.";
@@ -39,7 +40,7 @@ const BlogPost: NextPageWithLayout<
         < */}
         <div className="prose w-screen p-5">
           <Markdown
-            remarkPlugins={[remarkGfm, remarkMath]}
+            remarkPlugins={[remarkGfm, remarkMath, remarkCallout]}
             rehypePlugins={[rehypeHighlight, rehypeMathjax]}
           >
             {post.body}
