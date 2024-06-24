@@ -60,7 +60,7 @@ export default function handler(request: NextRequest) {
             <p
               style={{
                 fontSize: "2em",
-                opacity: 0.45,
+                opacity: 0.65,
               }}
             >
               {description}
