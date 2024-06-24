@@ -43,8 +43,8 @@ const BlogPost: NextPageWithLayout<
   return (
     <>
       <Head>
-        <title>{`Arian's blog • ${post.title}`}</title>
-        <meta property="og:title" content={`Arian's blog • ${post.title}`} />
+        <title>{`Arian's blog | ${post.title}`}</title>
+        <meta property="og:title" content={`Arian's blog | ${post.title}`} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={post.summary} />
         <meta property="og:url" content={`https://arian.gg/blog/${post.url}`} />
