@@ -5,6 +5,7 @@ import { NextPageWithLayout } from "./_app";
 import { ReactElement } from "react";
 import Layout from "~/components/Layout";
 import BlogPostItem from "~/components/BlogPostItem";
+import CustomHead from "~/components/CustomHead";
 
 export const PostSchema = z.object({
   title: z.string(),
@@ -33,17 +34,20 @@ const Blog: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ posts }) => {
   return (
-    <div className="relative z-10 flex w-full flex-col gap-5 py-16 md:gap-10 md:p-2 md:py-24">
-      {posts.map((post: Post, index: number) => (
-        <BlogPostItem
-          title={post.title}
-          url={post.url}
-          summary={post.summary}
-          key={index}
-          mainImage={post.mainImage}
-        ></BlogPostItem>
-      ))}
-    </div>
+    <>
+      <CustomHead />
+      <div className="relative z-10 flex w-full flex-col gap-5 py-16 md:gap-10 md:p-2 md:py-24">
+        {posts.map((post: Post, index: number) => (
+          <BlogPostItem
+            title={post.title}
+            url={post.url}
+            summary={post.summary}
+            key={index}
+            mainImage={post.mainImage}
+          ></BlogPostItem>
+        ))}
+      </div>
+    </>
   );
 };
 

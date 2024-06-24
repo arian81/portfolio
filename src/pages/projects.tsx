@@ -5,6 +5,7 @@ import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { NextPageWithLayout } from "~/pages/_app";
 import Layout from "~/components/Layout";
 import { ReactElement, useState } from "react";
+import CustomHead from "~/components/CustomHead";
 
 const ProjectSchema = z.object({
   title: z.string(),
@@ -26,22 +27,25 @@ const Projects: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ projects }) => {
   return (
-    <div
-      id="features"
-      className="container mx-auto space-y-6 px-4 py-8 dark:bg-transparent md:py-12 lg:py-20"
-    >
-      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-        {projects.map((project: Project, index: number) => (
-          <ProjectGridItem
-            title={project.title}
-            thumbnail={project.thumbnail}
-            description={project.description}
-            projectUrl={project.projectUrl}
-            key={index}
-          />
-        ))}
+    <>
+      <CustomHead />
+      <div
+        id="features"
+        className="container mx-auto space-y-6 px-4 py-8 dark:bg-transparent md:py-12 lg:py-20"
+      >
+        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          {projects.map((project: Project, index: number) => (
+            <ProjectGridItem
+              title={project.title}
+              thumbnail={project.thumbnail}
+              description={project.description}
+              projectUrl={project.projectUrl}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
