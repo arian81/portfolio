@@ -21,6 +21,7 @@ export const PostSchema = z.object({
     )
     .nullable(),
   body: z.string(),
+  publishedAt: z.string(),
 });
 
 export const PostsSchema = z.array(PostSchema);
@@ -61,6 +62,7 @@ export const getStaticProps = (async () => {
             name,
             description
         },
+        publishedAt
       }
         `;
   const posts = PostsSchema.parse(await client.fetch(postsQuery));
