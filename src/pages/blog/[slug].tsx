@@ -38,8 +38,6 @@ const BlogPost: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ post }) => {
   const ogImageUrl = `https://arian.gg/api/og?title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.summary)}&publishTime=${encodeURIComponent(formatDate(post.publishedAt ?? ""))}`;
-  console.log("og image url", ogImageUrl);
-  console.log("post url", post.url);
   return (
     <>
       <Head>
@@ -48,6 +46,8 @@ const BlogPost: NextPageWithLayout<
         <meta property="og:type" content="website" />
         <meta property="og:description" content={post.summary} />
         <meta property="og:url" content={`https://arian.gg/blog/${post.url}`} />
+        <meta property="description" content={post.summary} />
+        <meta property="og:site_name" content="Arian's Blog"></meta>
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="arian.gg" />
@@ -55,6 +55,7 @@ const BlogPost: NextPageWithLayout<
           property="twitter:url"
           content={`https://arian.gg/blog/${post.url}`}
         />
+        <meta property="twitter:title" content={post.title}></meta>
         <meta property="twitter:description" content={post.summary} />
 
         <meta name="robots" content="index, follow" />

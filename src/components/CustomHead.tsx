@@ -20,6 +20,7 @@ const CustomHead = () => {
         content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."
       />
       <meta property="og:image" content="https://arian.gg/assets/meta.png" />
+      <meta property="og:site_name" content="Arian's Portfolio"></meta>
 
       {/* <!-- Twitter Meta Tags --> */}
       <meta name="twitter:card" content="summary_large_image" />
