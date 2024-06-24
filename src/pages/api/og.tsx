@@ -12,7 +12,7 @@ export default function handler(request: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : "krish's blog";
+      : "Arian's blog";
 
     const hasPublishTime = searchParams.has("publishTime");
     const publishTime = hasPublishTime
