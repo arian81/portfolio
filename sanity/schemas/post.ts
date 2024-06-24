@@ -78,4 +78,7 @@ export default defineType({
       return { ...selection, subtitle: summary };
     },
   },
+  initialValue: {
+    publishedAt: new Date().toISOString(),
+  },
 });
