@@ -24,7 +24,6 @@ const CurrentlyPlaying = () => {
       ></a>
     );
   }
-  console.log(lastFM.song.url);
 
   return (
     <a
