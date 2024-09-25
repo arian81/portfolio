@@ -12,7 +12,7 @@
 \RequirePackage{csquotes}
 
 % MARGINS AND SPACING
-\RequirePackage[margin=.5in, top=.5in, bottom=1in]{geometry} % Set Margins
+\RequirePackage[margin=.5in, top=.3in, bottom=0.3in]{geometry} % Set Margins
 \raggedright % left align no indent
 \raggedbottom % top align no indent
 
@@ -56,8 +56,8 @@
 % tighter spacing than itemize
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}{
-\begin{itemize} \itemsep 0pt \parskip 0pt \parsep 1pt}
-{\end{itemize}\vspace{-.5em}}
+  \begin{itemize} \itemsep 0pt \parskip 0pt \parsep 1pt}
+    {\end{itemize}\vspace{-.5em}}
 
 % NO PAGE NUMBER
 \pagenumbering{gobble}
