@@ -1,5 +1,6 @@
 import React from "react";
 import { urlForImage } from "../../sanity/lib/image";
+import Link from "next/link";
 
 const ProjectGridItem = ({
   thumbnail,
@@ -13,7 +14,7 @@ const ProjectGridItem = ({
   projectUrl: string;
 }) => {
   return (
-    <a href={projectUrl}>
+    <Link href={projectUrl}>
       <div className="relative ">
         <div className="group absolute inset-0 z-10 flex items-center justify-center  rounded-lg hover:bg-black hover:bg-opacity-50 hover:backdrop-blur-sm dark:hover:bg-white dark:hover:bg-opacity-60">
           <div className="hidden p-5 text-center group-hover:block">
@@ -22,7 +23,7 @@ const ProjectGridItem = ({
         </div>
         <img src={urlForImage(thumbnail)} className="rounded-lg" alt="" />
       </div>
-    </a>
+    </Link>
   );
 };
 

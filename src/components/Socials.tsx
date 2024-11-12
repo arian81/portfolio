@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DevpostIcon from "~/logos/DevpostIcon";
 import DiscordIcon from "~/logos/DiscordIcon";
 import EmailIcon from "~/logos/EmailIcon";
@@ -60,9 +61,9 @@ export default function Socials() {
         //   </a>
         // </div>
         <div className="basis-1/3 md:basis-auto" key={index}>
-          <a href={social.link} aria-label={social.label}>
+          <Link href={social.link} aria-label={social.label}>
             {social.icon}
-          </a>
+          </Link>
         </div>
       ))}
     </div>
