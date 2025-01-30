@@ -48,7 +48,7 @@ const About = () => {
             </li>
             <li className="py-2">
               <span className={emoji.className}>💼 </span>
-              Working as a software engineer on generative ai products at Bell
+              Previously a software engineer on generative ai products at Bell
               Canada.
             </li>
             <li className="py-2">
@@ -56,11 +56,8 @@ const About = () => {
               after a full day of work as it lets me clear my head and relax.
             </li>
             <li className="py-2">
-              <span className={emoji.className}>🦀 </span>
-              Currently learning Rust and how to make a{" "}
-              <a href="https://craftinginterpreters.com/" className="underline">
-                programming language.
-              </a>
+              <span className={emoji.className}>🔥 </span>
+              Currently learning about tensors and pytorch.
             </li>
           </ul>
 
