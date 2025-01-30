@@ -36,15 +36,7 @@ const About = () => {
           <ul className="pt-5 text-lg dark:text-white">
             <li className="py-2">
               <span className={emoji.className}>🎓 </span>
-              I'm a{" "}
-              <span
-                className="tooltip underline"
-                data-tip="I've been on co-op for the
-      past year after I finished 2nd year"
-              >
-                2.5 year
-              </span>{" "}
-              computer science student from McMaster University.
+              I'm a 3rd year computer science student from McMaster University.
             </li>
             <li className="py-2">
               <span className={emoji.className}>💼 </span>
