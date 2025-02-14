@@ -23,6 +23,7 @@ export const PostSchema = z.object({
     .nullable(),
   body: z.string(),
   publishedAt: z.string(),
+  hidden: z.boolean().optional(),
 });
 
 export const PostsSchema = z.array(PostSchema);
@@ -56,19 +57,19 @@ Blog.getLayout = function getLayout(page: ReactElement) {
 };
 
 export const getStaticProps = (async () => {
-  const postsQuery = `*[_type == "post"] | order(_createdAt desc) {
-        title,
-        "url": slug.current,
-        body,
-        mainImage,
-        summary,
-        categories[]->{
-            name,
-            description
-        },
-        publishedAt
-      }
-        `;
+  const postsQuery = `*[_type == "post" && (!defined(hidden) || hidden == false)] | order(_createdAt desc) {
+    title,
+    "url": slug.current,
+    body,
+    mainImage,
+    summary,
+    categories[]->{
+        name,
+        description
+    },
+    publishedAt,
+    hidden
+  }`;
   const posts = PostsSchema.parse(await client.fetch(postsQuery));
 
   return {
