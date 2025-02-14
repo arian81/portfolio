@@ -6,6 +6,13 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
+      name: "hidden",
+      title: "Hidden",
+      type: "boolean",
+      description: "Hide this post from the main blog listing",
+      initialValue: false,
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
@@ -20,6 +27,7 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+
     defineField({
       name: "mainImage",
       title: "Main image",
