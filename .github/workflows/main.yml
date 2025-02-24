@@ -17,7 +17,7 @@ jobs:
           working_directory: ./resume
           root_file: resume.tex
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: resume.pdf
           path: ./resume/resume.pdf
