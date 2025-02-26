@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "pnpm run gen-resume && next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "gen-resume": "tsc scripts/generate-resume-data.ts --outDir dist && node dist/generate-resume-data.js"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
