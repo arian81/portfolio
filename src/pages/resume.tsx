@@ -22,10 +22,10 @@ const Resume: NextPageWithLayout = () => {
       </Head>
       <CustomHead />
 
-      <div className="container mx-auto py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
+      <div className="container mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-8">
           {/* Sidebar - Personal Info */}
-          <aside className="h-fit rounded-xl bg-white p-6 shadow-md dark:bg-gray-800 md:col-span-4 lg:col-span-3">
+          <aside className="h-fit rounded-md bg-white p-4 shadow-md dark:bg-gray-800 md:col-span-4 md:rounded-xl md:p-6 lg:col-span-3">
             <div className="flex flex-col items-center">
               {/* Avatar */}
               <div className="mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-[#592407] dark:border-orange-200 dark:border-opacity-20">
@@ -278,7 +278,7 @@ const Resume: NextPageWithLayout = () => {
           </aside>
 
           {/* Main Content */}
-          <main className="rounded-xl bg-white p-8 shadow-md dark:bg-gray-800 md:col-span-8 lg:col-span-9">
+          <main className="rounded-md bg-white p-5 shadow-md dark:bg-gray-800 md:col-span-8 md:rounded-xl md:p-8 lg:col-span-9">
             {/* Resume Header with Download Button */}
             <header className="mb-8 flex flex-col justify-between border-b border-gray-200 pb-4 dark:border-gray-700 sm:flex-row sm:items-center">
               <h2 className="relative text-3xl font-bold text-gray-800 after:absolute after:bottom-0 after:left-0 after:h-1 after:w-16 after:bg-[#592407] after:content-[''] dark:text-orange-200 dark:after:bg-orange-200">
@@ -331,11 +331,11 @@ const Resume: NextPageWithLayout = () => {
                 </h3>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8">
                 {experience.map((exp, index) => (
                   <div
                     key={index}
-                    className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
+                    className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <div className="mb-3 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                       <h4 className="text-lg font-semibold text-gray-800 dark:text-orange-200">
@@ -407,11 +407,11 @@ const Resume: NextPageWithLayout = () => {
                 </h3>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
                 {projects.map((project, index) => (
                   <div
                     key={index}
-                    className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
+                    className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <h4 className="mb-2 text-lg font-semibold text-gray-800 dark:text-orange-200">
                       {project.title}
@@ -472,13 +472,13 @@ const Resume: NextPageWithLayout = () => {
                 </h3>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
                 {hackathons.map((hackathon, index) => (
                   <div
                     key={index}
-                    className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
+                    className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
-                    <div className="absolute -right-2 -top-2 rounded-full bg-[#592407] px-3 py-1 text-xs font-bold text-white dark:bg-orange-200 dark:text-gray-800">
+                    <div className="absolute right-0 top-0 rounded-bl-md rounded-tr-md bg-[#592407] px-2 py-0.5 text-xs font-bold text-white dark:bg-orange-200 dark:text-gray-800 md:-right-2 md:-top-2 md:rounded-full md:rounded-bl-lg md:px-3 md:py-1">
                       {hackathon.event}
                     </div>
                     <h4 className="mb-2 text-lg font-semibold text-gray-800 dark:text-orange-200">
