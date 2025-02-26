@@ -52,8 +52,11 @@ const Resume: NextPageWithLayout = () => {
 
             {/* Contact Information */}
             <div className="mt-6 space-y-4">
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] dark:bg-orange-200 dark:bg-opacity-20">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="flex items-start rounded-lg p-2 transition-all duration-200 hover:bg-[#592407]/5 hover:text-[#592407] dark:hover:bg-orange-200/10 dark:hover:text-orange-200"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] transition-transform duration-200 group-hover:scale-110 dark:bg-orange-200 dark:bg-opacity-20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-white dark:text-orange-200"
@@ -73,17 +76,17 @@ const Resume: NextPageWithLayout = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                     Email
                   </p>
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="break-words text-sm text-gray-800 transition-colors hover:text-[#592407] dark:text-white dark:hover:text-orange-200"
-                  >
-                    {personalInfo.email}
-                  </a>
+                  <span className="break-words text-sm text-gray-800 dark:text-white">
+                    hey@arian.gg
+                  </span>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] dark:bg-orange-200 dark:bg-opacity-20">
+              <a
+                href={personalInfo.website}
+                className="flex items-start rounded-lg p-2 transition-all duration-200 hover:bg-[#592407]/5 hover:text-[#592407] dark:hover:bg-orange-200/10 dark:hover:text-orange-200"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] transition-transform duration-200 group-hover:scale-110 dark:bg-orange-200 dark:bg-opacity-20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5 text-white dark:text-orange-200"
@@ -103,17 +106,17 @@ const Resume: NextPageWithLayout = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                     Website
                   </p>
-                  <a
-                    href={personalInfo.website}
-                    className="text-sm text-gray-800 transition-colors hover:text-[#592407] dark:text-white dark:hover:text-orange-200"
-                  >
+                  <span className="text-sm text-gray-800 dark:text-white">
                     {personalInfo.website.replace(/^https?:\/\//, "")}
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] dark:bg-orange-200 dark:bg-opacity-20">
+              <a
+                href={personalInfo.github}
+                className="flex items-start rounded-lg p-2 transition-all duration-200 hover:bg-[#592407]/5 hover:text-[#592407] dark:hover:bg-orange-200/10 dark:hover:text-orange-200"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] transition-transform duration-200 group-hover:scale-110 dark:bg-orange-200 dark:bg-opacity-20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -137,17 +140,17 @@ const Resume: NextPageWithLayout = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                     GitHub
                   </p>
-                  <a
-                    href={personalInfo.github}
-                    className="text-sm text-gray-800 transition-colors hover:text-[#592407] dark:text-white dark:hover:text-orange-200"
-                  >
+                  <span className="text-sm text-gray-800 dark:text-white">
                     {personalInfo.github.replace(/^https?:\/\//, "")}
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] dark:bg-orange-200 dark:bg-opacity-20">
+              <a
+                href={personalInfo.linkedin}
+                className="flex items-start rounded-lg p-2 transition-all duration-200 hover:bg-[#592407]/5 hover:text-[#592407] dark:hover:bg-orange-200/10 dark:hover:text-orange-200"
+              >
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#592407] transition-transform duration-200 group-hover:scale-110 dark:bg-orange-200 dark:bg-opacity-20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -171,14 +174,11 @@ const Resume: NextPageWithLayout = () => {
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                     LinkedIn
                   </p>
-                  <a
-                    href={personalInfo.linkedin}
-                    className="text-sm text-gray-800 transition-colors hover:text-[#592407] dark:text-white dark:hover:text-orange-200"
-                  >
+                  <span className="text-sm text-gray-800 dark:text-white">
                     {personalInfo.linkedin.replace(/^https?:\/\//, "")}
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Education in Sidebar */}
@@ -414,15 +414,17 @@ const Resume: NextPageWithLayout = () => {
                     className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <h4 className="mb-2 text-lg font-semibold text-gray-800 dark:text-orange-200">
-                      {project.title}
-                    </h4>
-                    <div className="mb-3">
                       <a
                         href={project.url}
-                        className="text-sm font-medium text-[#592407] hover:underline dark:text-orange-200"
+                        className="hover:text-[#592407] hover:underline dark:hover:text-orange-200"
                       >
-                        {project.subtitle}
+                        {project.title}
                       </a>
+                    </h4>
+                    <div className="mb-3">
+                      <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                        {project.subtitle}
+                      </span>
                     </div>
                     <div className="mb-4 flex flex-wrap gap-2">
                       {project.technologies.split(", ").map((tech, i) => (
@@ -482,15 +484,17 @@ const Resume: NextPageWithLayout = () => {
                       {hackathon.event}
                     </div>
                     <h4 className="mb-2 text-lg font-semibold text-gray-800 dark:text-orange-200">
-                      {hackathon.title}
-                    </h4>
-                    <div className="mb-3">
                       <a
                         href={hackathon.url}
-                        className="text-sm font-medium text-[#592407] hover:underline dark:text-orange-200"
+                        className="hover:text-[#592407] hover:underline dark:hover:text-orange-200"
                       >
-                        {hackathon.subtitle}
+                        {hackathon.title}
                       </a>
+                    </h4>
+                    <div className="mb-3">
+                      <span className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                        {hackathon.subtitle}
+                      </span>
                     </div>
                     <div className="mb-4 flex flex-wrap gap-2">
                       {hackathon.technologies.split(", ").map((tech, i) => (
