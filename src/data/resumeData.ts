@@ -82,6 +82,16 @@ export const projects = [
       "Created a minimalistic frontend using <span className=\"font-semibold\">Shadcn</span> based on enterprise diner management systems",
       "Used <span className=\"font-semibold\">Llamaindex</span> hosted on <span className=\"font-semibold\">Fastapi</span> to create an agentic system to manage diner reservations based on emails and past reviews"
     ]
+  },
+  {
+    "title": "Grassy",
+    "subtitle": "A friendly bracket robot that plays rock paper scissors",
+    "url": "https://github.com/arian81/bracket-bot-controller",
+    "technologies": "Python, Rive, Next.js, OpenCV, websockets, MQTT",
+    "achievements": [
+      "Created a frontend interface to communicate over mqtt websockets and show robot emotions through <span className=\"font-semibold\">Rive</span> animations",
+      "Implemented a tracking algorithm using <span className=\"font-semibold\">OpenCV</span> to find people and prompt them to play rock paper scissors"
+    ]
   }
 ];
 
