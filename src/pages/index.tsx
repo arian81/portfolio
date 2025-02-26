@@ -15,14 +15,14 @@ const Home: NextPageWithLayout = () => {
       <CustomHead />
       <div className="m-auto flex items-center justify-center">
         <div className="flex h-full w-full items-center justify-center">
-          <div className=" flex w-auto flex-col items-center justify-center gap-10">
+          <div className="flex w-auto flex-col items-center justify-center gap-10">
             <Whoai propogateFocus={[hideSocials, setHideSocials]} />
             {hideSocials ? null : (
               <>
                 <Socials />
                 <Link
                   className="btn btn-outline btn-lg rounded-full border-[3px] border-[#592407] text-[#592407] hover:border-transparent hover:bg-[#592407] dark:border-[#ccc] dark:text-[#ccc] dark:hover:border-[#ccc] dark:hover:bg-[#ccc] dark:hover:text-black"
-                  href="resume.pdf"
+                  href="/resume"
                 >
                   Resume
                 </Link>

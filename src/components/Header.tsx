@@ -19,12 +19,12 @@ export default function Header() {
             <Logo className="stroke-[#592406] dark:stroke-orange-200 dark:opacity-80" />
           </Link>
         </div>
-        <div role="tablist" className="tabs tabs-bordered tabs-sm md:tabs-lg ">
+        <div role="tablist" className="tabs tabs-bordered tabs-sm md:tabs-lg">
           <Link
             href="/projects"
             role="tab"
             className={clsx(
-              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80 md:hover:border-b-4 md:hover:px-4",
               router.route === "/projects"
                 ? "tab-active dark:!border-opacity-100"
                 : "dark:!border-opacity-30",
@@ -36,7 +36,7 @@ export default function Header() {
             href="/blog"
             role="tab"
             className={clsx(
-              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80 md:hover:border-b-4 md:hover:px-4",
               router.route === "/blog"
                 ? "tab-active dark:!border-opacity-100"
                 : "dark:!border-opacity-30",
@@ -48,7 +48,7 @@ export default function Header() {
             href="/whoami"
             role="tab"
             className={clsx(
-              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80  md:hover:border-b-4 md:hover:px-4",
+              "tab transition-all dark:!border-orange-200 dark:text-orange-200 dark:text-opacity-80 md:hover:border-b-4 md:hover:px-4",
               router.route === "/whoami"
                 ? "tab-active dark:!border-opacity-100"
                 : "dark:!border-opacity-30",
