@@ -8,7 +8,7 @@ import XIcon from "~/logos/XIcon";
 
 const socialsData = [
   {
-    link: "https://x.com/TheArian81",
+    link: "https://x.com/ariancodes",
     label: "X",
     icon: (
       <XIcon className="fill-[#592406] stroke-[#592406] dark:fill-[#ccc] dark:stroke-[#ccc]" />
