@@ -55,7 +55,7 @@ Projects.getLayout = function getLayout(page: ReactElement) {
 
 //  satisfies GetStaticProps<{ projects: Project[] }>;
 export const getStaticProps = async () => {
-  const postsQuery = `*[_type == "project"]{
+  const postsQuery = `*[_type == "project"] | order(priority asc) {
     title,
     slug,
     thumbnail,

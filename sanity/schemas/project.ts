@@ -11,6 +11,20 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "priority",
+      title: "Priority",
+      type: "number",
+      description: "Priority of this project (lower numbers appear first)",
+      validation: (Rule) => Rule.required().min(0).precision(0),
+      initialValue: async (_, context) => {
+        // Query for existing projects and get the count
+        const client = context.getClient({ apiVersion: "2023-05-03" });
+        const existingDocs = await client.fetch(`count(*[_type == "project"])`);
+        // New projects get added to the end of the list by default
+        return existingDocs;
+      },
+    }),
+    defineField({
       name: "project_url",
       title: "Project Url",
       type: "url",
@@ -45,5 +59,17 @@ export default defineType({
       of: [{ type: "reference", to: { type: "technology" } }],
       validation: (Rule) => Rule.required(),
     }),
+  ],
+  orderings: [
+    {
+      title: "Priority",
+      name: "priorityOrder",
+      by: [{ field: "priority", direction: "asc" }],
+    },
+    {
+      title: "Title",
+      name: "title",
+      by: [{ field: "title", direction: "asc" }],
+    },
   ],
 });
