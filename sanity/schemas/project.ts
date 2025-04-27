@@ -14,7 +14,7 @@ export default defineType({
       name: "priority",
       title: "Priority",
       type: "number",
-      description: "Priority of this project (lower numbers appear first)",
+      description: "Priority of this project (higher numbers appear first)",
       validation: (Rule) => Rule.required().min(0).precision(0),
       initialValue: async (_, context) => {
         // Query for existing projects and get the count
