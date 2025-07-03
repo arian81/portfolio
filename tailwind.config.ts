@@ -8,6 +8,9 @@ export default {
         spinSlow: "spin 8s linear infinite",
         spinDJ: "spin 6s ease infinite",
       },
+      fontFamily: {
+        'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
+      },
     },
   },
   darkMode: "class",

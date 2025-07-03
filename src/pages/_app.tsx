@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import { Open_Sans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -33,6 +34,7 @@ if (typeof window !== "undefined") {
 
 const outfit = Outfit({ subsets: ["latin"] });
 const open = Open_Sans({ weight: ["400", "500", "700"], subsets: ["latin"] });
+const dmSans = DM_Sans({ weight: ["400", "500", "600", "700", "800"], subsets: ["latin"] });
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -53,6 +55,9 @@ const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
           <style jsx global>{`
             html {
               font-family: ${outfit.style.fontFamily};
+            }
+            :root {
+              --font-dm-sans: ${dmSans.style.fontFamily};
             }
           `}</style>
           {getLayout(<Component {...pageProps} />)}

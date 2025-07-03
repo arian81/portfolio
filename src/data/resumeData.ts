@@ -21,6 +21,18 @@ export const education = [
 
 export const experience = [
   {
+    "title": "Software Engineering Intern",
+    "organization": "Vidyard",
+    "organizationUrl": "https://vidyard.com/",
+    "date": "May 2024 — Present",
+    "location": "Remote",
+    "technologies": "TypeScript, ElysiaJS, Ruby, Vue 2",
+    "achievements": [
+      "Collaborated with a fulltime engineering team to maintain and enhance the core platform dashboard using <span className=\"font-semibold\">Ruby and Vue 2</span>",
+      "Developed and maintained an AI microservice using <span className=\"font-semibold\">TypeScript and ElysiaJS</span>, serving as the backend for LLM-related operations"
+    ]
+  },
+  {
     "title": "Software Engineering / Machine Learning Intern",
     "organization": "Bell Canada",
     "organizationUrl": "https://bell.ca/",
@@ -35,18 +47,6 @@ export const experience = [
     ]
   },
   {
-    "title": "Teaching Assistant",
-    "organization": "McMaster University",
-    "organizationUrl": "https://mcmaster.ca/",
-    "date": "June 2022 — Present",
-    "location": "Hamilton, ON",
-    "technologies": "Python, Bash, PostgreSQL, Discord API",
-    "achievements": [
-      "Optimized grading process for <span className=\"font-semibold\">1,000+</span> course materials (labs, assignments, exams) by developing <span className=\"font-semibold\">Python and Bash</span> scripts",
-      "Taught <span className=\"font-semibold\">Python, C, Bash, and Linux fundamentals</span> to <span className=\"font-semibold\">100+</span> students through tutorials and labs"
-    ]
-  },
-  {
     "title": "Technical VP",
     "organization": "DeltaHacks",
     "organizationUrl": "https://deltahacks.com/",
@@ -58,10 +58,32 @@ export const experience = [
       "Integrated <span className=\"font-semibold\">TRPC, Prisma, and Netlify functions</span> stack which <span className=\"font-semibold\">scaled</span> the backend to handle <span className=\"font-semibold\">10,000+</span> requests throughout the year",
       "Developed a graph-based matchmaking tool that paired over <span className=\"font-semibold\">500</span> hackers into compatible teams based on interest and skillset"
     ]
+  },
+  {
+    "title": "Teaching Assistant",
+    "organization": "McMaster University",
+    "organizationUrl": "https://mcmaster.ca/",
+    "date": "June 2022 — Dec 2024",
+    "location": "Hamilton, ON",
+    "technologies": "Python, Bash, PostgreSQL, Discord API",
+    "achievements": [
+      "Optimized grading process for <span className=\"font-semibold\">1,000+</span> course materials (labs, assignments, exams) by developing <span className=\"font-semibold\">Python and Bash</span> scripts",
+      "Taught <span className=\"font-semibold\">Python, C, Bash, and Linux fundamentals</span> to <span className=\"font-semibold\">100+</span> students through tutorials and labs"
+    ]
   }
 ];
 
 export const projects = [
+  {
+    "title": "WebAssembly IDE",
+    "subtitle": "Browser-based WASM Development Environment",
+    "url": "https://wasm.arian.gg/",
+    "technologies": "WebAssembly, Monaco Editor, Shadcn, TypeScript, React",
+    "achievements": [
+      "Built an online IDE for writing <span className=\"font-semibold\">WebAssembly</span> code with <span className=\"font-semibold\">Monaco Editor</span> providing syntax highlighting and code completion",
+      "Implemented in-browser compilation and execution of WASM code with real-time console output"
+    ]
+  },
   {
     "title": "When the Assignment",
     "subtitle": "A Tool for Tracking Upcoming Deadlines",
@@ -69,43 +91,32 @@ export const projects = [
     "technologies": "Next.js, Tailwind, Shadcn, TypeScript, PostgreSQL, Prisma",
     "achievements": [
       "Employed a session-based architecture to eliminate the need for authentication and user sign up",
-      "Developed a deadline-priority task tracking system to ensure appropriate time management.",
-      "Implemented a platform-agnostic calendar syncing by hosting remote ICS files using <span className=\"font-semibold\">Next.js</span> middleware"
-    ]
-  },
-  {
-    "title": "Grassy",
-    "subtitle": "A friendly bracket robot that plays rock paper scissors",
-    "url": "https://github.com/arian81/bracket-bot-controller",
-    "technologies": "Python, Rive, Next.js, OpenCV, websockets, MQTT",
-    "achievements": [
-      "Created a frontend interface to communicate over mqtt websockets and show robot emotions through <span className=\"font-semibold\">Rive</span> animations",
-      "Implemented a tracking algorithm using <span className=\"font-semibold\">OpenCV</span> to find people and prompt them to play rock paper scissors"
+      "Developed a deadline-priority task tracking system to ensure appropriate time management."
     ]
   }
 ];
 
 export const hackathons = [
   {
-    "title": "Scuba",
-    "subtitle": "Declutter your email with ai agents",
-    "event": "HackMIT",
-    "url": "https://ballot.hackmit.org/project/mjetc-fjkza-ittbc-vrirn",
-    "technologies": "Python, LlamaIndex, Langchain",
+    "title": "GitFaster",
+    "subtitle": "Blazing fast GitHub client",
+    "event": "Next.js Global Hackathon Speed Category Winner",
+    "url": "https://gitfaster.dev/",
+    "technologies": "Next.js, TypeScript, React, PostgreSQL, Redis, Drizzle ORM, GitHub API",
     "achievements": [
-      "Developed 5 LLM agents to automate emails using <span className=\"font-semibold\">LlamaIndex</span> and the <span className=\"font-semibold\">ReAct</span> reasoning method",
-      "Created a <span className=\"font-semibold\">RAG</span> model based on past emails to allow extensive personalization and accuracy"
+      "Implemented <span className=\"font-semibold\">just-in-time prefetching</span> on link hover and intelligent caching strategies to achieve blazing fast page transitions",
+      "Optimized GitHub API integration with smart caching mechanisms to minimize redundant requests and improve response times"
     ]
   },
   {
-    "title": "Dash",
-    "subtitle": "All in one dashboard for digital life",
-    "event": "HacktheNorth",
-    "url": "https://devpost.com/software/dash-um2zil",
-    "technologies": "GCP, Next.js, React, Typescript, Tailwind, Prisma ORM, CockroachDB",
+    "title": "Grassy",
+    "subtitle": "Friendly bracket bot",
+    "event": "Bracket Bot Hackathon Top 3 Winner",
+    "url": "https://github.com/arian81/bracket-bot-controller",
+    "technologies": "Python, Rive, Next.js, OpenCV, websockets, MQTT",
     "achievements": [
-      "Integrated with Yahoo, GitHub and Google APIs such as <span className=\"font-semibold\">Gmail, Calendar</span> to provide realtime updates",
-      "Implemented a custom grid component in React to allow maximum user customizability"
+      "Created a frontend interface to communicate over <span className=\"font-semibold\">MQTT</span> websockets and show robot emotions through <span className=\"font-semibold\">Rive</span> animations",
+      "Implemented a tracking algorithm using <span className=\"font-semibold\">OpenCV</span> to find people and prompt them to play rock paper scissors"
     ]
   }
 ];
