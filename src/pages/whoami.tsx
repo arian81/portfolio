@@ -36,12 +36,11 @@ const About = () => {
           <ul className="pt-5 text-lg dark:text-white">
             <li className="py-2">
               <span className={emoji.className}>🎓 </span>
-              I'm a 3rd year computer science student from McMaster University.
+              I'm a 4th year computer science student from McMaster University.
             </li>
             <li className="py-2">
               <span className={emoji.className}>💼 </span>
-              Previously a software engineer on generative ai products at Bell
-              Canada.
+              Currently a software engineering intern at Vidyard
             </li>
             <li className="py-2">
               <span className={emoji.className}>🚴 </span>I love riding bikes
