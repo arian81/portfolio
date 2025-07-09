@@ -72,6 +72,9 @@ export default defineType({
       type: "markdown",
       description: "A Github flavored markdown field with image uploading",
       validation: (Rule) => Rule.required(),
+      options: {
+        imageUrl: (image) => image.url,
+      },
     }),
   ],
 
