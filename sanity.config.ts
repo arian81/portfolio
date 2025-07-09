@@ -10,6 +10,7 @@ import { markdownSchema } from "sanity-plugin-markdown/next";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
+import { zipUploadTool } from "./sanity/tools/zip-upload-tool";
 
 export default defineConfig({
   basePath: "/studio",
@@ -24,4 +25,5 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
     markdownSchema(),
   ],
+  tools: [zipUploadTool()],
 });
