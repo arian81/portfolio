@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { useClient } from 'sanity'
+import { useRouter } from 'sanity/router'
 import { 
   Card, 
   Text, 
@@ -12,10 +13,8 @@ import {
   Badge,
   Code,
   Heading,
-  TextInput,
-  Select
 } from '@sanity/ui'
-import { CheckmarkIcon, WarningOutlineIcon, DocumentIcon, ImageIcon } from '@sanity/icons'
+import { WarningOutlineIcon, DocumentIcon, ImageIcon } from '@sanity/icons'
 import { ZipProcessor } from '../utils/zip-processor'
 import type { ExtractedContent, UploadResult } from '../utils/types'
 
@@ -30,6 +29,7 @@ interface UploadProgress {
 
 export function ZipUploadComponent() {
   const client = useClient()
+  const router = useRouter()
   const toast = useToast()
   const fileInputRef = useRef<HTMLInputElement>(null)
   
@@ -58,12 +58,16 @@ export function ZipUploadComponent() {
       setError(null)
       setResult(null)
       setExtractedContent(null)
+      
+      // Automatically start upload
+      handleUpload(selectedFile)
     }
   }, [toast])
 
   // Main upload handler
-  const handleUpload = useCallback(async () => {
-    if (!file) return
+  const handleUpload = useCallback(async (uploadFile?: File) => {
+    const fileToUpload = uploadFile || file
+    if (!fileToUpload) return
 
     setStatus('processing')
     setError(null)
@@ -73,7 +77,7 @@ export function ZipUploadComponent() {
       const processor = new ZipProcessor(client)
       
       // Step 1: Extract ZIP contents
-      const content = await processor.extractZipContents(file)
+      const content = await processor.extractZipContents(fileToUpload)
       setExtractedContent(content)
       setProgress({ step: 'Uploading assets...', current: 1, total: 4, details: `Found ${content.assets.length} assets` })
 
@@ -104,12 +108,7 @@ export function ZipUploadComponent() {
         assetsUploaded: assetMap.size
       })
       setProgress({ step: 'Complete!', current: 4, total: 4 })
-
-      toast.push({
-        status: 'success',
-        title: 'Import successful',
-        description: `Created "${document.title}" with ${assetMap.size} assets`
-      })
+      router.navigateIntent('edit', { id: document._id, type: 'post' })
 
     } catch (err) {
       console.error('Upload error:', err)
@@ -123,7 +122,7 @@ export function ZipUploadComponent() {
         description: errorMessage
       })
     }
-  }, [file, client, toast])
+  }, [file, client, toast, router])
 
   // Reset handler
   const handleReset = useCallback(() => {
@@ -181,7 +180,7 @@ export function ZipUploadComponent() {
                 <Text size={1}>{extractedContent.assets.length} assets</Text>
               </Flex>
             </Flex>
-            {extractedContent.metadata && (
+            {extractedContent.metadata && Object.keys(extractedContent.metadata).length > 0 && (
               <Box>
                 <Text size={1} weight="semibold">Metadata:</Text>
                 <Code size={1}>{JSON.stringify(extractedContent.metadata, null, 2)}</Code>
@@ -192,7 +191,7 @@ export function ZipUploadComponent() {
       )}
 
       {/* Progress */}
-      {progress && (
+      {progress && (status === 'processing' || status === 'uploading') && (
         <Card padding={4} border tone="caution">
           <Stack space={3}>
             <Flex align="center" gap={3}>
@@ -222,26 +221,6 @@ export function ZipUploadComponent() {
         </Card>
       )}
 
-      {/* Success Result */}
-      {result && status === 'success' && (
-        <Card padding={4} border tone="positive">
-          <Stack space={3}>
-            <Flex align="center" gap={2}>
-              <CheckmarkIcon />
-              <Heading size={2}>Import Successful</Heading>
-            </Flex>
-            <Stack space={2}>
-              <Text size={1}><strong>Title:</strong> {result.title}</Text>
-              <Text size={1}><strong>Document ID:</strong> <Code>{result.documentId}</Code></Text>
-              {result.slug && (
-                <Text size={1}><strong>Slug:</strong> {result.slug}</Text>
-              )}
-              <Text size={1}><strong>Assets Uploaded:</strong> {result.assetsUploaded}</Text>
-            </Stack>
-          </Stack>
-        </Card>
-      )}
-
       {/* Error Display */}
       {error && status === 'error' && (
         <Card padding={4} border tone="critical">
@@ -256,22 +235,13 @@ export function ZipUploadComponent() {
       )}
 
       {/* Action Buttons */}
-      <Flex gap={3}>
+      {(status === 'success' || status === 'error') && (
         <Button
-          text={status === 'idle' ? 'Import ZIP' : 'Importing...'}
-          tone="primary"
-          onClick={handleUpload}
-          disabled={!file || status === 'processing' || status === 'uploading'}
-          loading={status === 'processing' || status === 'uploading'}
+          text="Import Another"
+          mode="ghost"
+          onClick={handleReset}
         />
-        {(status === 'success' || status === 'error') && (
-          <Button
-            text="Import Another"
-            mode="ghost"
-            onClick={handleReset}
-          />
-        )}
-      </Flex>
+      )}
     </Stack>
   )
 } 
