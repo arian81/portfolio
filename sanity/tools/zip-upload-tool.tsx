@@ -5,18 +5,11 @@ import {
   Card, 
   Text, 
   Stack, 
-  Button, 
-  Flex, 
-  Box,
-  Spinner,
   Heading,
-  Toast,
   ToastProvider,
-  useToast
 } from '@sanity/ui'
 import { ZipUploadComponent } from './components/ZipUploadComponent'
 
-// Tool configuration
 export const zipUploadTool = (): Tool => ({
   name: 'upload',
   title: 'Blog Import',
@@ -24,7 +17,6 @@ export const zipUploadTool = (): Tool => ({
   component: ZipUploadToolComponent,
 })
 
-// Main tool component
 function ZipUploadToolComponent() {
   return (
     <ToastProvider>
