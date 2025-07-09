@@ -16,7 +16,7 @@ import {
 } from '@sanity/ui'
 import { WarningOutlineIcon, DocumentIcon, ImageIcon } from '@sanity/icons'
 import { ZipProcessor } from '../utils/zip-processor'
-import type { ExtractedContent, UploadResult } from '../utils/types'
+import type { ExtractedContent } from '../utils/types'
 
 type UploadStatus = 'idle' | 'processing' | 'uploading' | 'success' | 'error'
 
@@ -37,7 +37,6 @@ export function ZipUploadComponent() {
   const [status, setStatus] = useState<UploadStatus>('idle')
   const [progress, setProgress] = useState<UploadProgress | null>(null)
   const [extractedContent, setExtractedContent] = useState<ExtractedContent | null>(null)
-  const [result, setResult] = useState<UploadResult | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   // File selection handler
@@ -56,7 +55,6 @@ export function ZipUploadComponent() {
       setFile(selectedFile)
       setStatus('idle')
       setError(null)
-      setResult(null)
       setExtractedContent(null)
       
       // Automatically start upload
@@ -101,12 +99,6 @@ export function ZipUploadComponent() {
       const document = await processor.createPostDocument(content, processedMarkdown)
 
       setStatus('success')
-      setResult({
-        documentId: document._id,
-        title: document.title,
-        slug: document.slug?.current,
-        assetsUploaded: assetMap.size
-      })
       setProgress({ step: 'Complete!', current: 4, total: 4 })
       router.navigateIntent('edit', { id: document._id, type: 'post' })
 
@@ -130,7 +122,6 @@ export function ZipUploadComponent() {
     setStatus('idle')
     setProgress(null)
     setExtractedContent(null)
-    setResult(null)
     setError(null)
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
