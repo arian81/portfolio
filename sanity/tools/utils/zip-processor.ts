@@ -1,17 +1,113 @@
+import { useState, useCallback, useMemo } from 'react'
 import JSZip from 'jszip'
+import matter from 'gray-matter'
 import type { SanityClient } from 'sanity'
 import type { ExtractedContent, AssetFile, PostMetadata, CreatedDocument } from './types'
 
-// Supported image types for asset upload
 const SUPPORTED_IMAGE_TYPES = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg']
 
-export class ZipProcessor {
-  private client: SanityClient
+type UploadStatus = 'idle' | 'processing' | 'uploading' | 'success' | 'error'
 
-  constructor(client: SanityClient) {
-    this.client = client
+interface UploadProgress {
+  step: string
+  current: number
+  total: number
+  details?: string
+}
+
+interface UseZipUploadOptions {
+  generateSlug?: boolean
+  asDraft?: boolean
+  onSuccess?: (document: CreatedDocument) => void
+  onError?: (error: Error) => void
+}
+
+interface UseZipUploadReturn {
+  status: UploadStatus
+  progress: UploadProgress | null
+  extractedContent: ExtractedContent | null
+  error: string | null
+  uploadZip: (file: File) => Promise<void>
+  reset: () => void
+}
+
+export function useZipUpload(
+  client: SanityClient,
+  options: UseZipUploadOptions = {}
+): UseZipUploadReturn {
+  const [status, setStatus] = useState<UploadStatus>('idle')
+  const [progress, setProgress] = useState<UploadProgress | null>(null)
+  const [extractedContent, setExtractedContent] = useState<ExtractedContent | null>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  const processor = useMemo(() => new ZipProcessor(), [])
+
+  const uploadZip = useCallback(async (file: File) => {
+    setStatus('processing')
+    setError(null)
+    setProgress({ step: 'Extracting ZIP contents...', current: 0, total: 4 })
+
+    try {
+      const content = await processor.extractZipContents(file)
+      setExtractedContent(content)
+      setProgress({ 
+        step: 'Uploading assets...', 
+        current: 1, 
+        total: 4, 
+        details: `Found ${content.assets.length} assets` 
+      })
+
+      setStatus('uploading')
+      const assetMap = await processor.uploadAssets(client, content.assets, (uploaded: number, total: number) => {
+        setProgress({ 
+          step: 'Uploading assets...', 
+          current: 1, 
+          total: 4, 
+          details: `${uploaded}/${total} assets uploaded` 
+        })
+      })
+
+      setProgress({ step: 'Processing content...', current: 2, total: 4 })
+      const processedMarkdown = processor.replaceAssetReferences(content.markdownContent, assetMap)
+
+      setProgress({ step: 'Creating document...', current: 3, total: 4 })
+      const document = await processor.createPostDocument(client, content, processedMarkdown, {
+        generateSlug: options.generateSlug,
+        asDraft: options.asDraft
+      })
+
+      setStatus('success')
+      setProgress({ step: 'Complete!', current: 4, total: 4 })
+      
+      options.onSuccess?.(document)
+    } catch (err) {
+      setStatus('error')
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
+      setError(errorMessage)
+      
+      const error = err instanceof Error ? err : new Error(errorMessage)
+      options.onError?.(error)
+    }
+  }, [client, processor, options])
+
+  const reset = useCallback(() => {
+    setStatus('idle')
+    setProgress(null)
+    setExtractedContent(null)
+    setError(null)
+  }, [])
+
+  return {
+    status,
+    progress,
+    extractedContent,
+    error,
+    uploadZip,
+    reset
   }
+}
 
+class ZipProcessor {
   /**
    * Extract and parse zip file contents in the browser
    */
@@ -22,7 +118,11 @@ export class ZipProcessor {
     // Find markdown file
     const markdownFiles = Object.keys(zip.files).filter(name => {
       const zipFile = zip.files[name]
-      return zipFile && name.endsWith('.md') && !zipFile.dir
+      if (!zipFile || zipFile.dir || !name.endsWith('.md')) return false
+      
+      // Apply same filtering logic as for assets
+      const filename = this.getBasename(name)
+      return !this.shouldSkipFile(filename, name)
     })
 
     if (markdownFiles.length === 0) {
@@ -30,7 +130,7 @@ export class ZipProcessor {
     }
 
     if (markdownFiles.length > 1) {
-      console.warn(`Multiple markdown files found, using: ${markdownFiles[0]}`)
+      throw new Error(`Multiple markdown files found: ${markdownFiles.join(', ')}. Please include only one markdown file in the ZIP.`)
     }
 
     const markdownFile = markdownFiles[0]!
@@ -49,14 +149,12 @@ export class ZipProcessor {
       // Skip macOS metadata files and other system files
       const filename = this.getBasename(filePath)
       if (this.shouldSkipFile(filename, filePath)) {
-        console.log(`Skipping system file: ${filePath}`)
         continue
       }
 
       const ext = this.getFileExtension(filePath).toLowerCase()
       
       if (SUPPORTED_IMAGE_TYPES.includes(ext)) {
-        console.log(`Found asset: ${filePath}`)
         const arrayBuffer = await zipFile.async('arraybuffer')
         const buffer = Buffer.from(arrayBuffer)
         const mimeType = this.getMimeType(ext)
@@ -67,8 +165,6 @@ export class ZipProcessor {
           buffer,
           mimeType
         })
-      } else {
-        console.log(`Skipping unsupported file type: ${filePath}`)
       }
     }
 
@@ -87,41 +183,39 @@ export class ZipProcessor {
    * Upload assets to Sanity and return mapping of local paths to Sanity URLs
    */
   async uploadAssets(
+    client: SanityClient,
     assets: AssetFile[], 
     onProgress?: (uploaded: number, total: number) => void
   ): Promise<Map<string, string>> {
     const assetMap = new Map<string, string>()
-    
-    console.log(`Uploading ${assets.length} assets...`)
+    const failedUploads: string[] = []
 
     for (let i = 0; i < assets.length; i++) {
       const asset = assets[i]!
       try {
-        console.log(`Uploading: ${asset.filename}`)
-        
         const assetType = asset.mimeType.startsWith('image/') ? 'image' : 'file'
         
-        const uploadedAsset = await this.client.assets.upload(assetType, asset.buffer, {
+        const uploadedAsset = await client.assets.upload(assetType, asset.buffer, {
           filename: asset.filename,
           contentType: asset.mimeType
         })
 
-        // Use the same URL format as before
         const assetUrl = uploadedAsset.url
-
         assetMap.set(asset.path, assetUrl)
         assetMap.set(asset.filename, assetUrl) // Also map by filename
-        
-        console.log(`✓ Uploaded: ${asset.filename} -> ${assetUrl}`)
         
         // Report progress
         if (onProgress) {
           onProgress(i + 1, assets.length)
         }
       } catch (error) {
-        console.error(`Failed to upload ${asset.filename}:`, error)
+        failedUploads.push(asset.filename)
         // Continue with other assets
       }
+    }
+
+    if (failedUploads.length > 0) {
+      throw new Error(`Failed to upload ${failedUploads.length} assets: ${failedUploads.join(', ')}`)
     }
 
     return assetMap
@@ -187,6 +281,7 @@ export class ZipProcessor {
    * Create or update a Sanity post document
    */
   async createPostDocument(
+    client: SanityClient,
     content: ExtractedContent,
     processedMarkdown: string,
     options: { generateSlug?: boolean; asDraft?: boolean } = {}
@@ -194,37 +289,24 @@ export class ZipProcessor {
     const { metadata, markdownFile } = content
     const baseTitle = metadata?.title || this.getBasename(markdownFile, '.md')
     
-    // Generate slug if not provided
     let slug = metadata?.slug
     if (!slug && options.generateSlug !== false) {
       slug = this.generateSlug(baseTitle)
     }
 
-    // Check if a post with this slug already exists
     let existingPost = null
     if (slug) {
-      console.log(`Checking for existing post with slug: ${slug}`)
-      
-      // Query for posts with matching slug (both published and draft)
       const query = `*[_type == "post" && slug.current == $slug][0]`
       const draftQuery = `*[_type == "post" && slug.current == $slug && _id match "drafts.*"][0]`
       
       try {
-        // Check for published post first
-        existingPost = await this.client.fetch(query, { slug })
+        existingPost = await client.fetch(query, { slug })
         
-        // If no published post, check for draft
         if (!existingPost) {
-          existingPost = await this.client.fetch(draftQuery, { slug })
-        }
-        
-        if (existingPost) {
-          console.log(`✓ Found existing post: ${existingPost.title} (ID: ${existingPost._id})`)
-        } else {
-          console.log(`✓ No existing post found with slug: ${slug}`)
+          existingPost = await client.fetch(draftQuery, { slug })
         }
       } catch (error) {
-        console.warn('Error checking for existing post:', error)
+        throw new Error(`Failed to check for existing posts with slug "${slug}": ${error instanceof Error ? error.message : 'Unknown error'}`)
       }
     }
 
@@ -238,8 +320,7 @@ export class ZipProcessor {
           current: slug
         }
       }),
-      body: processedMarkdown, // FIXED: Use 'body' instead of 'content'
-      // Only set publishedAt if specifically provided in metadata, otherwise leave undefined for drafts
+      body: processedMarkdown,
       ...(metadata?.publishedAt && { publishedAt: metadata.publishedAt }),
       ...(metadata?.summary && { summary: metadata.summary }),
       ...(metadata?.categories && metadata.categories.length > 0 && {
@@ -256,9 +337,7 @@ export class ZipProcessor {
     }
 
     if (existingPost) {
-      // Update existing post
-      console.log(`Updating existing post...`)
-      const updatedPost = await this.client
+      const updatedPost = await client
         .patch(existingPost._id)
         .set({
           ...documentData,
@@ -267,8 +346,6 @@ export class ZipProcessor {
         })
         .commit()
       
-      const status = existingPost._id.startsWith('drafts.') ? 'draft' : 'published'
-      console.log(`✓ Updated ${status} post: ${updatedPost.title} (ID: ${updatedPost._id})`)
       return {
         _id: updatedPost._id,
         title: updatedPost.title,
@@ -276,7 +353,6 @@ export class ZipProcessor {
         publishedAt: updatedPost.publishedAt
       }
     } else {
-      // Create new post
       const baseId = slug || this.generateSlug(baseTitle)
       const timestamp = Date.now()
       const documentId = `${baseId}-${timestamp}`
@@ -286,10 +362,7 @@ export class ZipProcessor {
         ...documentData
       }
 
-      const status = options.asDraft !== false ? 'draft' : 'published'
-      console.log(`Creating new post document as ${status}...`)
-      const createdPost = await this.client.create(newDocument)
-      console.log(`✓ Created ${status} post: ${createdPost.title} (ID: ${createdPost._id})`)
+      const createdPost = await client.create(newDocument)
       
       return {
         _id: createdPost._id,
@@ -302,49 +375,21 @@ export class ZipProcessor {
 
   // Helper methods
   private extractFrontmatter(content: string): PostMetadata {
-    const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/
-    const match = content.match(frontmatterRegex)
-    
-    if (!match) return {}
-
     try {
-      // Simple YAML-like parsing for basic frontmatter
-      const frontmatter = match[1]
-      if (!frontmatter) return {}
-      
-      const metadata: PostMetadata = {}
-      
-      frontmatter.split('\n').forEach(line => {
-        const colonIndex = line.indexOf(':')
-        if (colonIndex > 0) {
-          const key = line.substring(0, colonIndex).trim()
-          let value = line.substring(colonIndex + 1).trim()
-          
-          // Remove quotes if present
-          if ((value.startsWith('"') && value.endsWith('"')) || 
-              (value.startsWith("'") && value.endsWith("'"))) {
-            value = value.slice(1, -1)
-          }
-          
-          // Handle arrays (simple comma-separated values)
-          if (value.includes(',')) {
-            metadata[key] = value.split(',').map(v => v.trim())
-          } else {
-            metadata[key] = value
-          }
-        }
-      })
-      
-      return metadata
+      const parsed = matter(content)
+      return parsed.data as PostMetadata
     } catch (error) {
-      console.warn('Failed to parse frontmatter:', error)
-      return {}
+      throw new Error(`Failed to parse frontmatter: ${error instanceof Error ? error.message : 'Invalid YAML format'}`)
     }
   }
 
   private removeFrontmatter(content: string): string {
-    const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n/
-    return content.replace(frontmatterRegex, '').trim()
+    try {
+      const parsed = matter(content)
+      return parsed.content.trim()
+    } catch (error) {
+      throw new Error(`Failed to parse frontmatter: ${error instanceof Error ? error.message : 'Invalid YAML format'}`)
+    }
   }
 
   private generateSlug(title: string): string {
@@ -383,24 +428,20 @@ export class ZipProcessor {
   }
 
   private shouldSkipFile(filename: string, filePath: string): boolean {
-    // Skip macOS metadata files
     if (filename.startsWith('._')) return true
     
-    // Skip .DS_Store files
     if (filename === '.DS_Store') return true
     
-    // Skip __MACOSX folder contents
     if (filePath.includes('__MACOSX/')) return true
     
-    // Skip Thumbs.db (Windows)
     if (filename === 'Thumbs.db') return true
     
-    // Skip hidden files
     if (filename.startsWith('.') && filename !== '.gitignore') return true
     
-    // Skip empty filenames
     if (!filename.trim()) return true
     
     return false
   }
-} 
+}
+
+ 

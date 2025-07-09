@@ -26,6 +26,7 @@
     "clsx": "^2.1.1",
     "daisyui": "^4.12.23",
     "easymde": "^2.19.0",
+    "gray-matter": "^4.0.3",
     "jszip": "^3.10.1",
     "next": "^15.1.7",
     "next-sanity": "^9.8.59",

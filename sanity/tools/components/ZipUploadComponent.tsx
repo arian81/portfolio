@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { useClient } from 'sanity'
 import { useRouter } from 'sanity/router'
 import { 
@@ -15,17 +15,7 @@ import {
   Heading,
 } from '@sanity/ui'
 import { WarningOutlineIcon, DocumentIcon, ImageIcon } from '@sanity/icons'
-import { ZipProcessor } from '../utils/zip-processor'
-import type { ExtractedContent } from '../utils/types'
-
-type UploadStatus = 'idle' | 'processing' | 'uploading' | 'success' | 'error'
-
-interface UploadProgress {
-  step: string
-  current: number
-  total: number
-  details?: string
-}
+import { useZipUpload } from '../utils/zip-processor'
 
 export function ZipUploadComponent() {
   const client = useClient()
@@ -33,13 +23,19 @@ export function ZipUploadComponent() {
   const toast = useToast()
   const fileInputRef = useRef<HTMLInputElement>(null)
   
-  const [file, setFile] = useState<File | null>(null)
-  const [status, setStatus] = useState<UploadStatus>('idle')
-  const [progress, setProgress] = useState<UploadProgress | null>(null)
-  const [extractedContent, setExtractedContent] = useState<ExtractedContent | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const { status, progress, extractedContent, error, uploadZip, reset } = useZipUpload(client, {
+    onSuccess: (document) => {
+      router.navigateIntent('edit', { id: document._id, type: 'post' })
+    },
+    onError: (error) => {
+      toast.push({
+        status: 'error',
+        title: 'Import failed',
+        description: error.message
+      })
+    }
+  })
 
-  // File selection handler
   const handleFileSelect = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0]
     if (selectedFile) {
@@ -52,85 +48,20 @@ export function ZipUploadComponent() {
         return
       }
       
-      setFile(selectedFile)
-      setStatus('idle')
-      setError(null)
-      setExtractedContent(null)
-      
-      // Automatically start upload
-      handleUpload(selectedFile)
+      // Automatically start upload with the custom hook
+      uploadZip(selectedFile)
     }
-  }, [toast])
+  }, [toast, uploadZip])
 
-  // Main upload handler
-  const handleUpload = useCallback(async (uploadFile?: File) => {
-    const fileToUpload = uploadFile || file
-    if (!fileToUpload) return
-
-    setStatus('processing')
-    setError(null)
-    setProgress({ step: 'Extracting ZIP contents...', current: 0, total: 4 })
-
-    try {
-      const processor = new ZipProcessor(client)
-      
-      // Step 1: Extract ZIP contents
-      const content = await processor.extractZipContents(fileToUpload)
-      setExtractedContent(content)
-      setProgress({ step: 'Uploading assets...', current: 1, total: 4, details: `Found ${content.assets.length} assets` })
-
-      // Step 2: Upload assets
-      setStatus('uploading')
-      const assetMap = await processor.uploadAssets(content.assets, (uploaded: number, total: number) => {
-        setProgress({ 
-          step: 'Uploading assets...', 
-          current: 1, 
-          total: 4, 
-          details: `${uploaded}/${total} assets uploaded` 
-        })
-      })
-
-      // Step 3: Process markdown
-      setProgress({ step: 'Processing content...', current: 2, total: 4 })
-      const processedMarkdown = processor.replaceAssetReferences(content.markdownContent, assetMap)
-
-      // Step 4: Create document
-      setProgress({ step: 'Creating document...', current: 3, total: 4 })
-      const document = await processor.createPostDocument(content, processedMarkdown)
-
-      setStatus('success')
-      setProgress({ step: 'Complete!', current: 4, total: 4 })
-      router.navigateIntent('edit', { id: document._id, type: 'post' })
-
-    } catch (err) {
-      console.error('Upload error:', err)
-      setStatus('error')
-      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred'
-      setError(errorMessage)
-      
-      toast.push({
-        status: 'error',
-        title: 'Import failed',
-        description: errorMessage
-      })
-    }
-  }, [file, client, toast, router])
-
-  // Reset handler
   const handleReset = useCallback(() => {
-    setFile(null)
-    setStatus('idle')
-    setProgress(null)
-    setExtractedContent(null)
-    setError(null)
+    reset()
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
-  }, [])
+  }, [reset])
 
   return (
     <Stack space={4}>
-      {/* File Selection */}
       <Card padding={4} border>
         <Stack space={3}>
           <Heading size={2}>Select ZIP File</Heading>
@@ -147,16 +78,10 @@ export function ZipUploadComponent() {
               onClick={() => fileInputRef.current?.click()}
               disabled={status === 'processing' || status === 'uploading'}
             />
-            {file && (
-              <Badge tone="primary">
-                {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
-              </Badge>
-            )}
           </Flex>
         </Stack>
       </Card>
 
-      {/* Content Preview */}
       {extractedContent && (
         <Card padding={4} border tone="transparent">
           <Stack space={3}>
@@ -181,7 +106,6 @@ export function ZipUploadComponent() {
         </Card>
       )}
 
-      {/* Progress */}
       {progress && (status === 'processing' || status === 'uploading') && (
         <Card padding={4} border tone="caution">
           <Stack space={3}>
@@ -212,7 +136,6 @@ export function ZipUploadComponent() {
         </Card>
       )}
 
-      {/* Error Display */}
       {error && status === 'error' && (
         <Card padding={4} border tone="critical">
           <Stack space={3}>
@@ -225,7 +148,6 @@ export function ZipUploadComponent() {
         </Card>
       )}
 
-      {/* Action Buttons */}
       {(status === 'success' || status === 'error') && (
         <Button
           text="Import Another"
