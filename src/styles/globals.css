@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fix inline code overflow only */
+.prose :not(pre) > code {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
