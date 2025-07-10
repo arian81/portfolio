@@ -22,7 +22,7 @@ export const PostSchema = z.object({
     )
     .nullable(),
   body: z.string(),
-  publishedAt: z.string(),
+  publishedAt: z.string().nullable(),
   hidden: z.boolean().optional(),
 });
 
