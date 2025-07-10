@@ -39,7 +39,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
     <>
       <div
         className={clsx(
-          "flex flex-col items-center justify-center gap-12 ",
+          "flex flex-col items-center justify-center gap-12",
           isPending && "animate-pulse",
         )}
         ref={parent}
@@ -84,14 +84,14 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             </div>
           </div>
         }
-        <div className="flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row ">
+        <div className="flex w-full min-w-[90vw] items-center gap-4 md:min-w-[30em] md:flex-row">
           <input
             type="text"
-            className={`input input-bordered  input-md rounded-full transition-all  duration-300 ease-in-out md:input-lg ${
+            className={`input input-md input-bordered rounded-full transition-all duration-300 ease-in-out md:input-lg ${
               isFocused && propogateFocus[0]
                 ? "w-[23em] md:w-[35em] lg:w-[45em] xl:w-[55em]"
                 : "w-[19.5em]"
-            } w-full  shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
+            } w-full shadow-lg placeholder:text-[14px] md:placeholder:text-lg`}
             placeholder={"What do you want to know about me"}
             value={q}
             onClick={() => {
@@ -140,7 +140,7 @@ const Whoami: React.FC<WhoamiProps> = ({ propogateFocus }) => {
             key={"message"}
           >
             <button
-              className="btn btn-circle btn-sm  ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
+              className="btn btn-circle btn-sm ml-3 mt-3 bg-white p-2 text-black hover:bg-black hover:text-white"
               onClick={() => {
                 setShowResult(false);
                 propogateFocus[1](false);

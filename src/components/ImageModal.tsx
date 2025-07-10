@@ -25,7 +25,7 @@ const ImageModal = ({ imageUrl }: { imageUrl: string }) => {
           />
           <div className="flex h-full items-end justify-center p-16">
             <button
-              className="btn border  border-black bg-black px-8 text-white transition-all hover:border-2 hover:border-white  hover:bg-black"
+              className="btn border border-black bg-black px-8 text-white transition-all hover:border-2 hover:border-white hover:bg-black"
               onClick={() => modalRef.current?.close()}
             >
               Close

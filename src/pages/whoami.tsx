@@ -16,7 +16,7 @@ const About = () => {
       <div
         className={
           inconsolata.className +
-          " flex h-full w-full flex-col gap-5  px-10 pt-20 md:flex-row  md:items-start lg:m-auto lg:flex-row lg:items-center lg:justify-center"
+          " flex h-full w-full flex-col gap-5 px-10 pt-20 md:flex-row md:items-start lg:m-auto lg:flex-row lg:items-center lg:justify-center"
         }
       >
         <div className="relative hidden aspect-square w-24 lg:block lg:w-64">

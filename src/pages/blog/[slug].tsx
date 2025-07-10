@@ -67,14 +67,14 @@ const BlogPost: NextPageWithLayout<
         <meta property="og:image" content={ogImageUrl} />
         <meta property="twitter:image" content={ogImageUrl} />
       </Head>
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-12 pt-6 sm:pt-10 pb-8 sm:pb-12 lg:pb-16">
-        <div className="flex w-full justify-center mb-5">
-          <div className="rounded-lg p-3 sm:p-5 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#592407] dark:text-white font-dm-sans text-center">
+      <div className="mx-auto max-w-6xl px-4 pb-8 pt-6 sm:px-6 sm:pb-12 sm:pt-10 lg:px-12 lg:pb-16">
+        <div className="mb-5 flex w-full justify-center">
+          <div className="rounded-lg p-3 text-center font-dm-sans text-2xl font-extrabold text-[#592407] dark:text-white sm:p-5 sm:text-3xl lg:text-4xl">
             {post.title}
           </div>
         </div>
-        <div className="bg-white rounded-lg">
-            <div className="prose prose-base sm:prose-lg lg:prose-xl max-w-none p-4 sm:p-6 lg:p-8 font-dm-sans font-medium">
+        <div className="rounded-lg bg-white">
+          <div className="prose prose-base max-w-none p-4 font-dm-sans font-medium sm:prose-lg lg:prose-xl sm:p-6 lg:p-8">
             <Markdown
               remarkPlugins={[remarkGfm, remarkMath, remarkCallout]}
               rehypePlugins={[rehypeHighlight, rehypeMathjax, rehypeRaw]}
