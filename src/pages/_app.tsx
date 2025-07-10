@@ -1,17 +1,14 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { type AppType } from "next/dist/shared/lib/utils";
-import React, { ReactElement, ReactNode } from "react";
-import { ThemeProvider } from "next-themes";
-import Head from "next/head";
-import { Outfit } from "next/font/google";
-import { Open_Sans } from "next/font/google";
-import { DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { AppType } from "next/dist/shared/lib/utils";
+import { DM_Sans, Open_Sans, Outfit } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import React, { type ReactElement, type ReactNode } from "react";
 
 import "~/styles/globals.css";
-import { NextPage } from "next";
-import { AppProps } from "next/app";
+import type { NextPage } from "next";
+import type { AppProps } from "next/app";
 import "easymde/dist/easymde.min.css";
 import "../styles/catppuccin-frape.css";
 import "../styles/callout-style.css";
@@ -33,10 +30,16 @@ if (typeof window !== "undefined") {
 }
 
 const outfit = Outfit({ subsets: ["latin"] });
-const open = Open_Sans({ weight: ["400", "500", "700"], subsets: ["latin"] });
-const dmSans = DM_Sans({ weight: ["400", "500", "600", "700", "800"], subsets: ["latin"] });
+const _open = Open_Sans({ weight: ["400", "500", "700"], subsets: ["latin"] });
+const dmSans = DM_Sans({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+});
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
+  P,
+  IP
+> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 

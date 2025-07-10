@@ -10,6 +10,7 @@ export default function XIcon({ className }: { className: string }) {
       className={className}
       strokeWidth={0.2}
     >
+      <title>X (Twitter) icon</title>
       <g>
         <path d="M1 2h2.5L3.5 2h-2.5z">
           <animate
@@ -28,13 +29,11 @@ export default function XIcon({ className }: { className: string }) {
           />
         </path>
         <path d="M3 2h5v0h-5z" opacity="0">
-          {
-            React.createElement("set", {
-              attributeName: "opacity",
-              to: "1",
-              begin: "0.4s",
-            }) as any
-          }
+          {React.createElement("set", {
+            attributeName: "opacity",
+            to: "1",
+            begin: "0.4s",
+          })}
           <animate
             attributeName="d"
             values="M3 2h5v0h-5z;M3 2h5v2h-5z"
@@ -44,13 +43,11 @@ export default function XIcon({ className }: { className: string }) {
           />
         </path>
         <path d="M16 22h5v0h-5z" opacity="0">
-          {
-            React.createElement("set", {
-              attributeName: "opacity",
-              to: "1",
-              begin: "0.4s",
-            }) as any
-          }
+          {React.createElement("set", {
+            attributeName: "opacity",
+            to: "1",
+            begin: "0.4s",
+          })}
           <animate
             attributeName="d"
             values="M16 22h5v0h-5z;M16 22h5v-2h-5z"
@@ -60,13 +57,11 @@ export default function XIcon({ className }: { className: string }) {
           />
         </path>
         <path d="M18.5 2h3.5L22 2h-3.5z" opacity="0">
-          {
-            React.createElement("set", {
-              attributeName: "opacity",
-              to: "1",
-              begin: "0.5s",
-            }) as any
-          }
+          {React.createElement("set", {
+            attributeName: "opacity",
+            to: "1",
+            begin: "0.5s",
+          })}
           <animate
             attributeName="d"
             values="M18.5 2h3.5L22 2h-3.5z;M18.5 2h3.5L5 22h-3.5z"

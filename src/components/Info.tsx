@@ -1,5 +1,3 @@
-import TypeWriter from "./TypeWrite";
-
 export default function Info() {
   return (
     <div className="flex gap-5">

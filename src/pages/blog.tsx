@@ -1,11 +1,11 @@
-import { client } from "../../sanity/lib/client";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { ReactElement } from "react";
 import { z } from "zod";
-import { NextPageWithLayout } from "./_app";
-import { ReactElement } from "react";
-import Layout from "~/components/Layout";
 import BlogPostItem from "~/components/BlogPostItem";
 import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
+import { client } from "../../sanity/lib/client";
+import type { NextPageWithLayout } from "./_app";
 
 export const PostSchema = z.object({
   title: z.string(),
@@ -38,13 +38,12 @@ const Blog: NextPageWithLayout<
     <>
       <CustomHead />
       <div className="relative z-10 flex w-full flex-col gap-5 py-16 md:gap-10 md:p-2 md:py-24">
-        {posts.map((post: Post, index: number) => (
+        {posts.map((post: Post) => (
           <BlogPostItem
             title={post.title}
             url={post.url}
             summary={post.summary}
-            key={index}
-            mainImage={post.mainImage}
+            key={post.url}
           ></BlogPostItem>
         ))}
       </div>

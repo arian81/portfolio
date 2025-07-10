@@ -7,6 +7,7 @@ export default function EmailIcon({ className }: { className: string }) {
       viewBox="0 0 24 24"
       className={className}
     >
+      <title>Email icon</title>
       <g fill="none" strokeLinecap="round" strokeWidth="2">
         <rect
           width="18"

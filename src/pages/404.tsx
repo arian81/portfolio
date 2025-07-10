@@ -1,10 +1,10 @@
-import light404data from "../lotties/404_light.json";
-import dark404data from "../lotties/404_dark.json";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { NextPageWithLayout } from "./_app";
-import { ReactElement } from "react";
-import Layout from "~/components/Layout";
+import type { ReactElement } from "react";
 import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
+import dark404data from "../lotties/404_dark.json";
+import light404data from "../lotties/404_light.json";
+import type { NextPageWithLayout } from "./_app";
 
 const NotFoundPage: NextPageWithLayout = () => {
   return (
