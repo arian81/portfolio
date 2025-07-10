@@ -7,6 +7,7 @@ export default function GithubIcon({ className }: { className: string }) {
       height="100%"
       className={className}
     >
+      <title>GitHub icon</title>
       <g
         fill="none"
         strokeLinecap="round"

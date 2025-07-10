@@ -1,10 +1,8 @@
-import Image from "next/image";
-import React, { ReactElement } from "react";
-import Layout from "~/components/Layout";
 import { Inconsolata, Noto_Emoji } from "next/font/google";
-import BellIcon from "~/logos/BellIcon";
-import ProfileIcon from "~/logos/ProfileIcon";
+import type { ReactElement } from "react";
 import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
+import ProfileIcon from "~/logos/ProfileIcon";
 
 const inconsolata = Inconsolata({ subsets: ["latin"] });
 const emoji = Noto_Emoji({ subsets: ["emoji"] });

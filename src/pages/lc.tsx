@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import loadingData from "../lotties/loading.json";
 
 export default function RandomLeetCode() {
-  const router = useRouter();
+  const _router = useRouter();
 
   useEffect(() => {
     const fetchRandomProblem = async () => {

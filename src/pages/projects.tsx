@@ -1,11 +1,11 @@
-import ProjectGridItem from "~/components/ProjectGridItem";
-import { client } from "../../sanity/lib/client";
+import type { InferGetStaticPropsType } from "next";
+import type { ReactElement } from "react";
 import { z } from "zod";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import { NextPageWithLayout } from "~/pages/_app";
-import Layout from "~/components/Layout";
-import { ReactElement, useState } from "react";
 import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
+import ProjectGridItem from "~/components/ProjectGridItem";
+import type { NextPageWithLayout } from "~/pages/_app";
+import { client } from "../../sanity/lib/client";
 
 const ProjectSchema = z.object({
   title: z.string(),
@@ -34,13 +34,13 @@ const Projects: NextPageWithLayout<
         className="container mx-auto space-y-6 px-4 py-8 dark:bg-transparent md:py-12 lg:py-20"
       >
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-          {projects.map((project: Project, index: number) => (
+          {projects.map((project: Project) => (
             <ProjectGridItem
               title={project.title}
               thumbnail={project.thumbnail}
               description={project.description}
               projectUrl={project.projectUrl}
-              key={index}
+              key={project.projectUrl}
             />
           ))}
         </div>

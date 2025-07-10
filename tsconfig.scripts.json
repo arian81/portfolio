@@ -12,4 +12,4 @@
   },
   "include": ["scripts/**/*.ts"],
   "exclude": ["node_modules"]
-} 
+}
