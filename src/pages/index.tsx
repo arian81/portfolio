@@ -1,11 +1,11 @@
-import Whoai from "~/components/Whoai";
-import Socials from "~/components/Socials";
-import LastFm from "~/components/LastFM";
-import { ReactElement, useState } from "react";
-import { NextPageWithLayout } from "./_app";
-import Layout from "~/components/Layout";
 import Link from "next/link";
+import { type ReactElement, useState } from "react";
 import CustomHead from "~/components/CustomHead";
+import LastFm from "~/components/LastFM";
+import Layout from "~/components/Layout";
+import Socials from "~/components/Socials";
+import Whoai from "~/components/Whoai";
+import type { NextPageWithLayout } from "./_app";
 
 const Home: NextPageWithLayout = () => {
   const [hideSocials, setHideSocials] = useState<boolean>(false);

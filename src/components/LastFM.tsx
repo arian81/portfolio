@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLastFM } from "use-last-fm";
 import { env } from "../env.mjs";
+
 const CurrentlyPlaying = () => {
   const lastFM = useLastFM(
     env.NEXT_PUBLIC_LASTFM_USERNAME,

@@ -1,23 +1,20 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import { PostsSchema, PostSchema, Post, Posts } from "../blog";
-import { client } from "../../../sanity/lib/client";
-import { NextPageWithLayout } from "../_app";
-import { ReactElement } from "react";
-import Layout from "~/components/Layout";
-import { z } from "zod";
-import { PortableText } from "@portabletext/react";
-import NextImage from "next/image";
-import { urlForImage } from "../../../sanity/lib/image";
+import remarkCallout from "@r4ai/remark-callout";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
+import type { ReactElement } from "react";
+import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import rehypeMathjax from "rehype-mathjax";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import type { Image } from "sanity";
 import ImageModal from "~/components/ImageModal";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax";
-import remarkCallout from "@r4ai/remark-callout";
-import rehypeRaw from "rehype-raw";
-import Head from "next/head";
+import Layout from "~/components/Layout";
+import { client } from "../../../sanity/lib/client";
+import { urlForImage } from "../../../sanity/lib/image";
+import type { NextPageWithLayout } from "../_app";
+import { type Post, PostSchema, PostsSchema } from "../blog";
 
 const formatDate = (dateString: string): string => {
   if (dateString === "") return "";
@@ -88,7 +85,7 @@ const BlogPost: NextPageWithLayout<
   );
 };
 
-const myPortableTextComponents = {
+const _myPortableTextComponents = {
   types: {
     image: ({ value }: { value: Image }) => {
       return (

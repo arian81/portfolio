@@ -1,11 +1,11 @@
-import ProjectGridItem from "~/components/ProjectGridItem";
-import { client } from "../../sanity/lib/client";
+import type { InferGetStaticPropsType } from "next";
+import type { ReactElement } from "react";
 import { z } from "zod";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
-import { NextPageWithLayout } from "~/pages/_app";
-import Layout from "~/components/Layout";
-import { ReactElement, useState } from "react";
 import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
+import ProjectGridItem from "~/components/ProjectGridItem";
+import type { NextPageWithLayout } from "~/pages/_app";
+import { client } from "../../sanity/lib/client";
 
 const ProjectSchema = z.object({
   title: z.string(),

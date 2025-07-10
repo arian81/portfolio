@@ -1,6 +1,6 @@
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();

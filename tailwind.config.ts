@@ -1,4 +1,4 @@
-import { type Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -9,7 +9,7 @@ export default {
         spinDJ: "spin 6s ease infinite",
       },
       fontFamily: {
-        'dm-sans': ['var(--font-dm-sans)', 'sans-serif'],
+        "dm-sans": ["var(--font-dm-sans)", "sans-serif"],
       },
     },
   },

@@ -1,17 +1,17 @@
-import { ReactElement } from "react";
-import { NextPageWithLayout } from "./_app";
-import Layout from "~/components/Layout";
-import CustomHead from "~/components/CustomHead";
 import Head from "next/head";
+import Image from "next/image";
+import type { ReactElement } from "react";
+import CustomHead from "~/components/CustomHead";
+import Layout from "~/components/Layout";
 import {
-  personalInfo,
   education,
   experience,
-  projects,
   hackathons,
+  personalInfo,
+  projects,
   skills,
 } from "~/data/resumeData";
-import Image from "next/image";
+import type { NextPageWithLayout } from "./_app";
 
 const Resume: NextPageWithLayout = () => {
   return (

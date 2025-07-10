@@ -1,6 +1,5 @@
-import React from "react";
-import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
+import { urlForImage } from "../../sanity/lib/image";
 
 const ProjectGridItem = ({
   thumbnail,

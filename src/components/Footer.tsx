@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const Footer = () => {
-  let start = new Date();
-  let year = start.getFullYear().toString();
+  const start = new Date();
+  const year = start.getFullYear().toString();
   return (
     <div className="flex flex-col items-center justify-center p-2">
       <p className="text-sm text-[#592406] dark:text-[#ccc] dark:opacity-80">

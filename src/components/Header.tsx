@@ -1,9 +1,8 @@
-import Info from "./Info";
-import Logo from "../logos/LogoIcon";
-import ThemeToggle from "./ThemeToggle";
+import { clsx } from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { clsx } from "clsx";
+import Logo from "../logos/LogoIcon";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const router = useRouter();
