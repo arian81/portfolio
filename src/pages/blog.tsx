@@ -38,13 +38,12 @@ const Blog: NextPageWithLayout<
     <>
       <CustomHead />
       <div className="relative z-10 flex w-full flex-col gap-5 py-16 md:gap-10 md:p-2 md:py-24">
-        {posts.map((post: Post, index: number) => (
+        {posts.map((post: Post) => (
           <BlogPostItem
             title={post.title}
             url={post.url}
             summary={post.summary}
-            key={index}
-            mainImage={post.mainImage}
+            key={post.url}
           ></BlogPostItem>
         ))}
       </div>

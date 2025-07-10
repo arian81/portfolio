@@ -7,6 +7,7 @@ export default function LinkedinIcon({ className }: { className: string }) {
       viewBox="0 0 24 24"
       className={className}
     >
+      <title>LinkedIn icon</title>
       <circle cx="4" cy="4" r="2" fillOpacity="0">
         <animate
           attributeName="fill-opacity"

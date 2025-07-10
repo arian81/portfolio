@@ -63,7 +63,9 @@ const Resume: NextPageWithLayout = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-label="Email icon"
                   >
+                    <title>Email icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -93,7 +95,9 @@ const Resume: NextPageWithLayout = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-label="Website icon"
                   >
+                    <title>Website icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -123,7 +127,9 @@ const Resume: NextPageWithLayout = () => {
                     height="24"
                     viewBox="0 0 24 24"
                     className="h-5 w-5 text-white dark:text-orange-200"
+                    aria-label="GitHub icon"
                   >
+                    <title>GitHub icon</title>
                     <g
                       fill="none"
                       stroke="currentColor"
@@ -157,7 +163,9 @@ const Resume: NextPageWithLayout = () => {
                     height="24"
                     viewBox="0 0 24 24"
                     className="h-5 w-5 text-white dark:text-orange-200"
+                    aria-label="LinkedIn icon"
                   >
+                    <title>LinkedIn icon</title>
                     <g
                       fill="none"
                       stroke="currentColor"
@@ -190,7 +198,9 @@ const Resume: NextPageWithLayout = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-label="Education icon"
                 >
+                  <title>Education icon</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -207,9 +217,9 @@ const Resume: NextPageWithLayout = () => {
                 Education
               </h3>
               <div className="space-y-4">
-                {education.map((edu, index) => (
+                {education.map((edu) => (
                   <div
-                    key={index}
+                    key={edu.school}
                     className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
                   >
                     <h4 className="text-sm font-semibold text-gray-800 dark:text-orange-200">
@@ -242,7 +252,9 @@ const Resume: NextPageWithLayout = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-label="Skills icon"
                 >
+                  <title>Skills icon</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -253,18 +265,18 @@ const Resume: NextPageWithLayout = () => {
                 Skills
               </h3>
               <div className="space-y-4">
-                {skills.map((skill, index) => (
+                {skills.map((skill) => (
                   <div
-                    key={index}
+                    key={skill.category}
                     className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"
                   >
                     <h5 className="mb-2 text-sm font-semibold text-gray-800 dark:text-orange-200">
                       {skill.category}
                     </h5>
                     <div className="flex flex-wrap gap-1.5">
-                      {skill.items.split(", ").map((item, i) => (
+                      {skill.items.split(", ").map((item) => (
                         <span
-                          key={i}
+                          key={item}
                           className="inline-block rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300"
                         >
                           {item}
@@ -295,7 +307,9 @@ const Resume: NextPageWithLayout = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-label="Download icon"
                 >
+                  <title>Download icon</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -317,7 +331,9 @@ const Resume: NextPageWithLayout = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-label="Experience icon"
                   >
+                    <title>Experience icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -332,9 +348,9 @@ const Resume: NextPageWithLayout = () => {
               </div>
 
               <div className="space-y-6 md:space-y-8">
-                {experience.map((exp, index) => (
+                {experience.map((exp) => (
                   <div
-                    key={index}
+                    key={exp.organization}
                     className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <div className="mb-3 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
@@ -359,9 +375,9 @@ const Resume: NextPageWithLayout = () => {
                     </div>
 
                     <div className="mb-4 flex flex-wrap gap-2">
-                      {exp.technologies.split(", ").map((tech, i) => (
+                      {exp.technologies.split(", ").map((tech) => (
                         <span
-                          key={i}
+                          key={tech}
                           className="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300"
                         >
                           {tech}
@@ -370,9 +386,10 @@ const Resume: NextPageWithLayout = () => {
                     </div>
 
                     <ul className="ml-5 list-disc space-y-2 text-gray-600 dark:text-white dark:text-opacity-80">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="leading-relaxed">
+                      {exp.achievements.map((achievement) => (
+                        <li key={achievement} className="leading-relaxed">
                           <span
+                            // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe static content from local data
                             dangerouslySetInnerHTML={{ __html: achievement }}
                           />
                         </li>
@@ -393,7 +410,9 @@ const Resume: NextPageWithLayout = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-label="Projects icon"
                   >
+                    <title>Projects icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -408,9 +427,9 @@ const Resume: NextPageWithLayout = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-                {projects.map((project, index) => (
+                {projects.map((project) => (
                   <div
-                    key={index}
+                    key={project.title}
                     className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <h4 className="mb-2 text-lg font-semibold text-gray-800 dark:text-orange-200">
@@ -427,9 +446,9 @@ const Resume: NextPageWithLayout = () => {
                       </span>
                     </div>
                     <div className="mb-4 flex flex-wrap gap-2">
-                      {project.technologies.split(", ").map((tech, i) => (
+                      {project.technologies.split(", ").map((tech) => (
                         <span
-                          key={i}
+                          key={tech}
                           className="inline-block rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300"
                         >
                           {tech}
@@ -437,9 +456,10 @@ const Resume: NextPageWithLayout = () => {
                       ))}
                     </div>
                     <ul className="ml-5 list-disc space-y-1 text-sm text-gray-600 dark:text-white dark:text-opacity-80">
-                      {project.achievements.map((achievement, i) => (
-                        <li key={i}>
+                      {project.achievements.map((achievement) => (
+                        <li key={achievement}>
                           <span
+                            // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe static content from local data
                             dangerouslySetInnerHTML={{ __html: achievement }}
                           />
                         </li>
@@ -460,7 +480,9 @@ const Resume: NextPageWithLayout = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-label="Hackathons icon"
                   >
+                    <title>Hackathons icon</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -475,9 +497,9 @@ const Resume: NextPageWithLayout = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
-                {hackathons.map((hackathon, index) => (
+                {hackathons.map((hackathon) => (
                   <div
-                    key={index}
+                    key={hackathon.title}
                     className="relative rounded-md border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50 md:rounded-lg md:p-6"
                   >
                     <div className="absolute right-0 top-0 rounded-bl-md rounded-tr-md bg-[#592407] px-2 py-0.5 text-xs font-bold text-white dark:bg-orange-200 dark:text-gray-800 md:-right-2 md:-top-2 md:rounded-full md:rounded-bl-lg md:px-3 md:py-1">
@@ -497,9 +519,9 @@ const Resume: NextPageWithLayout = () => {
                       </span>
                     </div>
                     <div className="mb-4 flex flex-wrap gap-2">
-                      {hackathon.technologies.split(", ").map((tech, i) => (
+                      {hackathon.technologies.split(", ").map((tech) => (
                         <span
-                          key={i}
+                          key={tech}
                           className="inline-block rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300"
                         >
                           {tech}
@@ -507,9 +529,10 @@ const Resume: NextPageWithLayout = () => {
                       ))}
                     </div>
                     <ul className="ml-5 list-disc space-y-1 text-sm text-gray-600 dark:text-white dark:text-opacity-80">
-                      {hackathon.achievements.map((achievement, i) => (
-                        <li key={i}>
+                      {hackathon.achievements.map((achievement) => (
+                        <li key={achievement}>
                           <span
+                            // biome-ignore lint/security/noDangerouslySetInnerHtml: Safe static content from local data
                             dangerouslySetInnerHTML={{ __html: achievement }}
                           />
                         </li>

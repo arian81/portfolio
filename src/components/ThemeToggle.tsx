@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [icon, setIcon] = useState(42);
   const icons = [
     { src: "https://arian.gg/images/dark-auto.svg", alt: "auto mode moon" },
@@ -28,7 +28,7 @@ const ThemeToggle = () => {
       setIcon(3);
     }
 
-    const handleChange = (event: { matches: any }) => {
+    const handleChange = (event: MediaQueryListEvent) => {
       if (theme === "system") {
         if (event.matches) {
           setIcon(0);
@@ -56,7 +56,7 @@ const ThemeToggle = () => {
     }
   }
   return (
-    <button onClick={toggleTheme} aria-label="change theme">
+    <button type="button" onClick={toggleTheme} aria-label="change theme">
       {icon !== 42 && (
         <Image
           src={icons[icon]?.src ?? ""}

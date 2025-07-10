@@ -109,7 +109,9 @@ export default function handler(request: NextRequest) {
             viewBox="0 0 200 200"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-label="Arian's blog logo"
           >
+            <title>Arian's blog logo</title>
             <path
               d="M13.3975 193.333L100 53.3334L186.603 193.333H13.3975Z"
               stroke="#592406"
@@ -128,8 +130,8 @@ export default function handler(request: NextRequest) {
         height: 630,
       },
     );
-  } catch (e: any) {
-    console.log(`${e.message}`);
+  } catch (e: unknown) {
+    console.log(`${e instanceof Error ? e.message : "Unknown error"}`);
     return new Response(`Failed to generate the image`, {
       status: 500,
     });

@@ -4,18 +4,12 @@ import { z } from "zod";
 const BlogPostItemSchema = z.object({
   title: z.string(),
   url: z.string(),
-  mainImage: z.any().nullable(),
   summary: z.string(),
 });
 
 type BlogPostItemProp = z.infer<typeof BlogPostItemSchema>;
 
-const BlogPostItem: React.FC<BlogPostItemProp> = ({
-  title,
-  url,
-  mainImage,
-  summary,
-}) => {
+const BlogPostItem: React.FC<BlogPostItemProp> = ({ title, url, summary }) => {
   return (
     <Link
       href={`/blog/${url}`}

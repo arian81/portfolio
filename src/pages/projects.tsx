@@ -34,13 +34,13 @@ const Projects: NextPageWithLayout<
         className="container mx-auto space-y-6 px-4 py-8 dark:bg-transparent md:py-12 lg:py-20"
       >
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-          {projects.map((project: Project, index: number) => (
+          {projects.map((project: Project) => (
             <ProjectGridItem
               title={project.title}
               thumbnail={project.thumbnail}
               description={project.description}
               projectUrl={project.projectUrl}
-              key={index}
+              key={project.projectUrl}
             />
           ))}
         </div>
