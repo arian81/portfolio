@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "pnpm run gen-resume && next dev",
+    "dev": "pnpm run gen-resume-website && next dev",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
     "format": "biome format --write .",
@@ -12,7 +12,8 @@
     "check": "biome check .",
     "check:fix": "biome check --write .",
     "start": "next start",
-    "gen-resume": "ts-node --project tsconfig.scripts.json scripts/generate-resume-data.ts"
+    "gen-resume-website": "ts-node --project tsconfig.scripts.json scripts/generate-resume-data.ts",
+    "build-resume": "ts-node --project tsconfig.scripts.json scripts/build-resume.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
