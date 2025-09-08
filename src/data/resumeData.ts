@@ -13,9 +13,7 @@ export const education = [
     "degree": "Bachelor of Computer Science",
     "gpa": "4.0",
     "date": "Sept 2021 — Apr 2026",
-    "achievements": [
-      "Provost Honour Roll and Dean's honour roll for achieving a GPA of 4.0"
-    ]
+    "achievements": []
   }
 ];
 
@@ -28,7 +26,7 @@ export const experience = [
     "location": "Part-time, Remote",
     "technologies": "Next.js, TypeScript, React",
     "achievements": [
-      "Improving product performance across the stack through frontend optimization, caching strategies, and enhanced backend architecture."
+      "Improving product performance across the stack through frontend optimization, caching strategies, and enhanced backend architecture"
     ]
   },
   {
@@ -40,7 +38,7 @@ export const experience = [
     "technologies": "TypeScript, ElysiaJS, Ruby on Rails, Vue.js",
     "achievements": [
       "Collaborated with a fulltime team to maintain and enhance the core platform dashboard using <span className=\"font-semibold\">Ruby on Rails and Vue.js</span>",
-      "Increased video processing speeds by <span className=\"font-semibold\">10x</span> by architecting an asynchronous pipeline using <span className=\"font-semibold\">Bun workers</span>.",
+      "Increased video processing speeds by <span className=\"font-semibold\">10x</span> by architecting an asynchronous pipeline using <span className=\"font-semibold\">Bun workers</span>",
       "Won first place in an internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products",
       "Contributed to an AI microservice using <span className=\"font-semibold\">TypeScript and ElysiaJS</span>, serving as the backend for LLM operations"
     ]
@@ -53,10 +51,10 @@ export const experience = [
     "location": "Toronto, ON",
     "technologies": "Python, VertexAI(GCP), LLM, Next.js, React, FastAPI, Big Query, PostgreSQL, Cloud Run",
     "achievements": [
-      "Led creation of a fullstack generative AI app, resulting in <span className=\"font-semibold\">65%</span> cost reduction by customer simulation, <span className=\"font-semibold\">winning Innovation Award</span>.",
-      "Collaborated with a team of <span className=\"font-semibold\">5</span> to scale the app for <span className=\"font-semibold\">5,000+</span> customer support agents, leveraging <span className=\"font-semibold\">Next.js, FastAPI, and PostgreSQL</span>.",
+      "Led creation of a fullstack generative AI app, resulting in <span className=\"font-semibold\">65%</span> cost reduction by customer simulation, <span className=\"font-semibold\">winning Innovation Award</span>",
+      "Collaborated cross-functionally to scale the app for <span className=\"font-semibold\">5,000+</span> customer support agents, using <span className=\"font-semibold\">Next.js, FastAPI, and PostgreSQL</span>",
       "Improved agent's performance by <span className=\"font-semibold\">30%</span>, utilizing Gemini's tool calling and dynamic rubrics to provide personalized feedback",
-      "Achieved <span className=\"font-semibold\">85%</span> code coverage for backend by creating a comprehensive testing suite using <span className=\"font-semibold\">Pytest</span>."
+      "Achieved <span className=\"font-semibold\">85%</span> code coverage for backend by creating a comprehensive testing suite using <span className=\"font-semibold\">Pytest</span>"
     ]
   },
   {
@@ -65,10 +63,10 @@ export const experience = [
     "organizationUrl": "https://deltahacks.com/",
     "date": "Jul 2022 — Present",
     "location": "Hamilton, ON",
-    "technologies": "Next.js, TRPC, Prisma, Netlify, Tailwind, NextAuth.js, Typeform, PostgreSQL",
+    "technologies": "Next.js, TRPC, Prisma, Vercel, Tailwind, NextAuth.js, Typeform, PostgreSQL",
     "achievements": [
       "Managed <span className=\"font-semibold\">7</span> developers building a stack ranking based judging platform, streamlining <span className=\"font-semibold\">30+</span> judges' evaluation of <span className=\"font-semibold\">100+</span> projects",
-      "Integrated <span className=\"font-semibold\">TRPC, Prisma, and Netlify functions</span> stack which <span className=\"font-semibold\">scaled</span> the backend to handle <span className=\"font-semibold\">10,000+</span> requests throughout the year",
+      "Integrated <span className=\"font-semibold\">TRPC, Prisma, and Vercel functions</span> which <span className=\"font-semibold\">scaled</span> the backend to handle <span className=\"font-semibold\">10,000+</span> requests throughout the year",
       "Developed a graph-based matchmaking tool that paired over <span className=\"font-semibold\">500</span> hackers into compatible teams based on interest and skillset"
     ]
   },
@@ -86,7 +84,38 @@ export const experience = [
   }
 ];
 
-export const projects = [];
+export const projects = [
+  {
+    "title": "GitFaster",
+    "subtitle": "Blazing fast GitHub client",
+    "url": "https://gitfaster.dev/",
+    "technologies": "Next.js, TypeScript, React, PostgreSQL, Redis, Drizzle ORM, GitHub API",
+    "achievements": [
+      "Accelerated user interactions by <span className=\"font-semibold\">3x</span> by implementing just-in-time prefetching on link hover and intelligent caching strategies",
+      "Optimized GitHub API integration with smart caching mechanisms to minimize redundant requests and improve response times"
+    ]
+  },
+  {
+    "title": "McOutline",
+    "subtitle": "Find and share course outlines}",
+    "url": "https://www.mcoutline.ca/",
+    "technologies": "Next.js, React, TypeScript, Tailwind CSS, tRPC, GitHub",
+    "achievements": [
+      "Built a fullstack app for students to upload, and browse course outlines, solving the lack of a centralized archive",
+      "Implemented local-first uploads with <span className=\"font-semibold\">OPFS</span> and GitHub object storage for zero-cost durability"
+    ]
+  },
+  {
+    "title": "WebAssembly IDE",
+    "subtitle": "Browser-based WASM Development Environment}",
+    "url": "https://wasm.arian.gg/",
+    "technologies": "WebAssembly, Monaco Editor, Shadcn, TypeScript, React",
+    "achievements": [
+      "Built an online IDE for writing <span className=\"font-semibold\">WebAssembly</span> code with <span className=\"font-semibold\">Monaco Editor</span> providing syntax highlighting and code completion",
+      "Implemented in-browser compilation and execution of WASM code with real-time console output"
+    ]
+  }
+];
 
 export const hackathons = [
   {
@@ -116,7 +145,7 @@ export const hackathons = [
 export const skills = [
   {
     "category": "Languages",
-    "items": "Python, Web Development (JavaScript, Typescript, HTML, CSS), Java, C++, C, Rust, Bash, Haskell"
+    "items": "Python, Web Development (JavaScript, TypeScript, HTML, CSS), Java, C++, C, Rust, Bash, Haskell"
   },
   {
     "category": "Frameworks",

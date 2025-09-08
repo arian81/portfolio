@@ -214,14 +214,19 @@ function extractProjects(): Project[] {
     if (!entry) continue;
 
     // Extract title and subtitle
-    const titleMatch = entry.match(
-      /\\href{([^}]+)}{([^}]+)} \\textbar{} ([^}]+)}/,
-    );
+    let titleMatch = entry.match(/\\href{([^}]+)}{([^}]+)}\s*-\s*([^|\n]+)/);
+    if (!titleMatch) {
+      titleMatch = entry.match(/\\href{([^}]+)}{([^}]+)}\s*\|\s*([^|\n]+)/);
+    }
+    if (!titleMatch) {
+      titleMatch = entry.match(/\\href{([^}]+)}{([^}]+)}\s*\\textbar{}\s*([^|\n]+)/);
+    }
     if (!titleMatch) continue;
 
     const url = titleMatch[1]?.trim() ?? "";
     const title = titleMatch[2]?.trim() ?? "";
     const subtitle = titleMatch[3]?.trim() ?? "";
+    // Optional additional info after | is ignored for now
 
     // Extract technologies
     const techMatch = entry.match(/\\subtext{([^}]+)}/);
