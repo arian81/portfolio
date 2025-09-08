@@ -73,7 +73,7 @@ const BlogPost: NextPageWithLayout<
         <div className="rounded-lg bg-white">
           <div className="prose prose-base max-w-none p-4 font-dm-sans font-medium sm:prose-lg lg:prose-xl sm:p-6 lg:p-8">
             <Markdown
-              remarkPlugins={[remarkGfm, remarkMath, remarkCallout]}
+              remarkPlugins={[remarkGfm, remarkMath, remarkCallout as any]}
               rehypePlugins={[rehypeHighlight, rehypeMathjax, rehypeRaw]}
             >
               {post.body}
