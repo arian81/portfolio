@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - '**.typ'
+    - '.github/workflows/build-resume.yml'
   workflow_dispatch:
 
 permissions:
