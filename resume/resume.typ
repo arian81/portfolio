@@ -12,7 +12,7 @@
 #show: resume.with(
   top-margin: 0.25in,
   font: ("SF Pro Text", "Helvetica"),
-  font-size: 9.23pt,
+  font-size: 9.3pt,
   personal-info-font-size: 12pt,
   author-position: center,
   personal-info-position: center,
@@ -74,7 +74,7 @@
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
-    set list(indent: 0.5em)
+    set list()
     body
   }
 }
@@ -91,7 +91,7 @@
   if body != [] {
     v(-0.4em)
     set par(leading: 0.6em)
-    set list(indent: 0.5em)
+    set list()
     body
   }
 }
