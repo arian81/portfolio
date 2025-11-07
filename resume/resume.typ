@@ -84,7 +84,7 @@
     underline[*#name*]
   }
   if stack != "" {
-    v(-0.2em)
+    linebreak()
     [*#stack*]
   }
   v(-0.2em)
