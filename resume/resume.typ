@@ -107,10 +107,10 @@
 
 #custom-title("Skills")[
   #skills()[
-    - *Languages:* Python, Web Development (JavaScript, TypeScript, HTML, CSS), Java, C++, C, Rust, Bash, Haskell
-    - *Frameworks:* React, Next.js, Tailwind, Django, FastAPI
-    - *Tools:* Linux, Git, Cloud Services (Google Cloud Platform, AWS), Relational Databases (SQL, PostgreSQL)
-    - *Design:* Prototype design with Figma, Photoshop
+    - *Languages:* Python, JavaScript, TypeScript, HTML, CSS, Java, Bash
+    - *Frameworks:* React, Next.js, Vue.js, Tailwind, Django, FastAPI
+    - *Tools:* Linux, Git, Google Cloud Platform, AWS, PostgreSQL
+    // - *Design:* Prototype design with Figma, Photoshop
   ]
 ]
 
@@ -122,9 +122,11 @@
     datetime(year: 2025, month: 9, day: 1),
     "Present",
     company-url: "https://www.greptile.com/",
-    stack: ""
+    stack: "Next.js, TypeScript, TRPC, Prisma, Bun"
   )[
-    - Improving product performance across the stack through frontend optimization, caching strategies, and enhanced backend architecture
+    - Reduced load times from *800ms to 200ms* by optimizing *Next.js* performance through server-side prefetching and caching
+    - Boosted feature adoption by *30%* through a new feature discovery system on GitHub comments
+    - Reduced engineering overhead by *5+ hours* per week by implementing Infisical for centralized secrets management
   ]
 
   #work-heading(
@@ -134,12 +136,12 @@
     datetime(year: 2025, month: 5, day: 1),
     datetime(year: 2025, month: 8, day: 1),
     company-url: "https://www.vidyard.com/",
-    stack: "Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS"
+    stack: "Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS, AWS, Kubernetes"
   )[
-    - Collaborated with a fulltime team to maintain and enhance the core platform dashboard using *Ruby on Rails and Vue.js*
-    - Increased video processing speeds by *10x* by architecting an asynchronous pipeline using *Bun workers*
-    - Won first place in an internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products
-    - Contributed to an AI microservice using *TypeScript and ElysiaJS*, serving as the backend for LLM operations
+    - Expanded core dashboard with AI video creation for free tier using *Ruby on Rails and Vue.js*, attracting 3,000 new monthly users
+    - Architected an asynchronous pipeline using *Bun workers* to process videos *10x* faster
+    - Won first place in internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products
+    - Worked on AI microservice using *TypeScript and ElysiaJS* powering 5,000+ daily LLM operations across the platform
   ]
 
   #work-heading(
@@ -149,11 +151,11 @@
     datetime(year: 2023, month: 5, day: 1),
     datetime(year: 2024, month: 8, day: 1),
     company-url: "https://www.bell.ca/",
-    stack: "Next.js, FastAPI, PostgreSQL, Python"
+    stack: "Next.js, FastAPI, Cloud Run, VertexAI(GCP), Big Query, Pytest"
   )[
-    - Led creation of a fullstack generative AI app, resulting in *65%* cost reduction by customer simulation, *winning Innovation Award*
+    - Led creation of a fullstack generative AI app, resulting in saving *\$1.5 million* per year by customer simulation, *winning Innovation Award*
     - Collaborated cross-functionally to scale the app for *5,000+* customer support agents, using *Next.js, FastAPI, and PostgreSQL*
-    - Improved agent's performance by *30%*, utilizing Gemini's tool calling and dynamic rubrics to provide personalized feedback
+    - Enhanced AI response realism by *50%* through fine-tuning Gemini models on historical customer support interaction logs
     - Achieved *85%* code coverage for backend by creating a comprehensive testing suite using *Pytest*
   ]
 
@@ -164,11 +166,12 @@
     datetime(year: 2022, month: 7, day: 1),
     "Present",
     company-url: "https://deltahacks.com/",
-    stack: "tRPC, Prisma, Vercel"
+    stack: "Next.js, TRPC, Prisma, Tailwind, TypeScript"
   )[
-    - Managed *7* developers building a stack ranking based judging platform, streamlining *30+* judges' evaluation of *100+* projects
+    - Managed *7* developers building a stack ranking based judging platform, streamlining *30+* judges' evaluation of *100+* projects each year
     - Integrated *TRPC, Prisma, and Vercel functions* which *scaled* the backend to handle *10,000+* requests throughout the year
-    - Developed a graph-based matchmaking tool that paired over *500* hackers into compatible teams based on interest and skillset
+    // - Developed a graph-based matchmaking tool that paired over *500* hackers into compatible teams based on interest and skillset
+    - Developed a QR code event management infrastructure using *Apple Wallet* and a *PWA scanner* to handle traffic from *800+* attendees each year
   ]
 
   #work-heading(
@@ -197,7 +200,7 @@
 
   #project-heading(
     "McOutline - Find and share course outlines ↗",
-    stack: "Next.js, React, TypeScript, Tailwind CSS, tRPC, GitHub",
+    stack: "Next.js, React, TypeScript, Tailwind, GitHub API",
     project-url: "https://www.mcoutline.ca/"
   )[
     - Built a fullstack app for students to upload, and browse course outlines, solving the lack of a centralized archive
