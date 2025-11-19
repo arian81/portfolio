@@ -37,8 +37,8 @@ const About = () => {
               I'm a 4th year computer science student from McMaster University.
             </li>
             <li className="py-2">
-              <span className={emoji.className}>💼 </span>
-              Currently a software engineering intern at Vidyard
+              <span className={emoji.className}>🦎 </span>
+              Currently a software engineer at Greptile
             </li>
             <li className="py-2">
               <span className={emoji.className}>🚴 </span>I love riding bikes
