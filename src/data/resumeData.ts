@@ -23,10 +23,12 @@ export const experience = [
     "organization": "Greptile",
     "organizationUrl": "https://www.greptile.com/",
     "date": "Sep 2025 — Present",
-    "location": "Part-time, Remote",
-    "technologies": "Next.js, TypeScript, React",
+    "location": "Remote",
+    "technologies": "Next.js, TypeScript, TRPC, Prisma, Bun",
     "achievements": [
-      "Improving product performance across the stack through frontend optimization, caching strategies, and enhanced backend architecture"
+      "Reduced load times from <span className=\"font-semibold\">800ms to 200ms</span> by optimizing <span className=\"font-semibold\">Next.js</span> performance through server-side prefetching and caching",
+      "Boosted feature adoption by <span className=\"font-semibold\">30%</span> through a new feature discovery system on GitHub comments",
+      "Reduced engineering overhead by <span className=\"font-semibold\">5+ hours</span> per week by implementing Infisical for centralized secrets management"
     ]
   },
   {
@@ -35,25 +37,25 @@ export const experience = [
     "organizationUrl": "https://vidyard.com/",
     "date": "May 2025 — Aug 2025",
     "location": "Remote",
-    "technologies": "TypeScript, ElysiaJS, Ruby on Rails, Vue.js",
+    "technologies": "Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS, AWS, Kubernetes",
     "achievements": [
-      "Collaborated with a fulltime team to maintain and enhance the core platform dashboard using <span className=\"font-semibold\">Ruby on Rails and Vue.js</span>",
-      "Increased video processing speeds by <span className=\"font-semibold\">10x</span> by architecting an asynchronous pipeline using <span className=\"font-semibold\">Bun workers</span>",
-      "Won first place in an internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products",
-      "Contributed to an AI microservice using <span className=\"font-semibold\">TypeScript and ElysiaJS</span>, serving as the backend for LLM operations"
+      "Expanded core dashboard with AI video creation for free tier using <span className=\"font-semibold\">Ruby on Rails and Vue.js</span>, attracting 3,000 new monthly users",
+      "Architected an asynchronous pipeline using <span className=\"font-semibold\">Bun workers</span> to process videos <span className=\"font-semibold\">10x</span> faster",
+      "Won first place in internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products",
+      "Worked on AI microservice using <span className=\"font-semibold\">TypeScript and ElysiaJS</span> powering 5,000+ daily LLM operations across the platform"
     ]
   },
   {
-    "title": "Software Engineering / Machine Learning Intern",
+    "title": "Machine Learning Intern",
     "organization": "Bell Canada",
     "organizationUrl": "https://bell.ca/",
     "date": "May 2023 — Aug 2024",
     "location": "Toronto, ON",
-    "technologies": "Python, VertexAI(GCP), LLM, Next.js, React, FastAPI, Big Query, PostgreSQL, Cloud Run",
+    "technologies": "Next.js, FastAPI, Cloud Run, VertexAI(GCP), Big Query, Pytest",
     "achievements": [
-      "Led creation of a fullstack generative AI app, resulting in <span className=\"font-semibold\">65%</span> cost reduction by customer simulation, <span className=\"font-semibold\">winning Innovation Award</span>",
+      "Led creation of a fullstack generative AI app, resulting in saving <span className=\"font-semibold\">$1.5 million</span> per year by customer simulation, <span className=\"font-semibold\">winning Innovation Award</span>",
       "Collaborated cross-functionally to scale the app for <span className=\"font-semibold\">5,000+</span> customer support agents, using <span className=\"font-semibold\">Next.js, FastAPI, and PostgreSQL</span>",
-      "Improved agent's performance by <span className=\"font-semibold\">30%</span>, utilizing Gemini's tool calling and dynamic rubrics to provide personalized feedback",
+      "Enhanced AI response realism by <span className=\"font-semibold\">50%</span> through fine-tuning Gemini models on historical customer support interaction logs",
       "Achieved <span className=\"font-semibold\">85%</span> code coverage for backend by creating a comprehensive testing suite using <span className=\"font-semibold\">Pytest</span>"
     ]
   },
@@ -63,11 +65,11 @@ export const experience = [
     "organizationUrl": "https://deltahacks.com/",
     "date": "Jul 2022 — Present",
     "location": "Hamilton, ON",
-    "technologies": "Next.js, TRPC, Prisma, Vercel, Tailwind, NextAuth.js, Typeform, PostgreSQL",
+    "technologies": "Next.js, TRPC, Prisma, Tailwind, TypeScript",
     "achievements": [
-      "Managed <span className=\"font-semibold\">7</span> developers building a stack ranking based judging platform, streamlining <span className=\"font-semibold\">30+</span> judges' evaluation of <span className=\"font-semibold\">100+</span> projects",
+      "Managed <span className=\"font-semibold\">7</span> developers building a stack ranking based judging platform, streamlining <span className=\"font-semibold\">30+</span> judges' evaluation of <span className=\"font-semibold\">100+</span> projects each year",
       "Integrated <span className=\"font-semibold\">TRPC, Prisma, and Vercel functions</span> which <span className=\"font-semibold\">scaled</span> the backend to handle <span className=\"font-semibold\">10,000+</span> requests throughout the year",
-      "Developed a graph-based matchmaking tool that paired over <span className=\"font-semibold\">500</span> hackers into compatible teams based on interest and skillset"
+      "Developed a QR code event management infrastructure using <span className=\"font-semibold\">Apple Wallet</span> and a <span className=\"font-semibold\">PWA scanner</span> to handle traffic from <span className=\"font-semibold\">800+</span> attendees each year"
     ]
   },
   {
@@ -76,7 +78,7 @@ export const experience = [
     "organizationUrl": "https://mcmaster.ca/",
     "date": "June 2022 — Dec 2024",
     "location": "Hamilton, ON",
-    "technologies": "Python, Bash, PostgreSQL, Discord API",
+    "technologies": "Python, C, Bash, Linux",
     "achievements": [
       "Optimized grading process for <span className=\"font-semibold\">1,000+</span> course materials (labs, assignments, exams) by developing <span className=\"font-semibold\">Python and Bash</span> scripts",
       "Taught <span className=\"font-semibold\">Python, C, Bash, and Linux fundamentals</span> to <span className=\"font-semibold\">100+</span> students through tutorials and labs"
@@ -145,18 +147,14 @@ export const hackathons = [
 export const skills = [
   {
     "category": "Languages",
-    "items": "Python, Web Development (JavaScript, TypeScript, HTML, CSS), Java, C++, C, Rust, Bash, Haskell"
+    "items": "Python, JavaScript, TypeScript, HTML, CSS, Java, Bash"
   },
   {
     "category": "Frameworks",
-    "items": "React, Next.js, Tailwind, Django, FastAPI"
+    "items": "React, Next.js, Vue.js, Tailwind, Django, FastAPI"
   },
   {
     "category": "Tools",
-    "items": "Linux, Git, Cloud Services (Google Cloud Platform, AWS), Relational Databases (SQL, PostgreSQL)"
-  },
-  {
-    "category": "Design",
-    "items": "Prototype design with Figma, Photoshop"
+    "items": "Linux, Git, Google Cloud Platform, AWS, PostgreSQL"
   }
 ];
