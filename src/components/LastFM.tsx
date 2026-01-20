@@ -21,6 +21,9 @@ const CurrentlyPlaying = () => {
     return <div className="-translate-y-[35%] opacity-0" aria-hidden="true" />;
   }
 
+
+  console.log(JSON.stringify(lastFM, null, 2));
+
   return (
     <a
       href={lastFM.song.url}
