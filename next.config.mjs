@@ -29,10 +29,6 @@ const config = {
         protocol: "https",
         hostname: "i.imgur.com",
       },
-      {
-        protocol: "https",
-        hostname: "lastfm.freetls.fastly.net",
-      },
     ],
   },
   async rewrites() {
