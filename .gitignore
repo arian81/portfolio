@@ -13,11 +13,29 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
+!.env.test
 
 # macOS-specific files
 .DS_Store
+Thumbs.db
 
+# SvelteKit
+.output
+/.svelte-kit
+/build
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Vercel & Netlify
+.vercel
+.netlify
+.wrangler
+
+# Resume
 resume/indent.log
 resume/resume.aux
 resume/resume.fdb_latexmk
@@ -26,9 +44,7 @@ resume/resume.log
 resume/resume.pdf
 resume/resume.synctex.gz
 resume/resume.out
-.next
-.vscode
-.vercel
-src/pages/test.tsx
 
-out/
+# Editor
+.vscode
+src/pages/test.tsx
