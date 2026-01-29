@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/resume(.*)",
-      "destination": "https://www.arian.gg/resume.pdf"
-    }
-  ]
-}
