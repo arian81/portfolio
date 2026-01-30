@@ -2,3 +2,15 @@
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+	body {
+		@apply min-h-screen bg-yellow-50 dark:bg-black;
+		overflow: auto;
+	}
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+}
