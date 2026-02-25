@@ -48,3 +48,6 @@ resume/resume.out
 # Editor
 .vscode
 src/pages/test.tsx
+
+# Old website reference
+old-website/

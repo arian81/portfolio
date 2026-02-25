@@ -1,14 +1,12 @@
 <script lang="ts">
-	interface Props {
-		title: string;
-		description: string;
-	}
-	let { title, description }: Props = $props();
+	import type { Project } from '$lib/data/projects';
+	let { title, description, image, link }: Project = $props();
 </script>
 
-<div>
-	<!-- imgage placeholder -->
-	<div class="h-50 w-full bg-gray-200"></div>
-	{title}
-	{description}
-</div>
+<a href={link}>
+	<div class="bg-blue-100">
+		<enhanced:img src={image} alt={title} class="p-10" />
+		<h3 class="text-lg font-bold">{title}</h3>
+		<p class="text-sm text-gray-500">{description}</p>
+	</div>
+</a>

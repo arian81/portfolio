@@ -1,10 +1,11 @@
 <script>
 	import Item from '$lib/components/Item.svelte';
-	import ProjectItem from '$lib/components/projectItem.svelte';
+	import ProjectItem from '$lib/components/ProjectItem.svelte';
+	import { projects } from '$lib/data/projects';
 </script>
 
 <div
-	class="grid w-full min-w-0 grid-cols-1 p-10 gap-y-10 gap-x-20 lg:h-screen lg:grid-cols-12 lg:overflow-hidden"
+	class="grid w-full min-w-0 grid-cols-1 gap-x-20 gap-y-10 p-10 lg:h-screen lg:grid-cols-12 lg:overflow-hidden"
 >
 	<header class="col-span-1 text-sm text-neutral-600 lg:col-span-12">
 		<span class="text-sm text-stone-800">アリアン</span>
@@ -52,17 +53,15 @@
 	</div>
 	<div class="col-span-1 flex flex-col lg:col-span-8 lg:overflow-hidden">
 		<h2 class="mb-4 text-lg font-bold">Projects</h2>
-		<div class="grid grid-cols-1 gap-2 lg:flex-1 lg:grid-cols-2 lg:overflow-y-auto">
-			<ProjectItem title="Project 1" description="Description 1" />
-			<ProjectItem title="Project 2" description="Description 2" />
-			<ProjectItem title="Project 3" description="Description 3" />
-			<ProjectItem title="Project 4" description="Description 4" />
-			<ProjectItem title="Project 5" description="Description 5" />
-			<ProjectItem title="Project 6" description="Description 6" />
-			<ProjectItem title="Project 7" description="Description 7" />
-			<ProjectItem title="Project 8" description="Description 8" />
-			<ProjectItem title="Project 9" description="Description 9" />
-			<ProjectItem title="Project 10" description="Description 10" />
+		<div class="grid grid-cols-1 gap-8 lg:flex-1 lg:grid-cols-2 lg:overflow-y-auto">
+			{#each projects as project}
+				<ProjectItem
+					title={project.title}
+					description={project.description}
+					image={project.image}
+					link={project.link}
+				/>
+			{/each}
 		</div>
 	</div>
 </div>
