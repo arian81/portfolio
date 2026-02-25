@@ -4,6 +4,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+	html,
+	body {
+		overscroll-behavior: none;
+	}
 	body {
 		@apply min-h-screen bg-yellow-50 dark:bg-black;
 		overflow: auto;
