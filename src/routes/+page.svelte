@@ -55,12 +55,7 @@
 		<h2 class="mb-4 text-lg font-bold">Projects</h2>
 		<div class="grid grid-cols-1 gap-8 lg:flex-1 lg:grid-cols-2 lg:overflow-y-auto">
 			{#each projects as project}
-				<ProjectItem
-					title={project.title}
-					description={project.description}
-					image={project.image}
-					link={project.link}
-				/>
+				<ProjectItem {...project} />
 			{/each}
 		</div>
 	</div>
