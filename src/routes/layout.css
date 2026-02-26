@@ -13,12 +13,15 @@
 		overscroll-behavior: none;
 	}
 	body {
-		@apply min-h-screen bg-yellow-50 dark:bg-black;
+		@apply min-h-screen bg-yellow-50 dark:bg-stone-900;
 		overflow: auto;
 	}
 	* {
 		box-sizing: border-box;
 		padding: 0;
 		margin: 0;
+	}
+	::selection {
+		@apply bg-stone-900 text-yellow-50 dark:bg-yellow-50 dark:text-stone-900;
 	}
 }
