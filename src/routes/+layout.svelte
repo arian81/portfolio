@@ -2,6 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { SvelteTheme } from '$lib/theme';
+	import '@fontsource/instrument-serif/latin-400.css';
 
 	let { children } = $props();
 </script>

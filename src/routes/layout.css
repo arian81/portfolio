@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+	--font-instrument: 'Instrument Serif', serif;
+}
+
 @layer base {
 	html,
 	body {

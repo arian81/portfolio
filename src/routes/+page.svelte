@@ -13,13 +13,15 @@
 		<span class="text-sm text-stone-800">アリアン</span>
 	</header>
 	<div class="col-span-1 flex flex-col gap-16 lg:col-span-4">
-		<div class="flex flex-col gap-2">
-			<h1 class="text-2xl font-bold">Arian Ahmadinejad</h1>
-			<h2>
+		<div class="flex flex-col gap-5">
+			<h1 class="pb-5 font-instrument text-6xl font-bold tracking-wider text-stone-800">
+				Arian<br />Ahmadinejad
+			</h1>
+			<h2 class="leading-loose text-stone-600">
 				A software engineer who values simplicity and intention. Currently crafting developer tools
 				at Greptile. Studying computer science at McMaster
 			</h2>
-			<div class="flex gap-4">
+			<div class="flex gap-4 text-stone-500/70">
 				<a href="https://github.com/arian81">GitHub</a>
 				<a href="https://linkedin.com/in/arian81">LinkedIn</a>
 				<a href="mailto:hey@arian.gg">Email</a>
