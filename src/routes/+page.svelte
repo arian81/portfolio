@@ -24,6 +24,7 @@
 			<div class="flex gap-4 text-stone-500/70">
 				<a href="https://github.com/arian81">GitHub</a>
 				<a href="https://linkedin.com/in/arian81">LinkedIn</a>
+				<a href="https://x.com/ariancodes">X</a>
 				<a href="mailto:hey@arian.gg">Email</a>
 			</div>
 		</div>
