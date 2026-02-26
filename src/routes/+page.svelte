@@ -2,6 +2,8 @@
 	import Item from '$lib/components/Item.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import { projects } from '$lib/data/projects';
+	import { experience } from '$lib/data/experience';
+	import { formatDateRange } from '$lib/helpers';
 </script>
 
 <div
@@ -25,24 +27,14 @@
 		</div>
 		<div class="flex flex-col gap-2">
 			<h2 class="text-lg font-bold">Experience</h2>
-			<Item
-				href="https://github.com/arian81"
-				title="Bell Canada"
-				description="Software Engineering Intern"
-				date="2023 - 2024"
-			/>
-			<Item
-				href="https://github.com/arian81"
-				title="Stripe"
-				description="Software Engineering Intern"
-				date="2023 - 2024"
-			/>
-			<Item
-				href="https://github.com/arian81"
-				title="DeltaHacks"
-				description="Technical VP"
-				date="2022 - Present"
-			/>
+			{#each experience as job}
+				<Item
+					href={job.url}
+					title={job.company}
+					description={job.role}
+					date={formatDateRange(job.startDate, job.endDate)}
+				/>
+			{/each}
 		</div>
 		<div class="flex flex-col gap-2">
 			<h2 class="text-lg font-bold">Writings</h2>
