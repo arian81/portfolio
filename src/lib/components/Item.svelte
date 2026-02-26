@@ -9,7 +9,7 @@
 	let { href, title, description, date }: Props = $props();
 </script>
 
-<a class="flex items-end gap-3" {href}>
+<a class="flex items-end gap-3" {href} rel="external">
 	<span>{title}</span>
 	<span class="text-sm text-gray-500">{description}</span>
 	<span class="flex-1 grow -translate-y-2.5 border-b border-dotted border-gray-500"></span>

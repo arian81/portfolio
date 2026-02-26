@@ -2,60 +2,60 @@
   role: Software Engineer
   location: Remote
   url: https://www.greptile.com/
-  stack: "Next.js, TypeScript, TRPC, Prisma, Bun"
-  startDate: "2025-09"
+  stack: 'Next.js, TypeScript, TRPC, Prisma, Bun'
+  startDate: '2025-09'
   endDate: Present
   highlights:
-    - "Reduced load times from *800ms to 200ms* by optimizing *Next.js* performance through server-side prefetching and caching"
-    - "Boosted feature adoption by *30%* through a new feature discovery system on GitHub comments"
-    - "Reduced engineering overhead by *5+ hours* per week by implementing Infisical for centralized secrets management"
+    - 'Reduced load times from *800ms to 200ms* by optimizing *Next.js* performance through server-side prefetching and caching'
+    - 'Boosted feature adoption by *30%* through a new feature discovery system on GitHub comments'
+    - 'Reduced engineering overhead by *5+ hours* per week by implementing Infisical for centralized secrets management'
 
 - company: Vidyard
   role: Software Engineering Intern
   location: Remote
   url: https://www.vidyard.com/
-  stack: "Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS, AWS, Kubernetes"
-  startDate: "2025-05"
-  endDate: "2025-08"
+  stack: 'Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS, AWS, Kubernetes'
+  startDate: '2025-05'
+  endDate: '2025-08'
   highlights:
-    - "Expanded core dashboard with AI video creation for free tier using *Ruby on Rails and Vue.js*, attracting 3,000 new monthly users"
-    - "Architected an asynchronous pipeline using *Bun workers* to process videos *10x* faster"
-    - "Won first place in internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products"
-    - "Worked on AI microservice using *TypeScript and ElysiaJS* powering 5,000+ daily LLM operations across the platform"
+    - 'Expanded core dashboard with AI video creation for free tier using *Ruby on Rails and Vue.js*, attracting 3,000 new monthly users'
+    - 'Architected an asynchronous pipeline using *Bun workers* to process videos *10x* faster'
+    - 'Won first place in internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products'
+    - 'Worked on AI microservice using *TypeScript and ElysiaJS* powering 5,000+ daily LLM operations across the platform'
 
 - company: Bell Canada
   role: Machine Learning Intern
-  location: "Toronto, ON"
+  location: 'Toronto, ON'
   url: https://www.bell.ca/
-  stack: "Next.js, FastAPI, Cloud Run, VertexAI(GCP), Big Query, Pytest"
-  startDate: "2023-05"
-  endDate: "2024-08"
+  stack: 'Next.js, FastAPI, Cloud Run, VertexAI(GCP), Big Query, Pytest'
+  startDate: '2023-05'
+  endDate: '2024-08'
   highlights:
     - "Led creation of a fullstack generative AI app, resulting in saving *\\$1.5 million* per year by customer simulation, *winning Innovation Award*"
-    - "Collaborated cross-functionally to scale the app for *5,000+* customer support agents, using *Next.js, FastAPI, and PostgreSQL*"
-    - "Enhanced AI response realism by *50%* through fine-tuning Gemini models on historical customer support interaction logs"
-    - "Achieved *85%* code coverage for backend by creating a comprehensive testing suite using *Pytest*"
+    - 'Collaborated cross-functionally to scale the app for *5,000+* customer support agents, using *Next.js, FastAPI, and PostgreSQL*'
+    - 'Enhanced AI response realism by *50%* through fine-tuning Gemini models on historical customer support interaction logs'
+    - 'Achieved *85%* code coverage for backend by creating a comprehensive testing suite using *Pytest*'
 
 - company: DeltaHacks
   role: Technical VP
-  location: "Hamilton, ON"
+  location: 'Hamilton, ON'
   url: https://deltahacks.com/
-  stack: "Next.js, TRPC, Prisma, Tailwind, TypeScript"
-  startDate: "2022-07"
+  stack: 'Next.js, TRPC, Prisma, Tailwind, TypeScript'
+  startDate: '2022-07'
   endDate: Present
   highlights:
     - "Managed *7* developers building a stack ranking based judging platform, streamlining *30+* judges' evaluation of *100+* projects each year"
-    - "Integrated *TRPC, Prisma, and Vercel functions* which *scaled* the backend to handle *10,000+* requests throughout the year"
+    - 'Integrated *TRPC, Prisma, and Vercel functions* which *scaled* the backend to handle *10,000+* requests throughout the year'
     # - "Developed a graph-based matchmaking tool that paired over *500* hackers into compatible teams based on interest and skillset"
-    - "Developed a QR code event management infrastructure using *Apple Wallet* and a *PWA scanner* to handle traffic from *800+* attendees each year"
+    - 'Developed a QR code event management infrastructure using *Apple Wallet* and a *PWA scanner* to handle traffic from *800+* attendees each year'
 
 - company: McMaster University
   role: Teaching Assistant
-  location: "Hamilton, ON"
+  location: 'Hamilton, ON'
   url: https://www.mcmaster.ca/
-  stack: "Python, C, Bash, Linux"
-  startDate: "2022-06"
-  endDate: "2024-12"
+  stack: 'Python, C, Bash, Linux'
+  startDate: '2022-06'
+  endDate: '2024-12'
   highlights:
-    - "Optimized grading process for *1,000+* course materials (labs, assignments, exams) by developing *Python and Bash* scripts"
-    - "Taught *Python, C, Bash, and Linux fundamentals* to *100+* students through tutorials and labs"
+    - 'Optimized grading process for *1,000+* course materials (labs, assignments, exams) by developing *Python and Bash* scripts'
+    - 'Taught *Python, C, Bash, and Linux fundamentals* to *100+* students through tutorials and labs'

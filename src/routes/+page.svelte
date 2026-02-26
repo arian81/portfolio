@@ -29,7 +29,7 @@
 		</div>
 		<div class="flex flex-col gap-2">
 			<h2 class="text-lg font-bold">Experience</h2>
-			{#each experience as job}
+			{#each experience as job (job.url)}
 				<Item
 					href={job.url}
 					title={job.company}
@@ -48,7 +48,7 @@
 	<div class="col-span-1 flex flex-col lg:col-span-8 lg:overflow-hidden">
 		<h2 class="mb-4 text-lg font-bold">Projects</h2>
 		<div class="grid grid-cols-1 gap-8 lg:flex-1 lg:grid-cols-2 lg:overflow-y-auto">
-			{#each projects as project}
+			{#each projects as project (project.url)}
 				<ProjectItem {...project} />
 			{/each}
 		</div>
