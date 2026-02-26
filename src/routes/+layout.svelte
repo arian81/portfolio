@@ -10,8 +10,9 @@
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 <SvelteTheme
 	themes={['light', 'dark']}
-	defaultTheme="light"
+	defaultTheme="system"
 	attribute="class"
+	enableSystem
 	disableTransitionOnChange
 >
 	{@render children()}
