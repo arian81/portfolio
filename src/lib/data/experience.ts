@@ -1,6 +1,7 @@
 import yaml from 'js-yaml';
 import { z } from 'zod';
 import rawYaml from '../../../shared-data/experience.yaml?raw';
+import { formatDateRange } from '$lib/helpers';
 
 const ExperienceSchema = z.object({
 	company: z.string(),
@@ -13,6 +14,17 @@ const ExperienceSchema = z.object({
 	highlights: z.array(z.string())
 });
 
-export type Experience = z.infer<typeof ExperienceSchema>;
+export type RawExperience = z.infer<typeof ExperienceSchema>;
 
-export const experience: Experience[] = z.array(ExperienceSchema).parse(yaml.load(rawYaml));
+const rawExperience: RawExperience[] = z.array(ExperienceSchema).parse(yaml.load(rawYaml));
+
+export const experience = rawExperience.map(({ company, role, url, startDate, endDate }) => ({
+	type: 'experience' as const,
+	company,
+	role,
+	mobileRole: role.replace('Software Engineer', 'SWE'),
+	url,
+	date: formatDateRange(startDate, endDate)
+}));
+
+export type Experience = (typeof experience)[0];
