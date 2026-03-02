@@ -8,12 +8,6 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<SvelteTheme
-	themes={['light', 'dark']}
-	defaultTheme="system"
-	attribute="class"
-	enableSystem
-	disableTransitionOnChange
->
+<SvelteTheme themes={['light', 'dark']} defaultTheme="system" attribute="class" enableSystem>
 	{@render children()}
 </SvelteTheme>
