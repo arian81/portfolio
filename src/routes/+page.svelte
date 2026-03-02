@@ -3,11 +3,28 @@
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
+	import { useTheme } from '$lib/theme';
+	import { clsx } from 'clsx';
+
+	const theme = useTheme();
 </script>
 
-<div class="flex w-full min-w-0 flex-col gap-10 p-5 md:p-10 lg:h-screen lg:overflow-hidden">
-	<header class="text-sm text-neutral-600">
-		<span class="text-sm text-stone-800">アリアン</span>
+<div class="flex w-full min-w-0 flex-col gap-2 p-5 md:p-10 lg:h-screen lg:overflow-hidden">
+	<header class="flex justify-end">
+		<div class="flex gap-1 text-xs">
+			{#each ['light', 'dark', 'system'] as state, i (state)}
+				{#if i > 0}<span class="text-stone-300 select-none dark:text-stone-600">/</span>{/if}
+				<button
+					onclick={() => (theme.theme = state)}
+					class={clsx(
+						'cursor-pointer',
+						state === theme.theme
+							? 'text-stone-800 dark:text-stone-200'
+							: 'text-stone-400 dark:text-stone-600'
+					)}>{state}</button
+				>
+			{/each}
+		</div>
 	</header>
 	<div class="flex flex-col gap-20 lg:min-h-0 lg:flex-1 lg:flex-row">
 		<div class="flex shrink-0 flex-col gap-16 xl:w-110 2xl:w-150">
@@ -29,7 +46,7 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="text-lg font-bold">Experience</h2>
+				<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Experience</h2>
 				{#each experience as job (job.url)}
 					<Item
 						type="experience"
@@ -42,7 +59,7 @@
 				{/each}
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="text-md tracking-[0.3em] text-stone-400 uppercase">Writings</h2>
+				<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Writings</h2>
 				<Item
 					type="blog"
 					url="https://github.com/arian81"
@@ -64,7 +81,7 @@
 			</div>
 		</div>
 		<div class="flex flex-1 flex-col lg:min-h-0">
-			<h2 class="mb-4 text-lg font-bold">Projects</h2>
+			<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Projects</h2>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
 				{#each projects as project (project.url)}
 					<ProjectItem {...project} />

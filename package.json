@@ -43,6 +43,7 @@
 		"zod": "^4.3.6"
 	},
 	"dependencies": {
-		"@fontsource/instrument-serif": "^5.2.8"
+		"@fontsource/instrument-serif": "^5.2.8",
+		"clsx": "^2.1.1"
 	}
 }

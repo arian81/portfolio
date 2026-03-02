@@ -11,6 +11,9 @@ importers:
       '@fontsource/instrument-serif':
         specifier: ^5.2.8
         version: 5.2.8
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
     devDependencies:
       '@eslint/compat':
         specifier: ^2.0.1
