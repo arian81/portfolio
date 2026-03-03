@@ -18,11 +18,18 @@ export type RawExperience = z.infer<typeof ExperienceSchema>;
 
 const rawExperience: RawExperience[] = z.array(ExperienceSchema).parse(yaml.load(rawYaml));
 
+const mobileRoles: Record<string, string> = {
+	'Software Engineer': 'SWE',
+	'Software Engineering Intern': 'SWE Intern',
+	'Machine Learning Intern': 'ML Intern',
+	'Teaching Assistant': 'TA'
+};
+
 export const experience = rawExperience.map(({ company, role, url, startDate, endDate }) => ({
 	type: 'experience' as const,
 	company,
 	role,
-	mobileRole: role.replace('Software Engineer', 'SWE'),
+	mobileRole: mobileRoles[role] ?? role,
 	url,
 	date: formatDateRange(startDate, endDate)
 }));
