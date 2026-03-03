@@ -11,7 +11,7 @@
 
 <div class="flex w-full min-w-0 flex-col gap-2 p-5 md:p-10 lg:h-screen lg:overflow-hidden">
 	<header class="flex justify-end">
-		<div class="flex gap-1 text-xs">
+		<div class="flex gap-1 text-sm">
 			{#each ['light', 'dark', 'system'] as state, i (state)}
 				{#if i > 0}<span class="text-stone-300 select-none dark:text-stone-600">/</span>{/if}
 				<button
@@ -20,7 +20,7 @@
 						'cursor-pointer',
 						state === theme.theme
 							? 'text-stone-800 dark:text-stone-200'
-							: 'text-stone-400 dark:text-stone-600'
+							: 'text-stone-400 dark:text-stone-500'
 					)}>{state}</button
 				>
 			{/each}
@@ -30,15 +30,15 @@
 		<div class="flex shrink-0 flex-col justify-between xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-5">
 				<h1
-					class="pb-5 font-instrument text-5xl font-bold tracking-wider text-stone-800 md:text-6xl"
+					class="pb-5 font-instrument text-5xl font-bold tracking-wider text-stone-800 md:text-6xl dark:text-yellow-50"
 				>
 					Arian<br />Ahmadinejad
 				</h1>
-				<h2 class="leading-relaxed text-stone-600">
+				<h2 class="leading-relaxed text-stone-600 dark:text-stone-400">
 					A software engineer who values simplicity and intention. Currently crafting developer
 					tools at Greptile. Studying computer science at McMaster
 				</h2>
-				<div class="flex gap-4 text-stone-500/70">
+				<div class="flex gap-4 text-stone-500/70 dark:text-stone-500">
 					<a href="https://github.com/arian81">GitHub</a>
 					<a href="https://linkedin.com/in/arian81">LinkedIn</a>
 					<a href="https://x.com/ariancodes">𝕏</a>
