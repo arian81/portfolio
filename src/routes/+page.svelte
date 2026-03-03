@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Item from '$lib/components/Item.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import { projects } from '$lib/data/projects';
@@ -27,7 +27,7 @@
 		</div>
 	</header>
 	<div class="flex flex-col gap-20 lg:min-h-0 lg:flex-1 lg:flex-row">
-		<div class="flex shrink-0 flex-col gap-16 xl:w-110 2xl:w-150">
+		<div class="flex shrink-0 flex-col justify-between xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-5">
 				<h1
 					class="pb-5 font-instrument text-5xl font-bold tracking-wider text-stone-800 md:text-6xl"
@@ -46,7 +46,9 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Experience</h2>
+				<h2 class="pb-2 text-sm font-light tracking-[0.3em] text-stone-400 uppercase">
+					Experience
+				</h2>
 				{#each experience as job (job.url)}
 					<Item
 						type="experience"
@@ -59,7 +61,7 @@
 				{/each}
 			</div>
 			<div class="flex flex-col gap-2">
-				<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Writings</h2>
+				<h2 class="pb-2 text-sm font-light tracking-[0.3em] text-stone-400 uppercase">Writings</h2>
 				<Item
 					type="blog"
 					url="https://github.com/arian81"
@@ -79,9 +81,15 @@
 					date="2022 - Present"
 				/>
 			</div>
+			<footer class="flex justify-between text-xs text-stone-400">
+				<p>
+					Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
+				</p>
+				<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
+			</footer>
 		</div>
 		<div class="flex flex-1 flex-col lg:min-h-0">
-			<h2 class="font-bol pb-4 text-sm tracking-[0.3em] text-stone-400 uppercase">Projects</h2>
+			<h2 class="pb-4 text-sm font-light tracking-[0.3em] text-stone-400 uppercase">Projects</h2>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
 				{#each projects as project (project.url)}
 					<ProjectItem {...project} />

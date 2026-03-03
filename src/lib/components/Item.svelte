@@ -11,8 +11,10 @@
 	const props: Props = $props();
 </script>
 
-<a class="flex items-end gap-3" href={props.url} rel="external">
-	<span>{props.type === 'blog' ? props.title : props.company}</span>
+<a class="group flex items-end gap-3" href={props.url} rel="external">
+	<span class="group-hover:text-amber-700 dark:group-hover:text-amber-400"
+		>{props.type === 'blog' ? props.title : props.company}</span
+	>
 	<span class="hidden text-sm text-gray-500 md:block"
 		>{props.type === 'experience' ? props.role : ''}</span
 	>
