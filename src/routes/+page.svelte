@@ -27,7 +27,7 @@
 		</div>
 	</header>
 	<div class="flex flex-col gap-20 lg:min-h-0 lg:flex-1 lg:flex-row">
-		<div class="flex shrink-0 flex-col justify-between xl:w-110 2xl:w-150">
+		<div class="flex shrink-0 flex-col gap-16 lg:w-80 xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-5">
 				<h1
 					class="pb-5 font-instrument text-5xl font-bold tracking-wider text-stone-800 md:text-6xl dark:text-yellow-50"
@@ -81,7 +81,7 @@
 					date="2022 - Present"
 				/>
 			</div>
-			<footer class="flex justify-between text-xs text-stone-400">
+			<footer class="mt-auto hidden justify-between text-xs text-stone-400 lg:flex">
 				<p>
 					Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
 				</p>
@@ -96,5 +96,11 @@
 				{/each}
 			</div>
 		</div>
+		<footer class="flex flex-col justify-between text-xs text-stone-400 lg:hidden">
+			<p>
+				Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
+			</p>
+			<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
+		</footer>
 	</div>
 </div>
