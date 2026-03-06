@@ -4,6 +4,7 @@
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
 	import { useTheme } from '$lib/theme';
+	import { resolve } from '$app/paths';
 	import { clsx } from 'clsx';
 
 	const theme = useTheme();
@@ -27,6 +28,7 @@
 		</div>
 	</header>
 	<div class="flex flex-col gap-20 lg:min-h-0 lg:flex-1 lg:flex-row">
+		<!-- instead of gap-16 justify-between should be used in future once more exprience / blog posts are added -->
 		<div class="flex shrink-0 flex-col gap-16 lg:min-h-0 lg:w-80 xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-5">
 				<h1
@@ -35,14 +37,17 @@
 					Arian<br />Ahmadinejad
 				</h1>
 				<h2 class="leading-relaxed text-stone-600 dark:text-stone-400">
-					A software engineer who values simplicity and intention. Currently crafting developer
-					tools at Greptile. Studying computer science at McMaster
+					I like to build <u>intentional</u> software with utmost
+					<strong>simplicity</strong>
+					that <i>just works™️</i>. If you believe in the same principles, we should work together
+					:)
 				</h2>
 				<div class="flex gap-4 text-stone-500/70 dark:text-stone-500">
 					<a href="https://github.com/arian81">GitHub</a>
 					<a href="https://linkedin.com/in/arian81">LinkedIn</a>
 					<a href="https://x.com/ariancodes">𝕏</a>
 					<a href="mailto:hey@arian.gg">Email</a>
+					<a href={resolve('/resume')} class="text-stone-500 italic underline">Resume</a>
 				</div>
 			</div>
 			<div class="flex flex-col gap-2">
@@ -62,24 +67,9 @@
 			</div>
 			<div class="flex flex-col gap-2">
 				<h2 class="pb-2 text-sm font-light tracking-[0.3em] text-stone-400 uppercase">Writings</h2>
-				<Item
-					type="blog"
-					url="https://github.com/arian81"
-					title="Writing 1"
-					date="2022 - Present"
-				/>
-				<Item
-					type="blog"
-					url="https://github.com/arian81"
-					title="Writing 2"
-					date="2022 - Present"
-				/>
-				<Item
-					type="blog"
-					url="https://github.com/arian81"
-					title="Writing 3"
-					date="2022 - Present"
-				/>
+				<Item type="blog" url="#" title="Out with the old, in whith the new" date="2026" />
+				<Item type="blog" url="#" title="How Did I Hack,MIT" date="2025" />
+				<Item type="blog" url="#" title="How to rid yourself of 'shorts'" date="2025" />
 			</div>
 			<footer class="mt-auto hidden justify-between text-xs text-stone-400 lg:flex">
 				<p>
