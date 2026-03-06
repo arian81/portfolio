@@ -1,13 +1,18 @@
 <script lang="ts">
 	import type { Project } from '$lib/data/projects';
-	let { title, description, image, url, repo }: Project = $props();
+	let { title, description, image, url, color }: Project = $props();
 </script>
 
 <a href={url} rel="external">
-	<div class="bg-blue-100">
-		<enhanced:img src={image} alt={title} class="p-10" />
-		<h3 class="text-lg font-bold">{title}</h3>
-		<p class="text-sm text-stone-500">{description}</p>
-		<p class="text-sm text-stone-500">{repo}</p>
+	<div
+		class="{color} flex flex-col gap-3 p-3 pb-5 drop-shadow-md transition-all hover:scale-95 hover:drop-shadow-sm"
+	>
+		<div class="aspect-4/3 overflow-hidden">
+			<enhanced:img src={image} alt={title} class="h-full w-full object-contain" />
+		</div>
+		<div class="space-x-2">
+			<h3 class="text-xl font-normal text-white">{title}</h3>
+			<p class="h-10 text-sm leading-5 text-white">{description}</p>
+		</div>
 	</div>
 </a>
