@@ -114,78 +114,35 @@
   ]
 ]
 
+#let jobs = yaml("../shared-data/experience.yaml")
+
+#let parse-date(s) = {
+  let parts = s.split("-")
+  datetime(
+    year: int(parts.at(0)),
+    month: int(parts.at(1)),
+    day: 1,
+  )
+}
+
 #custom-title("Experience")[
-  #work-heading(
-    "Greptile ↗",
-    "Software Engineer",
-    "Remote",
-    datetime(year: 2025, month: 9, day: 1),
-    "Present",
-    company-url: "https://www.greptile.com/",
-    stack: "Next.js, TypeScript, TRPC, Prisma, Bun"
-  )[
-    - Reduced load times from *800ms to 200ms* by optimizing *Next.js* performance through server-side prefetching and caching
-    - Boosted feature adoption by *30%* through a new feature discovery system on GitHub comments
-    - Reduced engineering overhead by *5+ hours* per week by implementing Infisical for centralized secrets management
-  ]
-
-  #work-heading(
-    "Vidyard ↗",
-    "Software Engineering Intern",
-    "Remote",
-    datetime(year: 2025, month: 5, day: 1),
-    datetime(year: 2025, month: 8, day: 1),
-    company-url: "https://www.vidyard.com/",
-    stack: "Ruby on Rails, Vue.js, Bun, TypeScript, ElysiaJS, AWS, Kubernetes"
-  )[
-    - Expanded core dashboard with AI video creation for free tier using *Ruby on Rails and Vue.js*, attracting 3,000 new monthly users
-    - Architected an asynchronous pipeline using *Bun workers* to process videos *10x* faster
-    - Won first place in internal hackathon by developing an MCP server enabling agentic AI interactions with Vidyard products
-    - Worked on AI microservice using *TypeScript and ElysiaJS* powering 5,000+ daily LLM operations across the platform
-  ]
-
-  #work-heading(
-    "Bell Canada ↗",
-    "Machine Learning Intern",
-    "Toronto, ON",
-    datetime(year: 2023, month: 5, day: 1),
-    datetime(year: 2024, month: 8, day: 1),
-    company-url: "https://www.bell.ca/",
-    stack: "Next.js, FastAPI, Cloud Run, VertexAI(GCP), Big Query, Pytest"
-  )[
-    - Led creation of a fullstack generative AI app, resulting in saving *\$1.5 million* per year by customer simulation, *winning Innovation Award*
-    - Collaborated cross-functionally to scale the app for *5,000+* customer support agents, using *Next.js, FastAPI, and PostgreSQL*
-    - Enhanced AI response realism by *50%* through fine-tuning Gemini models on historical customer support interaction logs
-    - Achieved *85%* code coverage for backend by creating a comprehensive testing suite using *Pytest*
-  ]
-
-  #work-heading(
-    "DeltaHacks ↗",
-    "Technical VP",
-    "Hamilton, ON",
-    datetime(year: 2022, month: 7, day: 1),
-    "Present",
-    company-url: "https://deltahacks.com/",
-    stack: "Next.js, TRPC, Prisma, Tailwind, TypeScript"
-  )[
-    - Managed *7* developers building a stack ranking based judging platform, streamlining *30+* judges' evaluation of *100+* projects each year
-    - Integrated *TRPC, Prisma, and Vercel functions* which *scaled* the backend to handle *10,000+* requests throughout the year
-    // - Developed a graph-based matchmaking tool that paired over *500* hackers into compatible teams based on interest and skillset
-    - Developed a QR code event management infrastructure using *Apple Wallet* and a *PWA scanner* to handle traffic from *800+* attendees each year
-  ]
-
-  #work-heading(
-    "McMaster University ↗",
-    "Teaching Assistant",
-    "Hamilton, ON",
-    datetime(year: 2022, month: 6, day: 1),
-    datetime(year: 2024, month: 12, day: 1),
-    company-url: "https://www.mcmaster.ca/",
-    stack: "Python, C, Bash, Linux"
-  )[
-    - Optimized grading process for *1,000+* course materials (labs, assignments, exams) by developing *Python and Bash* scripts
-    - Taught *Python, C, Bash, and Linux fundamentals* to *100+* students through tutorials and labs
-  ]
+  #for job in jobs {
+    let start = parse-date(job.startDate)
+    let end = if job.endDate == "Present" { "Present" } else { parse-date(job.endDate) }
+    work-heading(
+      job.company + " ↗",
+      job.role,
+      job.location,
+      start,
+      end,
+      company-url: job.url,
+      stack: job.stack,
+    )[
+      #for h in job.highlights [
+        - #eval(h, mode: "markup")
+      ]
+    ]
+  }
 ]
 
 #custom-title("Projects")[

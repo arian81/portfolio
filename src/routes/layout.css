@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility bg-polaroid-tan {
+	background: linear-gradient(135deg, #d4a574, #c4956a);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #b8906a, #a07858);
+	}
+}
+@utility bg-polaroid-sage {
+	background: linear-gradient(135deg, #a8b5a0, #8fa085);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #8fa085, #768a6c);
+	}
+}
+@utility bg-polaroid-taupe {
+	background: linear-gradient(135deg, #b8a89a, #a89888);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #a89888, #928272);
+	}
+}
+@utility bg-polaroid-sand {
+	background: linear-gradient(135deg, #c4b5a8, #b5a698);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #b5a698, #a59688);
+	}
+}
+@utility bg-polaroid-steel {
+	background: linear-gradient(135deg, #a0a8b5, #8a95a5);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #8a95a5, #747f8f);
+	}
+}
+@utility bg-polaroid-mauve {
+	background: linear-gradient(135deg, #b5a0a8, #a58a95);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #a58a95, #8f747f);
+	}
+}
+@utility bg-polaroid-wheat {
+	background: linear-gradient(135deg, #c2b5a0, #b0a38e);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #b0a38e, #9e917c);
+	}
+}
+@utility bg-polaroid-lavender {
+	background: linear-gradient(135deg, #a8a0b5, #958da5);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #958da5, #827a92);
+	}
+}
+@utility bg-polaroid-stone {
+	background: linear-gradient(135deg, #b5a8a0, #a5988e);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #a5988e, #95887e);
+	}
+}
+@utility bg-polaroid-mint {
+	background: linear-gradient(135deg, #a0b5a8, #8da598);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #8da598, #7a9285);
+	}
+}
+@utility bg-polaroid-butter {
+	background: linear-gradient(135deg, #e8d48a, #d4c278);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #d4c278, #c0ae66);
+	}
+}
+@utility bg-polaroid-rose {
+	background: linear-gradient(135deg, #d4908a, #c47e78);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #c47e78, #b06c66);
+	}
+}
+@utility bg-polaroid-maroon {
+	background: linear-gradient(135deg, #944547, #843537);
+	&:where(.dark, .dark *) {
+		background: linear-gradient(135deg, #843537, #742527);
+	}
+}
+
+@theme {
+	--font-instrument: 'Instrument Serif', serif;
+}
+
+@layer base {
+	html,
+	body {
+		overscroll-behavior: none;
+	}
+	body {
+		@apply min-h-screen bg-yellow-50 transition-colors duration-300 dark:bg-stone-900;
+		overflow: auto;
+	}
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	::selection {
+		@apply bg-stone-900 text-yellow-50 dark:bg-yellow-50 dark:text-stone-900;
+	}
+}

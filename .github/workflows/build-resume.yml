@@ -3,8 +3,9 @@ name: Build Typst resume
 on:
   push:
     paths:
-    - '**.typ'
-    - '.github/workflows/build-resume.yml'
+      - '**.typ'
+      - 'shared-data/experience.yaml'
+      - '.github/workflows/build-resume.yml'
   workflow_dispatch:
 
 permissions:
@@ -24,6 +25,8 @@ jobs:
         with:
           source_file: resume/resume.typ
           options: |
+            --root
+            .
             --font-path
             fonts
 
@@ -46,5 +49,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4.15.4
         with:
           file_pattern: '*.pdf'
-          commit_message: "Resume updated on ${{ env.NOW }}"
-
+          commit_message: 'Resume updated on ${{ env.NOW }}'

@@ -1,6 +1,6 @@
 # Website
 
-My personal website built with T3 Stack (Next.js, TypeScript and TailwindCSS). Live at [arian.gg](https://arian.gg)
+My personal website built with SvelteKit, TypeScript and TailwindCSS. Live at [arian.gg](https://arian.gg)
 
 <p align="center">
   <a href="https://arian.gg">
@@ -20,8 +20,8 @@ All commands are run from the root of the project, from a terminal:
 | Command            | Action                                       |
 | :----------------- | :------------------------------------------- |
 | `pnpm install`     | Installs dependencies                        |
-| `pnpm run dev`     | Starts local dev server at `localhost:3000`  |
-| `pnpm run build`   | Build your production site to `./dist/`      |
+| `pnpm run dev`     | Starts local dev server at `localhost:5173`  |
+| `pnpm run build`   | Build your production site to `./build/`     |
 | `pnpm run preview` | Preview your build locally, before deploying |
 
 ## Feedback
