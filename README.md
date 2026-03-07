@@ -13,6 +13,10 @@ My personal website built with SvelteKit, TypeScript and TailwindCSS. Live at [a
   </a>
 </p>
 
+## Tech Stack
+
+SvelteKit 2 · Svelte 5 · TypeScript · TailwindCSS 4 · MDSvex · Vercel
+
 ## Dev Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -23,6 +27,9 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm run dev`     | Starts local dev server at `localhost:5173`  |
 | `pnpm run build`   | Build your production site to `./build/`     |
 | `pnpm run preview` | Preview your build locally, before deploying |
+| `pnpm run check`   | Type checking                                |
+| `pnpm run lint`    | Lint with ESLint + Prettier                  |
+| `pnpm run format`  | Auto-format with Prettier                    |
 
 ## Feedback
 
