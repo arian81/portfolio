@@ -80,7 +80,7 @@
 		</div>
 		<div class="flex flex-1 flex-col gap-5 lg:min-h-0">
 			<h2 class="text-sm font-light tracking-[0.3em] text-stone-400 uppercase lg:pl-5">Projects</h2>
-			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto lg:px-5 2xl:grid-cols-3">
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
 				{#each projects as project (project.url)}
 					<ProjectItem {...project} />
 				{/each}
