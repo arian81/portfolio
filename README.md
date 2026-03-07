@@ -4,12 +4,12 @@ My personal website built with SvelteKit, TypeScript and TailwindCSS. Live at [a
 
 <p align="center">
   <a href="https://arian.gg">
-    <img src="https://i.imgur.com/V5EU6bq.png"/>
+    <img src="https://github.com/user-attachments/assets/e30dc776-7fb0-4bb3-a705-c8a50a4c0a38"/>
   </a>
 </p>
 <p align="center">
   <a href="https://arian.gg">
-    <img src="https://i.imgur.com/8w5VbGb.png"/>
+    <img src="https://github.com/user-attachments/assets/2da2aa2a-13ec-453b-a843-dc2eedc70644"/>
   </a>
 </p>
 
