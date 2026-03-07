@@ -13,7 +13,7 @@
 
 <div class="flex w-full min-w-0 flex-col gap-2 p-5 pt-10 md:p-10 lg:h-screen lg:overflow-hidden">
 	<header class="flex -translate-y-7 justify-between">
-		<Logo class="w-6" />
+		<Logo class="w-6 text-stone-900 dark:text-yellow-50" />
 		<div class="flex gap-1 text-sm">
 			{#each ['light', 'dark', 'system'] as state, i (state)}
 				{#if i > 0}<span class="text-stone-300 select-none dark:text-stone-600">/</span>{/if}
