@@ -6,12 +6,14 @@
 	import { useTheme } from '$lib/theme';
 	import { resolve } from '$app/paths';
 	import { clsx } from 'clsx';
+	import Logo from '$lib/components/Logo.svelte';
 
 	const theme = useTheme();
 </script>
 
-<div class="flex w-full min-w-0 flex-col gap-2 p-5 md:p-10 lg:h-screen lg:overflow-hidden">
-	<header class="flex justify-end">
+<div class="flex w-full min-w-0 flex-col gap-2 p-5 pt-10 md:p-10 lg:h-screen lg:overflow-hidden">
+	<header class="flex -translate-y-7 justify-between">
+		<Logo class="w-6" />
 		<div class="flex gap-1 text-sm">
 			{#each ['light', 'dark', 'system'] as state, i (state)}
 				{#if i > 0}<span class="text-stone-300 select-none dark:text-stone-600">/</span>{/if}
@@ -28,9 +30,7 @@
 		</div>
 	</header>
 	<div class="flex flex-col gap-12 lg:min-h-0 lg:flex-1 lg:flex-row lg:gap-20">
-		<div
-			class="flex shrink-0 flex-col gap-12 lg:w-80 lg:justify-between xl:w-110 2xl:w-150"
-		>
+		<div class="flex shrink-0 flex-col gap-12 lg:w-80 lg:justify-between xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-12 lg:flex-1 lg:justify-between 2xl:h-200 2xl:flex-none">
 				<div class="flex flex-col gap-5">
 					<h1
@@ -84,7 +84,7 @@
 			</footer>
 		</div>
 		<div class="flex flex-1 flex-col gap-5 lg:min-h-0">
-			<h2 class="text-sm font-light tracking-[0.3em] text-stone-400 uppercase lg:pl-5 2xl:text-xl">
+			<h2 class="text-sm font-light tracking-[0.3em] text-stone-400 uppercase 2xl:text-xl">
 				Projects
 			</h2>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
