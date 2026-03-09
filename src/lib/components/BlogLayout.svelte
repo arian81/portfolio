@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 
 	let { title, date, children } = $props();
 
@@ -7,7 +8,9 @@
 </script>
 
 <div class="mx-auto max-w-3xl p-5 pt-10 md:p-10">
-	<a href="/" class="mb-8 block text-sm text-stone-400 hover:text-stone-600">&larr; Back</a>
+	<a href={resolve('/')} class="mb-8 block text-sm text-stone-400 hover:text-stone-600"
+		>&larr; Back</a
+	>
 	<h1
 		class="mb-2 text-3xl font-bold text-stone-800 dark:text-yellow-50"
 		style="view-transition-name: blog-title-{slug}"
