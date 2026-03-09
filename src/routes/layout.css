@@ -89,10 +89,11 @@
 @layer base {
 	html,
 	body {
+		@apply h-full;
 		overscroll-behavior: none;
 	}
 	body {
-		@apply min-h-screen bg-yellow-50 transition-colors duration-300 dark:bg-stone-900;
+		@apply bg-yellow-50 transition-colors duration-300 dark:bg-stone-900;
 		overflow: auto;
 	}
 	* {

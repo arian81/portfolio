@@ -42,7 +42,7 @@
   url: https://deltahacks.com/
   stack: 'Next.js, TRPC, Prisma, Tailwind, TypeScript'
   startDate: '2022-07'
-  endDate: Present
+  endDate: '2026-01'
   highlights:
     - "Managed *7* developers building a stack ranking based judging platform, streamlining *30+* judges' evaluation of *100+* projects each year"
     - 'Integrated *TRPC, Prisma, and Vercel functions* which *scaled* the backend to handle *10,000+* requests throughout the year'

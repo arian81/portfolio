@@ -7,6 +7,7 @@ import scubaImg from '$lib/assets/projects/scuba.png?enhanced';
 import mcoutlineImg from '$lib/assets/projects/mcoutline.png?enhanced';
 import wasmImg from '$lib/assets/projects/wasm.png?enhanced';
 import mcwtaImg from '$lib/assets/projects/wta.png?enhanced';
+import portfolioImg from '$lib/assets/projects/portfolio.png?enhanced';
 import type { Picture } from '@sveltejs/enhanced-img';
 
 export interface Project {
@@ -34,7 +35,7 @@ export const projects: Project[] = [
 		image: deltahacksImg,
 		url: 'https://portal.deltahacks.com/',
 		repo: 'https://github.com/deltahacks/portal',
-		color: 'bg-polaroid-sage'
+		color: 'bg-polaroid-lavender'
 	},
 	{
 		title: 'Socratica Merch',
@@ -80,7 +81,7 @@ export const projects: Project[] = [
 	{
 		title: 'Portfolio',
 		description: 'This website. Look around :)',
-		image: gitfasterImg,
+		image: portfolioImg,
 		url: 'https://arian.gg/',
 		repo: 'https://github.com/arian81/portfolio',
 		color: 'bg-polaroid-stone'
@@ -99,6 +100,6 @@ export const projects: Project[] = [
 		image: wasmImg,
 		url: 'https://wasm.arian.gg/',
 		repo: 'https://github.com/arian81/wasm-ide',
-		color: 'bg-polaroid-lavender'
+		color: 'bg-polaroid-sage'
 	}
 ];
