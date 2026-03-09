@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import posthog from 'posthog-js';
 	import { onMount } from 'svelte';
 
 	let { title, date, children } = $props();
 
 	const slug = $derived(page.url.pathname.split('/').pop());
 
-	onMount(() => {
+	onMount(async () => {
+		const posthog = (await import('posthog-js')).default;
 		posthog.capture('blog_post_viewed', { title, slug, date });
 	});
 </script>
