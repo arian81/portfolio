@@ -20,7 +20,13 @@ const config = {
 			layout: join(__dirname, './src/lib/components/BlogLayout.svelte'),
 			smartypants: false,
 			remarkPlugins: [remarkGfm, remarkMath],
-			rehypePlugins: [rehypeSlug, rehypeCallouts, rehypeMathjax, [rehypeImgSize, { dir: 'static' }], rehypeRaw]
+			rehypePlugins: [
+				rehypeSlug,
+				rehypeCallouts,
+				rehypeMathjax,
+				[rehypeImgSize, { dir: 'static' }],
+				rehypeRaw
+			]
 		})
 	],
 	extensions: ['.svelte', '.svx']
