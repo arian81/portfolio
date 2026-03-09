@@ -1,10 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
+	import posthog from 'posthog-js';
+	import { onMount } from 'svelte';
 
 	let { title, date, children } = $props();
 
 	const slug = $derived(page.url.pathname.split('/').pop());
+
+	onMount(() => {
+		posthog.capture('blog_post_viewed', { title, slug, date });
+	});
 </script>
 
 <div class="mx-auto max-w-3xl p-5 pt-10 md:p-10">

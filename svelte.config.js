@@ -13,7 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: { adapter: adapter() },
+	kit: { adapter: adapter(), paths: { relative: false } },
 	preprocess: [
 		mdsvex({
 			layout: join(__dirname, './src/lib/components/BlogLayout.svelte'),

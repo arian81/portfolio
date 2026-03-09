@@ -51,3 +51,4 @@ src/pages/test.tsx
 
 # Old website reference
 old-website/
+.env.local
