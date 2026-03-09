@@ -8,6 +8,7 @@ import rehypeCallouts from 'rehype-callouts';
 import rehypeMathjax from 'rehype-mathjax';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
+import rehypeImgSize from 'rehype-img-size';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -19,7 +20,7 @@ const config = {
 			layout: join(__dirname, './src/lib/components/BlogLayout.svelte'),
 			smartypants: false,
 			remarkPlugins: [remarkGfm, remarkMath],
-			rehypePlugins: [rehypeSlug, rehypeCallouts, rehypeMathjax, rehypeRaw]
+			rehypePlugins: [rehypeSlug, rehypeCallouts, rehypeMathjax, [rehypeImgSize, { dir: 'static' }], rehypeRaw]
 		})
 	],
 	extensions: ['.svelte', '.svx']
