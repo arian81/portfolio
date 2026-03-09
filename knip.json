@@ -1,0 +1,8 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"tags": ["-lintignore"],
+	"ignore": [
+		"src/lib/components/BlogLayout.svelte", // Used as mdsvex layout in svelte.config.js
+		"svelte-sitemap.config.ts" // Used by svelte-sitemap postbuild script
+	]
+}

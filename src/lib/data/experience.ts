@@ -14,7 +14,7 @@ const ExperienceSchema = z.object({
 	highlights: z.array(z.string())
 });
 
-export type RawExperience = z.infer<typeof ExperienceSchema>;
+type RawExperience = z.infer<typeof ExperienceSchema>;
 
 const rawExperience: RawExperience[] = z.array(ExperienceSchema).parse(yaml.load(rawYaml));
 
