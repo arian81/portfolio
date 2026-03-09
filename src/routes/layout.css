@@ -101,6 +101,12 @@
 		padding: 0;
 		margin: 0;
 	}
+	* {
+		scrollbar-color: auto transparent;
+	}
+	::-webkit-scrollbar {
+		background: transparent;
+	}
 	::selection {
 		background-color: var(--color-stone-900) !important;
 		color: var(--color-yellow-50) !important;
