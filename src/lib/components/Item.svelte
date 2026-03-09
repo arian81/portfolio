@@ -9,11 +9,17 @@
 	}
 	type Props = Experience | BlogPost;
 	const props: Props = $props();
+	const slug = props.url.split('/').pop();
 </script>
 
-<a class="group flex items-end gap-3 2xl:text-xl" href={props.url} rel="external">
+<a
+	class="group flex items-end gap-3 2xl:text-xl"
+	href={props.url}
+	rel={props.type === 'experience' ? 'external' : undefined}
+>
 	<span
 		class="text-stone-800 transition-colors group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-400"
+		style={props.type === 'blog' ? `view-transition-name: blog-title-${slug}` : ''}
 		>{props.type === 'blog' ? props.title : props.company}</span
 	>
 	<span class="hidden text-sm text-stone-400 md:block lg:hidden xl:block 2xl:text-lg"
