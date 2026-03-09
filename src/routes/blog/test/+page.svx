@@ -1,0 +1,174 @@
+---
+title: "Markdown Feature Test"
+date: "2026-03-09"
+description: "Testing all markdown features"
+---
+
+# I made this to test markdown rendering when making the website. Congrats on finding it 🎉
+
+## Headings
+
+### H3 Heading
+#### H4 Heading
+##### H5 Heading
+###### H6 Heading
+
+## Text Formatting
+
+This is **bold**, this is *italic*, this is ***bold italic***, this is ~~strikethrough~~, and this is `inline code`.
+
+Here's a [link](https://example.com) and an autolink: https://example.com
+
+## Blockquotes
+
+> This is a regular blockquote.
+>
+> It can span multiple paragraphs.
+
+> Nested blockquote:
+>> This is nested inside.
+
+## Callouts
+
+> [!NOTE] A Note
+> This is a note callout with some **bold** and *italic* text.
+
+> [!TIP] Helpful Tip
+> This is a tip callout.
+
+> [!WARNING] Be Careful
+> This is a warning callout.
+
+> [!DANGER] Danger Zone
+> This is a danger callout.
+
+> [!INFO] For Your Information
+> This is an info callout.
+
+> [!IMPORTANT] Important
+> This is an important callout.
+
+> [!CAUTION] Proceed with Caution
+> This is a caution callout.
+
+## Lists
+
+### Unordered
+- Item one
+- Item two
+  - Nested item
+  - Another nested item
+    - Deep nested
+- Item three
+
+### Ordered
+1. First
+2. Second
+3. Third
+   1. Sub-item
+   2. Sub-item
+
+### Task List (GFM)
+- [x] Completed task
+- [ ] Incomplete task
+- [x] Another done task
+
+## Code Blocks
+
+```javascript
+function greet(name) {
+  console.log("Hello, " + name + "!");
+  return { greeting: true };
+}
+```
+
+```rust
+fn main() {
+    let x: i32 = 42;
+    println!("The answer is {}", x);
+}
+```
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+```
+
+```bash
+curl -s https://api.example.com/data | jq '.results[]'
+```
+
+## Tables (GFM)
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Bold | ✅ | Works great |
+| Callouts | ✅ | Using rehype-callouts |
+| Math | ✅ | Via MathJax |
+| GFM | ✅ | Tables, tasks, etc. |
+
+| Left | Center | Right |
+|:-----|:------:|------:|
+| L | C | R |
+| aligned | aligned | aligned |
+
+## Math
+
+Inline math: $E = mc^2$
+
+Display math:
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+$$
+
+The quadratic formula: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+
+## Images
+
+![Placeholder](https://placehold.co/600x200/333/white?text=Test+Image)
+
+## Horizontal Rule
+
+---
+
+## HTML (via rehype-raw)
+
+<details>
+<summary>Click to expand</summary>
+
+This content is hidden by default. It supports **markdown** inside.
+
+</details>
+
+<kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
+
+Text with <mark>highlighted</mark> content.
+
+H<sub>2</sub>O and x<sup>2</sup>
+
+## Footnotes
+
+Here's a sentence with a footnote[^1].
+
+[^1]: This is the footnote content.
+
+## Definition-style links
+
+[Visit Google][google] for more info.
+
+[google]: https://google.com
+
+## Escaping
+
+\*not italic\* and \`not code\`
+
+## Long paragraph
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

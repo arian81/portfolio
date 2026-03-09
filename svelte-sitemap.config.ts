@@ -4,7 +4,7 @@ import type { OptionsSvelteSitemap } from 'svelte-sitemap';
 const config: OptionsSvelteSitemap = {
 	domain: 'https://www.arian.gg',
 	trailingSlashes: true,
-	ignore: ['meta*'],
+	ignore: ['meta*', 'blog/test*'],
 	outDir: '.vercel/output/static'
 };
 

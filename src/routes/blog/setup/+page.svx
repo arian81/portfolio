@@ -1,0 +1,32 @@
+---
+title: "Mymind Extension setup"
+date: "2025-02-14"
+description: "A guide on setting up the mymind raycast extension"
+---
+
+This is a guide on setting up the mymind raycast extension that I made. my mind doesn't have a public api for now so in order to authenticate your account for third party tool access, you need grab your access token from the website after logging in and put it in the extension. I'll provide an step by step guide on this since not everyone is used to grabbing tokens from network requests.
+
+
+> [!WARNING] Use at your own Risk
+> my mind doesn't support a public api and this might be breaking their terms of use. We're not necessarily doing anything harmful or illegal but we're also not using an official api so use the extension and this instruction if you're comfortable with that.
+
+
+1. Go to https://access.mymind.com/everything and login into your account. You should be on this page.
+	![](/blog/setup/mymind-dashboard.png)
+
+2. Go to networks tab in the developer tools. You can use `cmd(ctrl) + option(alt) + I` or `cmd(ctrl) + option(alt) + E` Depending on the browser and OS to open the networks tab. You should see something similar to following :
+	![](/blog/setup/Pasted-image-20250214161351.png)
+
+3. Filter for `cards.json` and refresh the webpage. You should see the following request.
+	![](/blog/setup/Pasted-image-20250214161505.png)
+
+4. Click on the request and go to the `Headers` tab. Scroll down until you find the following 3 values in the `Request Headers` section.
+	![](/blog/setup/Pasted-image-20250214162133.png)
+
+5. Paste the value after `=` sign in the Raycast extension setup menu. and press continue.
+	![](/blog/setup/Pasted-image-20250214162717.png)
+
+6. If you have followed the instruction successfully, you should be redirected to the extension page with your my mind notes loaded.
+	![](/blog/setup/Pasted-image-20250214162841.png)
+
+7. Congratulations! Enjoy my mind in Raycast 🎉🎉🎉

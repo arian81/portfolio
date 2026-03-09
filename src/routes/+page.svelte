@@ -70,9 +70,14 @@
 					<h2 class="pb-2 text-sm font-light tracking-[0.3em] text-stone-400 uppercase 2xl:text-xl">
 						Writings
 					</h2>
-					<Item type="blog" url="#" title="Out with the old, in whith the new" date="2026" />
-					<Item type="blog" url="#" title="How Did I Hack,MIT" date="2025" />
-					<Item type="blog" url="#" title="How to rid yourself of 'shorts'" date="2025" />
+					<Item type="blog" url="#" title="Out with the old, in with the new" date="2026" />
+					<Item type="blog" url="/blog/how-i-hacked-hackmit" title="How I Hacked HackMIT" date="2025" />
+					<Item
+						type="blog"
+						url="/blog/how-to-rid-yourself-of-shorts"
+						title="How to rid yourself of 'shorts'"
+						date="2025"
+					/>
 				</div>
 			</div>
 			<footer class="hidden justify-between text-xs text-stone-400 lg:flex">
