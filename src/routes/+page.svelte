@@ -71,7 +71,12 @@
 						Writings
 					</h2>
 					<Item type="blog" url="#" title="Out with the old, in with the new" date="2026" />
-					<Item type="blog" url="/blog/how-i-hacked-hackmit" title="How I Hacked HackMIT" date="2025" />
+					<Item
+						type="blog"
+						url="/blog/how-i-hacked-hackmit"
+						title="How I Hacked HackMIT"
+						date="2025"
+					/>
 					<Item
 						type="blog"
 						url="/blog/how-to-rid-yourself-of-shorts"
