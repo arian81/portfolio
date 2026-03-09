@@ -1,0 +1,43 @@
+---
+title: "How I Hacked HackMIT"
+date: "2025-07-09"
+description: "Discovering unauthenticated admin endpoints in HackMIT's attendee management system"
+---
+
+As someone who runs the technical team for a hackathon (shameless plug [https://www.deltahacks.com](https://www.deltahacks.com/)), I know a lot (maybe too much) about the architecture behind most attendee management systems. I also like to poke holes in programs, and when you put those together, I've spent countless hours trying to get into hackathons without actually applying. It's fun for me and also helps the organizing teams because I disclose any exploits I find after discovering them.
+
+When the applications for HackMIT 2025 went live, I immediately started looking for exploits. I attended the hackathon last year _legitimately_, so this time I was more curious about loopholes in their system. Like any other web reverse engineering, the first (and arguably easiest) place to look is the network requests. Here are the requests for [https://plume.hackmit.org/](https://plume.hackmit.org/) (HackMIT's attendee management website) after logging in.
+![Network requests from HackMIT's plume website](/blog/how-i-hacked-hackmit/network-requests.png)
+
+Looking through the requests, the `/whoami` endpoint has some interesting properties:
+
+![whoami endpoint response showing isAdmin flag](/blog/how-i-hacked-hackmit/Pasted-image-20250709192621.png)
+Could there be some client-side UI hidden behind the `isAdmin` flag? (In the book-writing business, they call this _foreshadowing_.)
+
+Let's find out! To see what might be hidden in the frontend if we were to get an `"isAdmin": true` response from the backend, we can use a handy tool called [Proxyman](https://proxyman.com/). This tool has many features and lets you do all sorts of man-in-the-middle shenanigans, but we're specifically interested in the `Map Local` tool.
+
+![Proxyman Map Local tool interface](/blog/how-i-hacked-hackmit/Pasted-image-20250709193236.png)
+
+Basically, Proxyman installs a proxy on your system that sits between incoming/outgoing network requests. The `Map Local` feature allows you to mock the response from an endpoint by defining a local JSON file. This is an amazing tool for exposing client-side features that rely on server flags. As you guessed, we'll set the `isAdmin` key to true, tricking the frontend logic into thinking the user is an admin. To use this tool, we first find the request to the `/whoami` endpoint inside Proxyman. While it's running, we refresh the webpage in the browser, and if you have SSL decryption enabled, you'll see the same request from the browser's network tab inside Proxyman.
+
+![whoami request captured in Proxyman](/blog/how-i-hacked-hackmit/Pasted-image-20250709194234.png)
+
+We're in business—now we can map this request to a local JSON object.
+![Mapping whoami request to a local JSON file](/blog/how-i-hacked-hackmit/Pasted-image-20250709194411.png)
+
+Inside the `Map Local` tool, we should see the "actual" JSON response with `isAdmin` set to false. We'll switch this boolean to true and save. We're done with Proxyman now; we just let it run in the background.
+![Setting isAdmin to true in Map Local JSON response](/blog/how-i-hacked-hackmit/Pasted-image-20250709195702.png)
+
+Voila! We now see some new sidebar items meant only for admin users.
+
+![Admin sidebar items now visible in the UI](/blog/how-i-hacked-hackmit/Pasted-image-20250709200051.png)
+
+Most of these pages either won't load or require authentication on their endpoints, which is how things **should** be. But after exploring around, there's an "add hacker role" function that allows bulk management of hacker statuses. The endpoint for this action is not authenticated, meaning any user can change the status of their own application **and** any other user's application if they know the user's email. As far as exploits for a hackathon attendee management system go, this is as bad as it gets. Initially, my status was "Application Submitted," the default when you apply. Using the vulnerable endpoint, I can mark myself as "Admission Confirmed," essentially accepting myself into the hackathon.
+
+![Application status changed to Admission Confirmed](/blog/how-i-hacked-hackmit/Pasted-image-20250709201025.png)
+Checking the network tab, we see the problematic endpoint is `https://plume.hackmit.org/api/v3/user/add_hacker_roles`. Instead of checking roles and returning a 403 error, we get a 200 success response. We can also verify that the data in the database has actually been modified by returning to the `/user/` page.
+![User page confirming modified admission status](/blog/how-i-hacked-hackmit/Pasted-image-20250709201458.png)
+
+Two other endpoints are similarly vulnerable and are used for managing judge, mentor, and other roles.
+
+The lesson here is always to authenticate your endpoints. Even better, create the correct hierarchy for your endpoints and have admin endpoints require authentication by default. Humans make mistakes, and LLMs are especially susceptible to causing security vulnerabilities. By enforcing proper role checking in your backend architecture, you can ensure these mistakes are _almost_ impossible. HackMIT has some of the best developers on their technical team, and most of their endpoints are secure, but without proper architecture, anyone can make mistakes.

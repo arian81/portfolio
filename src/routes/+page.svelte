@@ -1,12 +1,16 @@
 <script lang="ts">
-	import Item from '$lib/components/Item.svelte';
+	import JobItem from '$lib/components/JobItem.svelte';
+	import BlogItem from '$lib/components/BlogItem.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
+	import Logo from '$lib/components/Logo.svelte';
+
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
+	import { blogPosts } from '$lib/data/blogPosts';
+
 	import { useTheme } from '$lib/theme';
-	import { resolve } from '$app/paths';
 	import { clsx } from 'clsx';
-	import Logo from '$lib/components/Logo.svelte';
+	import { resolve } from '$app/paths';
 
 	const theme = useTheme();
 </script>
@@ -57,23 +61,17 @@
 						Experience
 					</h2>
 					{#each experience as job (job.url)}
-						<Item
-							type="experience"
-							url={job.url}
-							company={job.company}
-							role={job.role}
-							date={job.date}
-							mobileRole={job.mobileRole}
-						/>
+						<JobItem {...job} />
 					{/each}
 				</div>
 				<div class="flex flex-col gap-2">
 					<h2 class="pb-2 text-sm font-light tracking-[0.3em] text-stone-400 uppercase 2xl:text-xl">
 						Writings
 					</h2>
-					<Item type="blog" url="#" title="Out with the old, in whith the new" date="2026" />
-					<Item type="blog" url="#" title="How Did I Hack,MIT" date="2025" />
-					<Item type="blog" url="#" title="How to rid yourself of 'shorts'" date="2025" />
+					<BlogItem url="/" title="Out with the old, in with the new" date="2026" />
+					{#each blogPosts as post (post.url)}
+						<BlogItem title={post.title} url={post.url} date={post.date}></BlogItem>
+					{/each}
 				</div>
 			</div>
 			<footer class="hidden justify-between text-xs text-stone-400 lg:flex">

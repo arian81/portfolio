@@ -102,6 +102,11 @@
 		margin: 0;
 	}
 	::selection {
-		@apply bg-stone-900 text-yellow-50 dark:bg-yellow-50 dark:text-stone-900;
+		background-color: var(--color-stone-900) !important;
+		color: var(--color-yellow-50) !important;
+	}
+	.dark ::selection {
+		background-color: var(--color-yellow-50) !important;
+		color: var(--color-stone-900) !important;
 	}
 }
