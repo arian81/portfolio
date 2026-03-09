@@ -10,6 +10,7 @@
 
 	import { useTheme } from '$lib/theme';
 	import { clsx } from 'clsx';
+	import { resolve } from '$app/paths';
 
 	const theme = useTheme();
 </script>
