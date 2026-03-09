@@ -20,5 +20,7 @@
 </script>
 
 <SvelteTheme themes={['light', 'dark']} defaultTheme="system" attribute="class" enableSystem>
-	{@render children()}
+	<main>
+		{@render children()}
+	</main>
 </SvelteTheme>
