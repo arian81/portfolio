@@ -3,9 +3,9 @@
 	let { title, description, image, url, color }: Project = $props();
 </script>
 
-<a href={url} rel="external">
+<a href={url} rel="external" class="group block">
 	<div
-		class="{color} flex flex-col gap-3 p-3 pb-5 drop-shadow-md transition-all hover:scale-95 hover:drop-shadow-sm"
+		class="{color} flex flex-col gap-3 p-3 pb-5 drop-shadow-md transition-all group-hover:scale-95 group-hover:drop-shadow-sm"
 	>
 		<div class="aspect-4/3 overflow-hidden">
 			<enhanced:img
