@@ -23,48 +23,48 @@ Mostly want to share the link to modded versions that have the short blocking fe
 Some fun backstory on this mod, it started as something called Vanced and all was well for a few years until google DMCA'd them and got the website and Github taken down. There's even a [wikipedia page](https://en.wikipedia.org/wiki/YouTube_Vanced) on the whole thing. Revanced was the project that resurrected the same tool since once something is on the internet, It can't really be destroyed. The resurrected version has been going on strong since (fingers cross 🤞). Anyways let's get on with the installation. You can follow this guide or watch the video from this [reddit thread](https://www.reddit.com/r/revancedapp/comments/1ejhey3/simple_guide_on_how_to_install_revanced/).
 #### How to install Revanced APK
 The official website for the project is https://revanced.app/ and we need to install something called revanced manager which let's us update the app easily in the future. There's a direct download button on  https://revanced.app/download.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720194946.png)
+![Revanced download page](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720194946.png)
 You might get a warning from Chrome saying this file is dangerous, Ignore it they will show that for any APK file downloaded, press `Download Anyway`.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195102.png)
+![Chrome warning about APK file download](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195102.png)
 You get a pop up to open the downloaded file, press `Open`
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195206.png)
+![Popup to open downloaded APK file](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195206.png)
 If you miss the pop up it's ok, you can access the file from Chrome's downloads section (It's under the 3 dot section)
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195324.png)
+![Chrome downloads section](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195324.png)
 If this is your first time installing an APK file from chrome (or whatever browser you're using) you get this pop up
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195415.png)
+![Prompt to allow installing from unknown sources](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195415.png)
 Press settings and allow installing from Chrome
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195456.png)
+![Settings toggle to allow installing from Chrome](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195456.png)
 You should now get this pop up, if not go back to chrome and press on the downloaded APK again.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195525.png)
+![APK installation confirmation popup](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195525.png)
 
 Install and open the app. Sometimes it might say installation failed, you can just retry the installation. Once you open Revanced for first time you will get a familiar `Install unkonw apps` pop up, you need to allow installing from Revanced as well because it basically will download the APK files for youtube for you.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195741.png)
+![Revanced requesting permission to install unknown apps](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195741.png)
 
 #### Patch Youtube with Revanced Manager
 You will get this pop ups as well. I'm not android user but I'm pretty sure you need to allow the app to run in the background. Press `allow` and `ok` for the two pop ups.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195824.png)
+![Permission popups for background activity](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720195824.png)
 Once on **Dashbaord**, navigate to the **Patcher** in the navbar(I don't know what the bottom thing on Android is called)
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200106.png)
+![Revanced Manager dashboard with Patcher tab](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200106.png)
 We're going to select Youtube and install it's patched/modded version. This is a general patching software and as you can see it can patch other apps like youtube music as well. For our purposes we only need to install patched Youtube.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200244.png)
+![Selecting Youtube in the Patcher](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200244.png)
 If the version of Youtube installed on your device is not a preferred version (as is the case for the version I have installed on my Android VM) you will get this warning. If this is the case for you as well, you should download the recommended version of the youtube APK from a APK repository website like this one https://apkpure.com/youtube/com.google.android.youtube/versions
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200439.png)
+![Warning about incompatible Youtube version](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720200439.png)
 With the APK in your local storage you want to press `select app` in the patcher page and then select storage to choose the downloaded youtube APK.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720203840.png)
+![Selecting APK from local storage in patcher](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720203840.png)
 After selecting the appropriate APK file, you should press `patch` button.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720203953.png)
+![Patch button ready to apply modifications](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720203953.png)
 It will take 1-2 minutes to patch the APK but you should see this final page with a `Install` button
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720204127.png)
+![Patching complete with Install button](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720204127.png)
 Once the app is installed, if you open it you will be redirect to a Github page to install MicroG, it's basically google services for modded apps. You need it to be able to login to your Google account. Click `Default` download button and install the APK downloaded.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720204355.png)
+![MicroG download page on Github](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720204355.png)
 After installing MicroG you can open Youtube app
-![](/blog/how-to-rid-yourself-of-shorts/Screenshot_20250720-210312_YouTube.jpg)
+![Youtube app with shorts removed from navbar](/blog/how-to-rid-yourself-of-shorts/Screenshot_20250720-210312_YouTube.jpg)
 As you can see the shorts are already removed from the bottom navbar, now the only thing left is to disable them from the feed as well. Head to settings and choose `Revanced`.
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720212708.png)
+![Youtube settings showing Revanced option](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720212708.png)
 And from there select `Shorts`
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720212931.png)
+![Revanced settings with Shorts section](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720212931.png)
 from within shorts settings turn on all of this features which disable shorts from everywhere
-![](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720213019.png)
+![Shorts disabling toggles all enabled](/blog/how-to-rid-yourself-of-shorts/Pasted-image-20250720213019.png)
 🎉🎉🎉 Congratulations, shorts are gone. Now you can login and use Youtube normally. Revanced has a lot of other features that you can use as well but are beyond the scope of this article.
 
 ### Getting rid of Instagram Reels with Distraction Free Apps Mod
