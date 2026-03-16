@@ -4,7 +4,7 @@ date: "2025-07-20"
 description: "A guide on removing short form content from your apps on both Android and iOS"
 ---
 
-his is not a guide on how to change your wardrobe, if you somehow ended up here looking for a fashion change, sorry to the disappoint but this a guide on how to get rid of short form content. I might not be able to give you fashion advice, but if you're also bothered by inclusion of short form video in every app, even the ones it has no place to be (looking at you [substack](https://x.com/ariancodes/status/1940080369744711692)) then you're in for a ride.
+This is not a guide on how to change your wardrobe, if you somehow ended up here looking for a fashion change, sorry to the disappoint but this a guide on how to get rid of short form content. I might not be able to give you fashion advice, but if you're also bothered by inclusion of short form video in every app, even the ones it has no place to be (looking at you [substack](https://x.com/ariancodes/status/1940080369744711692)) then you're in for a ride.
 
 This is not some kind of article on how to fight social media addiction or how to lower your screen time using some kind of locking mechanism. It's about being able to choose which "features" in an app are useful to you and get rid of the ones you don't want. A well designed app not affected by greedy shareholder values would have support for this kind of customization built in (i mean how hard is it to add a toggle in instagram to disable shorts ?). However as of 2025 the goal of every social app is too keep you hooked as much as possible and short form content is the easiest way to do that. Let's get to business.
 

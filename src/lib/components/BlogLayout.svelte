@@ -13,7 +13,7 @@
 	});
 </script>
 
-<div class="mx-auto max-w-3xl p-5 pt-10 md:p-10">
+<div class="mx-auto w-full max-w-3xl">
 	<a href={resolve('/')} class="mb-8 block text-sm text-stone-400 hover:text-stone-600"
 		>&larr; Back</a
 	>
@@ -26,7 +26,7 @@
 	{#if date}
 		<p class="mb-8 text-sm text-stone-400">{date}</p>
 	{/if}
-	<div class="prose max-w-none prose-stone dark:prose-invert">
+	<div class="prose max-w-none wrap-break-word prose-stone dark:prose-invert">
 		{@render children()}
 	</div>
 </div>

@@ -5,6 +5,7 @@
 	import { SvelteTheme } from '$lib/theme';
 	import '@fontsource/instrument-serif/latin-400.css';
 	import { onNavigate } from '$app/navigation';
+	import Header from '$lib/components/Header.svelte';
 
 	let { children } = $props();
 
@@ -20,7 +21,10 @@
 </script>
 
 <SvelteTheme themes={['light', 'dark']} defaultTheme="system" attribute="class" enableSystem>
-	<main>
-		{@render children()}
-	</main>
+	<div class="flex w-full min-w-0 flex-col p-5 pt-10 md:p-10 lg:h-screen">
+		<Header />
+		<main class="flex min-h-0 flex-1 flex-col">
+			{@render children()}
+		</main>
+	</div>
 </SvelteTheme>

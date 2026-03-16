@@ -2,38 +2,15 @@
 	import JobItem from '$lib/components/JobItem.svelte';
 	import BlogItem from '$lib/components/BlogItem.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
-	import Logo from '$lib/components/Logo.svelte';
 
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
 	import { blogPosts } from '$lib/data/blogPosts';
 
-	import { useTheme } from '$lib/theme';
-	import { clsx } from 'clsx';
 	import { resolve } from '$app/paths';
-
-	const theme = useTheme();
 </script>
 
-<div class="flex w-full min-w-0 flex-col gap-2 p-5 pt-10 md:p-10 lg:h-screen lg:overflow-hidden">
-	<header class="flex -translate-y-7 justify-between">
-		<Logo class="w-6 text-stone-900 dark:text-yellow-50" />
-		<div class="flex gap-1 text-sm">
-			{#each ['light', 'dark', 'system'] as state, i (state)}
-				{#if i > 0}<span class="text-stone-300 select-none dark:text-stone-600">/</span>{/if}
-				<button
-					onclick={() => (theme.theme = state)}
-					class={clsx(
-						'cursor-pointer',
-						state === theme.theme
-							? 'text-stone-800 dark:text-stone-200'
-							: 'text-stone-400 dark:text-stone-500'
-					)}>{state}</button
-				>
-			{/each}
-		</div>
-	</header>
-	<div class="flex flex-col gap-12 lg:min-h-0 lg:flex-1 lg:flex-row lg:gap-20">
+<div class="flex min-h-0 flex-1 flex-col gap-12 lg:flex-row lg:gap-20 lg:overflow-hidden">
 		<div class="flex shrink-0 flex-col gap-12 lg:w-80 lg:justify-between xl:w-110 2xl:w-150">
 			<div class="flex flex-col gap-12 lg:flex-1 lg:justify-between 2xl:h-200 2xl:flex-none">
 				<div class="flex flex-col gap-5">
@@ -97,5 +74,4 @@
 			</p>
 			<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
 		</footer>
-	</div>
 </div>
