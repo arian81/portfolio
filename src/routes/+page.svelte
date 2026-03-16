@@ -86,7 +86,7 @@
 				Projects
 			</h2>
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
-				{#each projects as project (project.url)}
+				{#each projects as project (project.repo)}
 					<ProjectItem {...project} />
 				{/each}
 			</div>
