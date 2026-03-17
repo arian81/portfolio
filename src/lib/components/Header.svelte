@@ -6,7 +6,7 @@
 	const theme = useTheme();
 </script>
 
-<header class="flex -translate-y-7 justify-between">
+<header class="flex justify-between pt-3">
 	<Logo class="w-6 text-stone-900 dark:text-yellow-50" />
 	<div class="flex gap-1 text-sm">
 		{#each ['light', 'dark', 'system'] as state, i (state)}
