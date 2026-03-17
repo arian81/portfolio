@@ -55,6 +55,7 @@
 	},
 	"dependencies": {
 		"@fontsource/instrument-serif": "^5.2.8",
+		"@milkdown/crepe": "^7.19.0",
 		"clsx": "^2.1.1",
 		"posthog-js": "^1.360.0",
 		"rehype-img-size": "^1.0.1"
