@@ -41,7 +41,11 @@
 			body: JSON.stringify({ slug, title, markdown: crepe.getMarkdown() })
 		});
 		const result = await res.json();
-		if (result.success) window.location.href = result.path;
+		if (result.success) {
+			// Wait for dev server to pick up the new .svx file
+			await new Promise((r) => setTimeout(r, 500));
+			window.location.href = result.path;
+		}
 	}
 
 	onDestroy(() => {
