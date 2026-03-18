@@ -8,8 +8,14 @@
 
 	let containerEl: HTMLDivElement;
 	let crepe: Crepe | undefined;
+
+	//intentionally capturing initial values for editing existing blog posts
+	// svelte-ignore state_referenced_locally
 	let title = $state(data.title);
+	// svelte-ignore state_referenced_locally
 	let slugOverride = $state(data.slug);
+	// svelte-ignore state_referenced_locally
+	const markdown = data.markdown;
 	let slug = $derived(
 		slugOverride ||
 			title
@@ -17,8 +23,6 @@
 				.replace(/[^a-z0-9]+/g, '-')
 				.replace(/^-|-$/g, '')
 	);
-
-	// This is horrible and reallistically should be using tanstack query. However, this is a local tool and I don't want extra dependencies
 
 	async function uploadImage(file: File): Promise<string> {
 		if (!slug) {
@@ -59,7 +63,7 @@
 
 		const instance = new Crepe({
 			root: containerEl,
-			defaultValue: data.markdown || 'Start writing...',
+			defaultValue: markdown || 'Start writing...',
 			featureConfigs: {
 				[Crepe.Feature.ImageBlock]: {
 					onUpload: uploadImage
@@ -80,7 +84,8 @@
 			<input
 				bind:value={slugOverride}
 				placeholder={slug || 'slug'}
-				class="field-sizing-content min-w-50 border-b pl-2"
+				disabled={!!markdown}
+				class="field-sizing-content min-w-50 border-b pl-2 disabled:opacity-50"
 			/>
 		</div>
 		<button

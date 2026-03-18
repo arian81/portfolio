@@ -9,9 +9,12 @@
 	}
 	const { title, date, url }: Props = $props();
 	const slug = $derived(url.split('/').pop());
+	// @ts-expect-error resolve() can't infer from Pathname union — known SvelteKit limitation
+	const href = $derived(resolve(url));
 </script>
 
-<a class="group flex items-end gap-3 2xl:text-xl" href={resolve(url)}>
+<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- resolve() is used in script above -->
+<a class="group flex items-end gap-3 2xl:text-xl" {href}>
 	<span
 		class="text-stone-800 transition-colors group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-400"
 		style="view-transition-name: blog-title-{slug}">{title}</span

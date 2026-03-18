@@ -1,8 +1,9 @@
+import type { Pathname } from '$app/types';
 import { z } from 'zod';
 import data from './blogPosts.json';
 
 const blogPostSchema = z.object({
-	url: z.string(),
+	url: z.string().transform((v) => v as Pathname), //svelete creates list of all valid paths and expects it
 	title: z.string(),
 	date: z.string()
 });
