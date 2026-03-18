@@ -9,12 +9,14 @@
 	}
 	const { title, date, url }: Props = $props();
 	const slug = $derived(url.split('/').pop());
-	// @ts-expect-error resolve() can't infer from Pathname union — known SvelteKit limitation
-	const href = $derived(resolve(url));
 </script>
 
-<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- resolve() is used in script above -->
-<a class="group flex items-end gap-3 2xl:text-xl" {href}>
+<!-- resolve(url as '/') — the `as '/'` is a compile-time cast to work around a TypeScript
+	 limitation: when the Pathname union has many members (from many routes), TS can't distribute
+	 resolve()'s conditional rest-parameter type across the full union and errors out. Casting to a
+	 single literal lets TS pick one overload; at runtime `url` is still the real value.
+	This is effectively disabling typescript check.-->
+<a class="group flex items-end gap-3 2xl:text-xl" href={resolve(url as '/')}>
 	<span
 		class="text-stone-800 transition-colors group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-400"
 		style="view-transition-name: blog-title-{slug}">{title}</span
