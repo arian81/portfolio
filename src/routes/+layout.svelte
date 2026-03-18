@@ -5,6 +5,9 @@
 	import { SvelteTheme } from '$lib/theme';
 	import '@fontsource/instrument-serif/latin-400.css';
 	import { onNavigate } from '$app/navigation';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	injectSpeedInsights();
 
 	let { children } = $props();
 

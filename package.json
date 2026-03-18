@@ -56,6 +56,8 @@
 	"dependencies": {
 		"@fontsource/instrument-serif": "^5.2.8",
 		"@milkdown/crepe": "^7.19.0",
+		"@vercel/analytics": "^2.0.1",
+		"@vercel/speed-insights": "^2.0.0",
 		"clsx": "^2.1.1",
 		"gray-matter": "^4.0.3",
 		"posthog-js": "^1.360.0",

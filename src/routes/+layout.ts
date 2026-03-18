@@ -1,5 +1,8 @@
-import { browser } from '$app/environment';
+import { browser, dev } from '$app/environment';
 import { PUBLIC_POSTHOG_KEY } from '$env/static/public';
+import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 // Enable prerendering for all pages in the app
 export const prerender = true;
