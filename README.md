@@ -17,6 +17,10 @@ My personal website built with SvelteKit, TypeScript and TailwindCSS. Live at [a
 
 SvelteKit 2 · Svelte 5 · TypeScript · TailwindCSS 4 · MDSvex · Vercel
 
+## Blog Editor
+
+A built-in WYSIWYG blog editor available at `/blog/edit` during development. Uses [Milkdown](https://milkdown.dev/) (Crepe) for rich markdown editing with support for image uploads. Posts are published as `.svx` files and automatically added to the blog registry. To edit an existing post, navigate to `/blog/<slug>/edit`.
+
 ## Dev Commands
 
 All commands are run from the root of the project, from a terminal:
