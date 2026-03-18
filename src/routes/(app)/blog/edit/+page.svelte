@@ -2,11 +2,14 @@
 	import { resolve } from '$app/paths';
 	import { onDestroy, onMount } from 'svelte';
 	import type { Crepe } from '@milkdown/crepe';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 
 	let containerEl: HTMLDivElement;
 	let crepe: Crepe | undefined;
-	let title = $state('');
-	let slugOverride = $state('');
+	let title = $state(data.title);
+	let slugOverride = $state(data.slug);
 	let slug = $derived(
 		slugOverride ||
 			title
@@ -16,8 +19,6 @@
 	);
 
 	// This is horrible and reallistically should be using tanstack query. However, this is a local tool and I don't want extra dependencies
-	let publishing = $state(false);
-	let published = $state('');
 
 	async function uploadImage(file: File): Promise<string> {
 		if (!slug) {
@@ -34,20 +35,13 @@
 
 	async function publish() {
 		if (!crepe || !slug || !title) return;
-		publishing = true;
-		try {
-			const res = await fetch('/api/blog/publish', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ slug, title, markdown: crepe.getMarkdown() })
-			});
-			const data = await res.json();
-			if (data.success) {
-				published = data.path;
-			}
-		} finally {
-			publishing = false;
-		}
+		const res = await fetch('/api/blog/publish', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ slug, title, markdown: crepe.getMarkdown() })
+		});
+		const result = await res.json();
+		if (result.success) window.location.href = result.path;
 	}
 
 	onDestroy(() => {
@@ -61,7 +55,7 @@
 
 		const instance = new Crepe({
 			root: containerEl,
-			defaultValue: 'Start writing...',
+			defaultValue: data.markdown || 'Start writing...',
 			featureConfigs: {
 				[Crepe.Feature.ImageBlock]: {
 					onUpload: uploadImage
@@ -75,33 +69,29 @@
 </script>
 
 <div class="mx-auto min-h-screen max-w-4xl">
-	<div class="my-8 flex items-center gap-10">
+	<div class="my-8 flex items-center justify-between gap-10">
 		<a href={resolve('/')} class="text-sm text-stone-400 hover:text-stone-600">&larr; Back</a>
 		<div class="flex items-center">
-			<input
-				bind:value={title}
-				class="field-sizing-content min-w-20"
-				placeholder="untitled"
-			/>
 			<p>/blog/</p>
 			<input
 				bind:value={slugOverride}
 				placeholder={slug || 'slug'}
-				class="border-b pl-2"
+				class="field-sizing-content min-w-50 border-b pl-2"
 			/>
 		</div>
-		{#if published}
-			<a href={published} class="text-sm text-green-600 hover:text-green-700">View Post &rarr;</a>
-		{:else}
-			<button
-				onclick={publish}
-				disabled={publishing || !slug}
-				class="rounded-md bg-stone-800 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300 dark:disabled:hover:bg-stone-200"
-			>
-				{publishing ? 'Publishing...' : 'Publish'}
-			</button>
-		{/if}
+		<button
+			onclick={publish}
+			disabled={!slug || !title}
+			class="rounded-md bg-stone-800 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300 dark:disabled:hover:bg-stone-200"
+		>
+			Publish
+		</button>
 	</div>
+	<input
+		bind:value={title}
+		class="my-5 ml-10 field-sizing-content min-w-20 text-xl"
+		placeholder="untitled"
+	/>
 	<div class="editor font-xl flex-1" bind:this={containerEl}></div>
 </div>
 
