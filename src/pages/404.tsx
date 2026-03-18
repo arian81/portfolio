@@ -1,5 +1,10 @@
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 import type { ReactElement } from "react";
+
+const Player = dynamic(
+  () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
+  { ssr: false }
+);
 import CustomHead from "~/components/CustomHead";
 import Layout from "~/components/Layout";
 import dark404data from "../lotties/404_dark.json";
