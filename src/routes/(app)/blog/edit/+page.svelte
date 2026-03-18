@@ -5,6 +5,50 @@
 
 	let containerEl: HTMLDivElement;
 	let crepe: Crepe | undefined;
+	let title = $state('');
+	let slugOverride = $state('');
+	let slug = $derived(
+		slugOverride ||
+			title
+				.toLowerCase()
+				.replace(/[^a-z0-9]+/g, '-')
+				.replace(/^-|-$/g, '')
+	);
+
+	// This is horrible and reallistically should be using tanstack query. However, this is a local tool and I don't want extra dependencies
+	let publishing = $state(false);
+	let published = $state('');
+
+	async function uploadImage(file: File): Promise<string> {
+		if (!slug) {
+			alert('Set a slug before uploading images');
+			return '';
+		}
+		const form = new FormData();
+		form.append('file', file);
+		form.append('slug', slug);
+		const res = await fetch('/api/blog/upload', { method: 'POST', body: form });
+		const { url } = await res.json();
+		return url;
+	}
+
+	async function publish() {
+		if (!crepe || !slug || !title) return;
+		publishing = true;
+		try {
+			const res = await fetch('/api/blog/publish', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ slug, title, markdown: crepe.getMarkdown() })
+			});
+			const data = await res.json();
+			if (data.success) {
+				published = data.path;
+			}
+		} finally {
+			publishing = false;
+		}
+	}
 
 	onDestroy(() => {
 		crepe?.destroy();
@@ -17,7 +61,12 @@
 
 		const instance = new Crepe({
 			root: containerEl,
-			defaultValue: '# Hello\n\nStart writing...'
+			defaultValue: 'Start writing...',
+			featureConfigs: {
+				[Crepe.Feature.ImageBlock]: {
+					onUpload: uploadImage
+				}
+			}
 		});
 
 		await instance.create();
@@ -25,13 +74,35 @@
 	});
 </script>
 
-<div class="flex min-h-screen flex-col">
-	<div class="mx-auto w-full max-w-4xl px-5 md:px-10">
-		<a href={resolve('/')} class="my-8 block text-sm text-stone-400 hover:text-stone-600"
-			>&larr; Back</a
-		>
+<div class="mx-auto min-h-screen max-w-4xl">
+	<div class="my-8 flex items-center gap-10">
+		<a href={resolve('/')} class="text-sm text-stone-400 hover:text-stone-600">&larr; Back</a>
+		<div class="flex items-center">
+			<input
+				bind:value={title}
+				class="field-sizing-content min-w-20"
+				placeholder="untitled"
+			/>
+			<p>/blog/</p>
+			<input
+				bind:value={slugOverride}
+				placeholder={slug || 'slug'}
+				class="border-b pl-2"
+			/>
+		</div>
+		{#if published}
+			<a href={published} class="text-sm text-green-600 hover:text-green-700">View Post &rarr;</a>
+		{:else}
+			<button
+				onclick={publish}
+				disabled={publishing || !slug}
+				class="rounded-md bg-stone-800 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300 dark:disabled:hover:bg-stone-200"
+			>
+				{publishing ? 'Publishing...' : 'Publish'}
+			</button>
+		{/if}
 	</div>
-	<div class="editor flex-1" bind:this={containerEl}></div>
+	<div class="editor font-xl flex-1" bind:this={containerEl}></div>
 </div>
 
 <style>
@@ -44,23 +115,10 @@
 		--crepe-font-code: 'Fira Code', Menlo, Monaco, monospace;
 	}
 
-	.editor :global(.milkdown .ProseMirror) {
-		max-width: 56rem;
-		margin: 0 auto;
-		padding: 0 1.25rem;
-		font-size: 1.25rem;
-		flex: 1;
-	}
-
 	@media (min-width: 768px) {
 		.editor :global(.milkdown .ProseMirror) {
 			padding: 0 2.5rem;
 		}
-	}
-
-	.editor {
-		display: flex;
-		flex-direction: column;
 	}
 
 	.editor :global(.milkdown .milkdown-code-block) {

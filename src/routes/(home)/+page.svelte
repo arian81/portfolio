@@ -6,7 +6,7 @@
 
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
-	import { blogPosts } from '$lib/data/blogPosts';
+	import { topPosts } from '$lib/data/blogPosts';
 
 	import { useTheme } from '$lib/theme';
 	import { clsx } from 'clsx';
@@ -69,7 +69,7 @@
 						Writings
 					</h2>
 					<BlogItem url="/" title="Out with the old, in with the new" date="2026" />
-					{#each blogPosts as post (post.url)}
+					{#each topPosts as post (post.url)}
 						<BlogItem title={post.title} url={post.url} date={post.date}></BlogItem>
 					{/each}
 				</div>

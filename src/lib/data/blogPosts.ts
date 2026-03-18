@@ -1,15 +1,15 @@
-import type { Pathname } from '$app/types';
+import { z } from 'zod';
+import data from './blogPosts.json';
 
-interface BlogPost {
-	url: Pathname;
-	title: string;
-	date: string;
-}
-export const blogPosts: BlogPost[] = [
-	{
-		url: '/blog/how-to-rid-yourself-of-shorts',
-		title: "How to rid yourself of 'shorts'",
-		date: '2025'
-	},
-	{ url: '/blog/how-i-hacked-hackmit', title: 'How I Hacked HackMIT', date: '2025' }
-];
+const blogPostSchema = z.object({
+	url: z.string(),
+	title: z.string(),
+	date: z.string()
+});
+
+export type BlogPost = z.infer<typeof blogPostSchema>;
+export const blogPosts: BlogPost[] = z.array(blogPostSchema).parse(data);
+
+const topPostTitles = ["How to rid yourself of 'shorts'", 'How I Hacked HackMIT'];
+
+export const topPosts = blogPosts.filter((p) => topPostTitles.includes(p.title));
