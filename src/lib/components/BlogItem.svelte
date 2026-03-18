@@ -11,11 +11,8 @@
 	const slug = $derived(url.split('/').pop());
 </script>
 
-<!-- resolve(url as '/') — the `as '/'` is a compile-time cast to work around a TypeScript
-	 limitation: when the Pathname union has many members (from many routes), TS can't distribute
-	 resolve()'s conditional rest-parameter type across the full union and errors out. Casting to a
-	 single literal lets TS pick one overload; at runtime `url` is still the real value.
-	This is effectively disabling typescript check.-->
+<!-- ts is not happy about using the union type, since blog creation is programmatic this should be fine
+because we're effectively disabling the svelet's url checking against available routes to prevent 404s-->
 <a class="group flex items-end gap-3 2xl:text-xl" href={resolve(url as '/')}>
 	<span
 		class="text-stone-800 transition-colors group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-400"
