@@ -11,7 +11,9 @@
 	const slug = $derived(url.split('/').pop());
 </script>
 
-<a class="group flex items-end gap-3 2xl:text-xl" href={resolve(url)}>
+<!-- ts is not happy about using the union type, since blog creation is programmatic this should be fine
+because we're effectively disabling the svelet's url checking against available routes to prevent 404s-->
+<a class="group flex items-end gap-3 2xl:text-xl" href={resolve(url as '/')}>
 	<span
 		class="text-stone-800 transition-colors group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-400"
 		style="view-transition-name: blog-title-{slug}">{title}</span
