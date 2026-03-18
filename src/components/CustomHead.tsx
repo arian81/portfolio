@@ -3,6 +3,7 @@ import Head from "next/head";
 const CustomHead = () => {
   return (
     <Head>
+      <meta name="robots" content="noindex, nofollow" />
       <meta
         name="description"
         content="Hey this is Arian Ahmadinejad. Software engineer from Canada, pursuing computer science to hack into the Matrix."

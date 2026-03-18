@@ -6,13 +6,13 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   const [icon, setIcon] = useState(42);
   const icons = [
-    { src: "https://arian.gg/images/dark-auto.svg", alt: "auto mode moon" },
+    { src: "/images/dark-auto.svg", alt: "auto mode moon" },
     {
-      src: "https://arian.gg/images/light-auto.svg",
+      src: "/images/light-auto.svg",
       alt: "auto mode sun",
     },
-    { src: "https://arian.gg/images/light.svg", alt: "light mode sun" },
-    { src: "https://arian.gg/images/dark.svg", alt: "dark mode moon" },
+    { src: "/images/light.svg", alt: "light mode sun" },
+    { src: "/images/dark.svg", alt: "dark mode moon" },
   ];
 
   useEffect(() => {

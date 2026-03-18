@@ -16,8 +16,6 @@ const client = z.object({
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
   NEXT_PUBLIC_LASTFM_USERNAME: z.string(),
   NEXT_PUBLIC_LASTFM_TOKEN: z.string(),
-  NEXT_PUBLIC_POSTHOG_KEY: z.string(),
-  NEXT_PUBLIC_POSTHOG_HOST: z.string(),
 });
 
 /**
@@ -31,8 +29,6 @@ const processEnv = {
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   NEXT_PUBLIC_LASTFM_USERNAME: process.env.NEXT_PUBLIC_LASTFM_USERNAME,
   NEXT_PUBLIC_LASTFM_TOKEN: process.env.NEXT_PUBLIC_LASTFM_TOKEN,
-  NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
-  NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
 };
 
 // Don't touch the part below
