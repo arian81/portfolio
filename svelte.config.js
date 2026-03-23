@@ -9,6 +9,7 @@ import rehypeMathjax from 'rehype-mathjax';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import rehypeImgSize from 'rehype-img-size';
+import rehypeAbbr from './src/lib/rehype-abbr.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,7 +26,8 @@ const config = {
 				rehypeCallouts,
 				rehypeMathjax,
 				[rehypeImgSize, { dir: 'static' }],
-				rehypeRaw
+				rehypeRaw,
+				rehypeAbbr
 			]
 		})
 	],

@@ -4,7 +4,15 @@ date: "2026-03-09"
 description: "Testing all markdown features"
 ---
 
+*[HTML]: Hyper Text Markup Language
+*[CSS]: Cascading Style Sheets
+*[W3C]: World Wide Web Consortium
+
 # I made this to test markdown rendering when making the website. Congrats on finding it 🎉
+
+## Abbreviations
+
+The HTML specification is maintained by the W3C. You can style HTML pages with CSS.
 
 ## Headings
 
