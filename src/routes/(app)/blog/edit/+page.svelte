@@ -37,6 +37,17 @@
 		return url;
 	}
 
+	async function uploadImageFromUrl(imageUrl: string): Promise<string> {
+		if (!slug) return '';
+		const res = await fetch('/api/blog/upload', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ url: imageUrl, slug })
+		});
+		const { url } = await res.json();
+		return url;
+	}
+
 	async function publish() {
 		if (!crepe || !slug || !title) return;
 		const res = await fetch('/api/blog/publish', {
@@ -58,6 +69,7 @@
 
 	onMount(async () => {
 		const { Crepe } = await import('@milkdown/crepe');
+		const { setupPasteHandler } = await import('$lib/editor/pasteImagePlugin');
 		await import('@milkdown/crepe/theme/common/style.css');
 		await import('@milkdown/crepe/theme/frame.css');
 
@@ -73,6 +85,8 @@
 
 		await instance.create();
 		crepe = instance;
+
+		setupPasteHandler(containerEl, () => slug, uploadImage, uploadImageFromUrl, instance);
 	});
 </script>
 
