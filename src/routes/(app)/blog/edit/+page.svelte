@@ -3,19 +3,21 @@
 	import { onDestroy, onMount } from 'svelte';
 	import type { Crepe } from '@milkdown/crepe';
 	import type { PageData } from './$types';
+	import { resolveInitialDraft, saveDraft, clearDraft } from '$lib/editor/draft';
 
 	let { data }: { data: PageData } = $props();
 
 	let containerEl: HTMLDivElement;
 	let crepe: Crepe | undefined;
 
-	//intentionally capturing initial values for editing existing blog posts
+	// Whether we're editing an existing published post (slug came from the URL)
+	const isEditing = !!data.markdown;
+
 	// svelte-ignore state_referenced_locally
 	let title = $state(data.title);
 	// svelte-ignore state_referenced_locally
 	let slugOverride = $state(data.slug);
-	// svelte-ignore state_referenced_locally
-	const markdown = data.markdown;
+
 	let slug = $derived(
 		slugOverride ||
 			title
@@ -56,18 +58,28 @@
 			body: JSON.stringify({ slug, title, markdown: crepe.getMarkdown() })
 		});
 		const result = await res.json();
+		console.log(result.status);
 		if (result.success) {
+			clearDraft();
 			// Wait for dev server to pick up the new .svx file
-			await new Promise((r) => setTimeout(r, 500));
+			await new Promise((r) => setTimeout(r, 1));
 			window.location.href = result.path;
 		}
 	}
 
+	let autoSaveTimer: ReturnType<typeof setTimeout> | undefined;
+	let saveStatus: 'idle' | 'unsaved' | 'saved' = $state('idle');
+
 	onDestroy(() => {
+		clearTimeout(autoSaveTimer);
 		crepe?.destroy();
 	});
 
 	onMount(async () => {
+		const initial = resolveInitialDraft(data);
+		title = initial.title;
+		slugOverride = initial.slug;
+
 		const { Crepe } = await import('@milkdown/crepe');
 		const { setupPasteHandler } = await import('$lib/editor/pasteImagePlugin');
 		await import('@milkdown/crepe/theme/common/style.css');
@@ -75,12 +87,25 @@
 
 		const instance = new Crepe({
 			root: containerEl,
-			defaultValue: markdown || 'Start writing...',
+			defaultValue: initial.markdown || 'Start writing...',
 			featureConfigs: {
 				[Crepe.Feature.ImageBlock]: {
 					onUpload: uploadImage
 				}
 			}
+		});
+
+		instance.on((listener) => {
+			listener.markdownUpdated(() => {
+				saveStatus = 'unsaved';
+				clearTimeout(autoSaveTimer);
+				autoSaveTimer = setTimeout(() => {
+					if (crepe && slug) {
+						saveDraft({ title, slug: slugOverride, markdown: crepe.getMarkdown() });
+						saveStatus = 'saved';
+					}
+				}, 1000);
+			});
 		});
 
 		await instance.create();
@@ -98,17 +123,24 @@
 			<input
 				bind:value={slugOverride}
 				placeholder={slug || 'slug'}
-				disabled={!!markdown}
+				disabled={isEditing}
 				class="field-sizing-content min-w-50 border-b pl-2 disabled:opacity-50"
 			/>
 		</div>
-		<button
-			onclick={publish}
-			disabled={!slug || !title}
-			class="rounded-md bg-stone-800 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300 dark:disabled:hover:bg-stone-200"
-		>
-			Publish
-		</button>
+		<div class="flex items-center gap-3">
+			{#if saveStatus === 'unsaved'}
+				<span class="text-xs text-yellow-400">Unsaved changes</span>
+			{:else if saveStatus === 'saved'}
+				<span class="text-xs text-green-400">Draft saved</span>
+			{/if}
+			<button
+				onclick={publish}
+				disabled={!slug || !title}
+				class="rounded-md bg-stone-800 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-stone-800 dark:bg-stone-200 dark:text-stone-900 dark:hover:bg-stone-300 dark:disabled:hover:bg-stone-200"
+			>
+				Publish
+			</button>
+		</div>
 	</div>
 	<input
 		bind:value={title}
