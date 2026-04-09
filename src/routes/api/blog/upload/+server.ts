@@ -42,8 +42,7 @@ export async function POST({ request }: { request: Request }) {
 		if (!res.ok) error(400, `Failed to fetch image: ${res.status}`);
 
 		const contentTypeHeader = res.headers.get('content-type') ?? '';
-		const ext =
-			['png', 'gif', 'webp', 'svg'].find((t) => contentTypeHeader.includes(t)) ?? 'jpg';
+		const ext = ['png', 'gif', 'webp', 'svg'].find((t) => contentTypeHeader.includes(t)) ?? 'jpg';
 
 		const buffer = Buffer.from(await res.arrayBuffer());
 		const url = await saveImage(buffer, slug, ext);
