@@ -3,6 +3,7 @@
 	import BlogItem from '$lib/components/BlogItem.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 	import Logo from '$lib/components/Logo.svelte';
+	import Webring from '$lib/components/Webring.svelte';
 
 	import { projects } from '$lib/data/projects';
 	import { experience } from '$lib/data/experience';
@@ -74,10 +75,11 @@
 					{/each}
 				</div>
 			</div>
-			<footer class="hidden justify-between text-xs text-stone-400 lg:flex">
+			<footer class="hidden items-center justify-between text-xs text-stone-400 lg:flex">
 				<p>
 					Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
 				</p>
+				<Webring />
 				<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
 			</footer>
 		</div>
@@ -91,11 +93,14 @@
 				{/each}
 			</div>
 		</div>
-		<footer class="flex flex-col justify-between text-xs text-stone-400 lg:hidden">
-			<p>
-				Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
-			</p>
-			<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
+		<footer class="flex items-end justify-between text-xs text-stone-400 lg:hidden">
+			<div class="flex flex-col">
+				<p>
+					Handcrafted in <a href="https://svelte.dev/" class="text-[#ff3e00] underline">Svelte</a>
+				</p>
+				<p>© {new Date().getFullYear()} Arian Ahmadinejad</p>
+			</div>
+			<Webring />
 		</footer>
 	</div>
 </div>
