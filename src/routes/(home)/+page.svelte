@@ -87,7 +87,9 @@
 			<h2 class="text-sm font-light tracking-[0.3em] text-stone-400 uppercase 2xl:text-xl">
 				Projects
 			</h2>
-			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3">
+			<div
+				class="grid grid-cols-1 gap-8 [scrollbar-color:transparent_transparent] md:grid-cols-2 md:overflow-y-auto 2xl:grid-cols-3 [&::-webkit-scrollbar]:bg-transparent"
+			>
 				{#each projects as project (project.repo)}
 					<ProjectItem {...project} />
 				{/each}

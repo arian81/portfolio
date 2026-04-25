@@ -102,10 +102,8 @@
 		margin: 0;
 	}
 	* {
-		scrollbar-color: auto transparent;
-	}
-	::-webkit-scrollbar {
-		background: transparent;
+		scrollbar-color: gray transparent;
+		scrollbar-width: thin;
 	}
 	::selection {
 		background-color: var(--color-stone-900) !important;
