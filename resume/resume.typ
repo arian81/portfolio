@@ -101,7 +101,7 @@
     "McMaster University", "Hamilton, ON",
     "Bachelor of Computer Science", strong[GPA: 4.0],
     datetime(year: 2021, month: 9, day: 1),
-    datetime(year: 2026, month: 4, day: 1)
+    datetime(year: 2026, month: 6, day: 16)
   )[]
 ]
 
